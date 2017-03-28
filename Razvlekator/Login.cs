@@ -26,5 +26,46 @@ namespace Razvlekator
         {
 
         }
+
+        private void buttonLogin_Click(object sender, EventArgs e)
+        {
+            if (comboBoxRole.SelectedItem.ToString() == "Кассир" && textBoxPassword.Text == "1")
+            {
+            }
+            else if (comboBoxRole.SelectedItem.ToString() == "Администратор" && textBoxPassword.Text == "1")
+            {
+                this.Hide();
+                new Admin().Show();
+                //Потом при закрытии админской формы эта форма логина так и остается висеть Hide
+            }
+            else
+            {
+                //DEBUG
+
+                using (var db = new Model())//DBEntities.DiscountContext())
+                {
+                    
+                    var d1 = new discount { name = "ololo3", value = 123 };
+                    var d2 = new discount { name = "ololo4", value = 321 };
+                    
+                    db.discount.Add(d1);
+                    db.discount.Add(d2);
+                    db.SaveChanges();
+                    Console.WriteLine("IT'S ALIVE");
+
+                    // получаем объекты из бд и выводим на консоль
+                    var discounts = db.discount;
+                    foreach (discount d in discounts)
+                    {
+                        Console.WriteLine("{0}.{1} - {2}", d.pk_discount, d.name, d.value);
+                    }
+                }
+
+                //DEBUG
+
+
+                //MessageBox.Show("Неправильный пароль");
+            }
+        }
     }
 }

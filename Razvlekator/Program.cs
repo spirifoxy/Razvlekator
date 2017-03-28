@@ -16,7 +16,7 @@ namespace Razvlekator
         {
             Application.EnableVisualStyles();
             Application.SetCompatibleTextRenderingDefault(false);
-            Application.Run(new AdminAttractions());
+            Application.Run(new Login());
         }
     }
 }
