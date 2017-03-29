@@ -17,9 +17,9 @@ namespace Razvlekator
         public virtual DbSet<discount> discount { get; set; }
         public virtual DbSet<order> order { get; set; }
         public virtual DbSet<place> place { get; set; }
-        public virtual DbSet<Refund> Refund { get; set; }
+        public virtual DbSet<refund> Refund { get; set; }
         public virtual DbSet<session> session { get; set; }
-        public virtual DbSet<Ticket> Ticket { get; set; }
+        public virtual DbSet<ticket> Ticket { get; set; }
 
         protected override void OnModelCreating(DbModelBuilder modelBuilder)
         {

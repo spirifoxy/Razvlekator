@@ -58,99 +58,99 @@
     <Reference Include="System.Xml" />
   </ItemGroup>
   <ItemGroup>
-    <Compile Include="AddAttraction.cs">
+    <Compile Include="Forms\AddAttraction.cs">
       <SubType>Form</SubType>
     </Compile>
-    <Compile Include="AddAttraction.Designer.cs">
+    <Compile Include="Forms\AddAttraction.Designer.cs">
       <DependentUpon>AddAttraction.cs</DependentUpon>
     </Compile>
-    <Compile Include="AddSale.cs">
+    <Compile Include="Forms\AddSale.cs">
       <SubType>Form</SubType>
     </Compile>
-    <Compile Include="AddSale.Designer.cs">
+    <Compile Include="Forms\AddSale.Designer.cs">
       <DependentUpon>AddSale.cs</DependentUpon>
     </Compile>
-    <Compile Include="AddTicket.cs">
+    <Compile Include="Forms\AddTicket.cs">
       <SubType>Form</SubType>
     </Compile>
-    <Compile Include="AddTicket.Designer.cs">
+    <Compile Include="Forms\AddTicket.Designer.cs">
       <DependentUpon>AddTicket.cs</DependentUpon>
     </Compile>
-    <Compile Include="Admin.cs">
+    <Compile Include="Forms\Admin.cs">
       <SubType>Form</SubType>
     </Compile>
-    <Compile Include="Admin.Designer.cs">
+    <Compile Include="Forms\Admin.Designer.cs">
       <DependentUpon>Admin.cs</DependentUpon>
     </Compile>
-    <Compile Include="AdminAttractions.cs">
+    <Compile Include="Forms\AdminAttractions.cs">
       <SubType>Form</SubType>
     </Compile>
-    <Compile Include="AdminAttractions.Designer.cs">
+    <Compile Include="Forms\AdminAttractions.Designer.cs">
       <DependentUpon>AdminAttractions.cs</DependentUpon>
     </Compile>
-    <Compile Include="AdminSales.cs">
+    <Compile Include="Forms\AdminSales.cs">
       <SubType>Form</SubType>
     </Compile>
-    <Compile Include="AdminSales.Designer.cs">
+    <Compile Include="Forms\AdminSales.Designer.cs">
       <DependentUpon>AdminSales.cs</DependentUpon>
     </Compile>
-    <Compile Include="attraction.cs" />
-    <Compile Include="cart.cs" />
-    <Compile Include="Cashier.cs">
+    <Compile Include="Tables\attraction.cs" />
+    <Compile Include="Tables\cart.cs" />
+    <Compile Include="Forms\Cashier.cs">
       <SubType>Form</SubType>
     </Compile>
-    <Compile Include="Cashier.Designer.cs">
+    <Compile Include="Forms\Cashier.Designer.cs">
       <DependentUpon>Cashier.cs</DependentUpon>
     </Compile>
-    <Compile Include="discount.cs" />
+    <Compile Include="Tables\discount.cs" />
     <Compile Include="Model.cs" />
-    <Compile Include="order.cs" />
-    <Compile Include="place.cs" />
-    <Compile Include="Refund.cs" />
-    <Compile Include="ReturnTicket.cs">
+    <Compile Include="Tables\order.cs" />
+    <Compile Include="Tables\place.cs" />
+    <Compile Include="Tables\refund.cs" />
+    <Compile Include="Forms\ReturnTicket.cs">
       <SubType>Form</SubType>
     </Compile>
-    <Compile Include="ReturnTicket.Designer.cs">
+    <Compile Include="Forms\ReturnTicket.Designer.cs">
       <DependentUpon>ReturnTicket.cs</DependentUpon>
     </Compile>
-    <Compile Include="Login.cs">
+    <Compile Include="Forms\Login.cs">
       <SubType>Form</SubType>
     </Compile>
-    <Compile Include="Login.Designer.cs">
+    <Compile Include="Forms\Login.Designer.cs">
       <DependentUpon>Login.cs</DependentUpon>
     </Compile>
     <Compile Include="Program.cs" />
     <Compile Include="Properties\AssemblyInfo.cs" />
-    <Compile Include="session.cs" />
-    <Compile Include="Sessions.cs">
+    <Compile Include="Tables\session.cs" />
+    <Compile Include="Forms\Sessions.cs">
       <SubType>Form</SubType>
     </Compile>
-    <Compile Include="Sessions.Designer.cs">
+    <Compile Include="Forms\Sessions.Designer.cs">
       <DependentUpon>Sessions.cs</DependentUpon>
     </Compile>
-    <Compile Include="Ticket.cs" />
-    <EmbeddedResource Include="AddAttraction.resx">
+    <Compile Include="Tables\ticket.cs" />
+    <EmbeddedResource Include="Forms\AddAttraction.resx">
       <DependentUpon>AddAttraction.cs</DependentUpon>
     </EmbeddedResource>
-    <EmbeddedResource Include="AddSale.resx">
+    <EmbeddedResource Include="Forms\AddSale.resx">
       <DependentUpon>AddSale.cs</DependentUpon>
     </EmbeddedResource>
-    <EmbeddedResource Include="AddTicket.resx">
+    <EmbeddedResource Include="Forms\AddTicket.resx">
       <DependentUpon>AddTicket.cs</DependentUpon>
     </EmbeddedResource>
-    <EmbeddedResource Include="Admin.resx">
+    <EmbeddedResource Include="Forms\Admin.resx">
       <DependentUpon>Admin.cs</DependentUpon>
     </EmbeddedResource>
-    <EmbeddedResource Include="AdminAttractions.resx">
+    <EmbeddedResource Include="Forms\AdminAttractions.resx">
       <DependentUpon>AdminAttractions.cs</DependentUpon>
     </EmbeddedResource>
-    <EmbeddedResource Include="AdminSales.resx">
+    <EmbeddedResource Include="Forms\AdminSales.resx">
       <DependentUpon>AdminSales.cs</DependentUpon>
     </EmbeddedResource>
-    <EmbeddedResource Include="Cashier.resx">
+    <EmbeddedResource Include="Forms\Cashier.resx">
       <DependentUpon>Cashier.cs</DependentUpon>
     </EmbeddedResource>
-    <EmbeddedResource Include="Login.resx">
+    <EmbeddedResource Include="Forms\Login.resx">
       <DependentUpon>Login.cs</DependentUpon>
     </EmbeddedResource>
     <EmbeddedResource Include="Properties\Resources.resx">
@@ -162,10 +162,10 @@
       <AutoGen>True</AutoGen>
       <DependentUpon>Resources.resx</DependentUpon>
     </Compile>
-    <EmbeddedResource Include="ReturnTicket.resx">
+    <EmbeddedResource Include="Forms\ReturnTicket.resx">
       <DependentUpon>ReturnTicket.cs</DependentUpon>
     </EmbeddedResource>
-    <EmbeddedResource Include="Sessions.resx">
+    <EmbeddedResource Include="Forms\Sessions.resx">
       <DependentUpon>Sessions.cs</DependentUpon>
     </EmbeddedResource>
     <None Include="packages.config" />
@@ -182,6 +182,7 @@
   <ItemGroup>
     <None Include="App.config" />
   </ItemGroup>
+  <ItemGroup />
   <Import Project="$(MSBuildToolsPath)\Microsoft.CSharp.targets" />
   <!-- To modify your build process, add your task inside one of the targets below and uncomment it. 
        Other similar extension points exist, see Microsoft.Common.targets.
