@@ -31,15 +31,11 @@
             this.buttonAddAttractionCancel = new System.Windows.Forms.Button();
             this.buttonAddAttrationSave = new System.Windows.Forms.Button();
             this.groupBox3 = new System.Windows.Forms.GroupBox();
-            this.textBoxOldTo = new System.Windows.Forms.TextBox();
-            this.label12 = new System.Windows.Forms.Label();
             this.label1 = new System.Windows.Forms.Label();
             this.textBoxOldFrom = new System.Windows.Forms.TextBox();
             this.groupBox2 = new System.Windows.Forms.GroupBox();
             this.label2 = new System.Windows.Forms.Label();
             this.textBoxWeightFrom = new System.Windows.Forms.TextBox();
-            this.textBoxWeightTo = new System.Windows.Forms.TextBox();
-            this.label3 = new System.Windows.Forms.Label();
             this.groupBox4 = new System.Windows.Forms.GroupBox();
             this.label4 = new System.Windows.Forms.Label();
             this.textBoxDuration = new System.Windows.Forms.TextBox();
@@ -50,15 +46,27 @@
             this.label8 = new System.Windows.Forms.Label();
             this.label7 = new System.Windows.Forms.Label();
             this.textBoxCostChild = new System.Windows.Forms.TextBox();
+            this.label3 = new System.Windows.Forms.Label();
+            this.label5 = new System.Windows.Forms.Label();
+            this.label6 = new System.Windows.Forms.Label();
+            this.textBox_growth = new System.Windows.Forms.TextBox();
+            this.label9 = new System.Windows.Forms.Label();
+            this.numericUpDown_countCarts = new System.Windows.Forms.NumericUpDown();
+            this.numericUpDown_clockS = new System.Windows.Forms.NumericUpDown();
+            this.numericUpDown_clockDo = new System.Windows.Forms.NumericUpDown();
+            this.label_warning = new System.Windows.Forms.Label();
             this.groupBox3.SuspendLayout();
             this.groupBox2.SuspendLayout();
             this.groupBox4.SuspendLayout();
             this.groupBox1.SuspendLayout();
+            ((System.ComponentModel.ISupportInitialize)(this.numericUpDown_countCarts)).BeginInit();
+            ((System.ComponentModel.ISupportInitialize)(this.numericUpDown_clockS)).BeginInit();
+            ((System.ComponentModel.ISupportInitialize)(this.numericUpDown_clockDo)).BeginInit();
             this.SuspendLayout();
             // 
             // buttonAddAttractionCancel
             // 
-            this.buttonAddAttractionCancel.Location = new System.Drawing.Point(83, 217);
+            this.buttonAddAttractionCancel.Location = new System.Drawing.Point(106, 263);
             this.buttonAddAttractionCancel.Name = "buttonAddAttractionCancel";
             this.buttonAddAttractionCancel.Size = new System.Drawing.Size(133, 68);
             this.buttonAddAttractionCancel.TabIndex = 22;
@@ -68,7 +76,7 @@
             // 
             // buttonAddAttrationSave
             // 
-            this.buttonAddAttrationSave.Location = new System.Drawing.Point(375, 217);
+            this.buttonAddAttrationSave.Location = new System.Drawing.Point(350, 263);
             this.buttonAddAttrationSave.Name = "buttonAddAttrationSave";
             this.buttonAddAttrationSave.Size = new System.Drawing.Size(137, 68);
             this.buttonAddAttrationSave.TabIndex = 5;
@@ -78,93 +86,63 @@
             // 
             // groupBox3
             // 
-            this.groupBox3.Controls.Add(this.textBoxOldTo);
-            this.groupBox3.Controls.Add(this.label12);
+            this.groupBox3.Controls.Add(this.label6);
+            this.groupBox3.Controls.Add(this.label2);
             this.groupBox3.Controls.Add(this.label1);
+            this.groupBox3.Controls.Add(this.textBox_growth);
+            this.groupBox3.Controls.Add(this.textBoxWeightFrom);
             this.groupBox3.Controls.Add(this.textBoxOldFrom);
-            this.groupBox3.Location = new System.Drawing.Point(294, 112);
+            this.groupBox3.Location = new System.Drawing.Point(12, 112);
             this.groupBox3.Name = "groupBox3";
-            this.groupBox3.Size = new System.Drawing.Size(276, 99);
+            this.groupBox3.Size = new System.Drawing.Size(276, 125);
             this.groupBox3.TabIndex = 24;
             this.groupBox3.TabStop = false;
-            this.groupBox3.Text = "Ограничения возраста";
-            // 
-            // textBoxOldTo
-            // 
-            this.textBoxOldTo.Location = new System.Drawing.Point(108, 57);
-            this.textBoxOldTo.Name = "textBoxOldTo";
-            this.textBoxOldTo.Size = new System.Drawing.Size(110, 20);
-            this.textBoxOldTo.TabIndex = 21;
-            // 
-            // label12
-            // 
-            this.label12.AutoSize = true;
-            this.label12.Location = new System.Drawing.Point(35, 60);
-            this.label12.Name = "label12";
-            this.label12.Size = new System.Drawing.Size(19, 13);
-            this.label12.TabIndex = 19;
-            this.label12.Text = "до";
+            this.groupBox3.Text = "Ограничения";
             // 
             // label1
             // 
             this.label1.AutoSize = true;
-            this.label1.Location = new System.Drawing.Point(36, 35);
+            this.label1.Location = new System.Drawing.Point(17, 30);
             this.label1.Name = "label1";
-            this.label1.Size = new System.Drawing.Size(18, 13);
+            this.label1.Size = new System.Drawing.Size(62, 13);
             this.label1.TabIndex = 15;
-            this.label1.Text = "от";
+            this.label1.Text = "возраст от";
             // 
             // textBoxOldFrom
             // 
-            this.textBoxOldFrom.Location = new System.Drawing.Point(108, 31);
+            this.textBoxOldFrom.Location = new System.Drawing.Point(108, 27);
             this.textBoxOldFrom.Name = "textBoxOldFrom";
             this.textBoxOldFrom.Size = new System.Drawing.Size(110, 20);
             this.textBoxOldFrom.TabIndex = 17;
             // 
             // groupBox2
             // 
-            this.groupBox2.Controls.Add(this.label2);
-            this.groupBox2.Controls.Add(this.textBoxWeightFrom);
-            this.groupBox2.Controls.Add(this.textBoxWeightTo);
+            this.groupBox2.Controls.Add(this.numericUpDown_clockDo);
             this.groupBox2.Controls.Add(this.label3);
-            this.groupBox2.Location = new System.Drawing.Point(12, 112);
+            this.groupBox2.Controls.Add(this.numericUpDown_clockS);
+            this.groupBox2.Controls.Add(this.label5);
+            this.groupBox2.Location = new System.Drawing.Point(294, 112);
             this.groupBox2.Name = "groupBox2";
-            this.groupBox2.Size = new System.Drawing.Size(276, 99);
+            this.groupBox2.Size = new System.Drawing.Size(276, 90);
             this.groupBox2.TabIndex = 23;
             this.groupBox2.TabStop = false;
-            this.groupBox2.Text = "Ограничения веса";
+            this.groupBox2.Text = "Часы работы";
             // 
             // label2
             // 
             this.label2.AutoSize = true;
-            this.label2.Location = new System.Drawing.Point(36, 34);
+            this.label2.Location = new System.Drawing.Point(17, 99);
             this.label2.Name = "label2";
-            this.label2.Size = new System.Drawing.Size(18, 13);
+            this.label2.Size = new System.Drawing.Size(40, 13);
             this.label2.TabIndex = 14;
-            this.label2.Text = "от";
+            this.label2.Text = "вес до";
             // 
             // textBoxWeightFrom
             // 
-            this.textBoxWeightFrom.Location = new System.Drawing.Point(127, 31);
+            this.textBoxWeightFrom.Location = new System.Drawing.Point(108, 96);
             this.textBoxWeightFrom.Name = "textBoxWeightFrom";
             this.textBoxWeightFrom.Size = new System.Drawing.Size(110, 20);
             this.textBoxWeightFrom.TabIndex = 16;
-            // 
-            // textBoxWeightTo
-            // 
-            this.textBoxWeightTo.Location = new System.Drawing.Point(127, 57);
-            this.textBoxWeightTo.Name = "textBoxWeightTo";
-            this.textBoxWeightTo.Size = new System.Drawing.Size(110, 20);
-            this.textBoxWeightTo.TabIndex = 20;
-            // 
-            // label3
-            // 
-            this.label3.AutoSize = true;
-            this.label3.Location = new System.Drawing.Point(35, 60);
-            this.label3.Name = "label3";
-            this.label3.Size = new System.Drawing.Size(19, 13);
-            this.label3.TabIndex = 18;
-            this.label3.Text = "до";
             // 
             // groupBox4
             // 
@@ -184,9 +162,9 @@
             this.label4.AutoSize = true;
             this.label4.Location = new System.Drawing.Point(6, 30);
             this.label4.Name = "label4";
-            this.label4.Size = new System.Drawing.Size(84, 13);
+            this.label4.Size = new System.Drawing.Size(88, 13);
             this.label4.TabIndex = 26;
-            this.label4.Text = "наименование:";
+            this.label4.Text = "*наименование:";
             // 
             // textBoxDuration
             // 
@@ -200,9 +178,9 @@
             this.label15.AutoSize = true;
             this.label15.Location = new System.Drawing.Point(6, 59);
             this.label15.Name = "label15";
-            this.label15.Size = new System.Drawing.Size(112, 13);
+            this.label15.Size = new System.Drawing.Size(116, 13);
             this.label15.TabIndex = 24;
-            this.label15.Text = "продолжительность:";
+            this.label15.Text = "*продолжительность:";
             // 
             // comboBoxAttractionName
             // 
@@ -245,18 +223,18 @@
             this.label8.AutoSize = true;
             this.label8.Location = new System.Drawing.Point(17, 61);
             this.label8.Name = "label8";
-            this.label8.Size = new System.Drawing.Size(60, 13);
+            this.label8.Size = new System.Drawing.Size(64, 13);
             this.label8.TabIndex = 10;
-            this.label8.Text = "взрослый:";
+            this.label8.Text = "*взрослый:";
             // 
             // label7
             // 
             this.label7.AutoSize = true;
             this.label7.Location = new System.Drawing.Point(17, 30);
             this.label7.Name = "label7";
-            this.label7.Size = new System.Drawing.Size(51, 13);
+            this.label7.Size = new System.Drawing.Size(55, 13);
             this.label7.TabIndex = 9;
-            this.label7.Text = "детский:";
+            this.label7.Text = "*детский:";
             // 
             // textBoxCostChild
             // 
@@ -265,11 +243,110 @@
             this.textBoxCostChild.Size = new System.Drawing.Size(110, 20);
             this.textBoxCostChild.TabIndex = 11;
             // 
+            // label3
+            // 
+            this.label3.AutoSize = true;
+            this.label3.Location = new System.Drawing.Point(53, 63);
+            this.label3.Name = "label3";
+            this.label3.Size = new System.Drawing.Size(23, 13);
+            this.label3.TabIndex = 18;
+            this.label3.Text = "*до";
+            // 
+            // label5
+            // 
+            this.label5.AutoSize = true;
+            this.label5.Location = new System.Drawing.Point(53, 30);
+            this.label5.Name = "label5";
+            this.label5.Size = new System.Drawing.Size(18, 13);
+            this.label5.TabIndex = 19;
+            this.label5.Text = "*С";
+            // 
+            // label6
+            // 
+            this.label6.AutoSize = true;
+            this.label6.Location = new System.Drawing.Point(17, 66);
+            this.label6.Name = "label6";
+            this.label6.Size = new System.Drawing.Size(44, 13);
+            this.label6.TabIndex = 18;
+            this.label6.Text = "рост от";
+            // 
+            // textBox_growth
+            // 
+            this.textBox_growth.Location = new System.Drawing.Point(108, 63);
+            this.textBox_growth.Name = "textBox_growth";
+            this.textBox_growth.Size = new System.Drawing.Size(110, 20);
+            this.textBox_growth.TabIndex = 19;
+            // 
+            // label9
+            // 
+            this.label9.AutoSize = true;
+            this.label9.Location = new System.Drawing.Point(315, 211);
+            this.label9.Name = "label9";
+            this.label9.Size = new System.Drawing.Size(101, 13);
+            this.label9.TabIndex = 22;
+            this.label9.Text = "*Количество телег";
+            // 
+            // numericUpDown_countCarts
+            // 
+            this.numericUpDown_countCarts.Location = new System.Drawing.Point(421, 209);
+            this.numericUpDown_countCarts.Minimum = new decimal(new int[] {
+            1,
+            0,
+            0,
+            0});
+            this.numericUpDown_countCarts.Name = "numericUpDown_countCarts";
+            this.numericUpDown_countCarts.Size = new System.Drawing.Size(110, 20);
+            this.numericUpDown_countCarts.TabIndex = 25;
+            this.numericUpDown_countCarts.Value = new decimal(new int[] {
+            1,
+            0,
+            0,
+            0});
+            this.numericUpDown_countCarts.ValueChanged += new System.EventHandler(this.numericUpDown1_ValueChanged);
+            // 
+            // numericUpDown_clockS
+            // 
+            this.numericUpDown_clockS.Location = new System.Drawing.Point(127, 28);
+            this.numericUpDown_clockS.Maximum = new decimal(new int[] {
+            23,
+            0,
+            0,
+            0});
+            this.numericUpDown_clockS.Name = "numericUpDown_clockS";
+            this.numericUpDown_clockS.Size = new System.Drawing.Size(110, 20);
+            this.numericUpDown_clockS.TabIndex = 26;
+            // 
+            // numericUpDown_clockDo
+            // 
+            this.numericUpDown_clockDo.Location = new System.Drawing.Point(127, 61);
+            this.numericUpDown_clockDo.Maximum = new decimal(new int[] {
+            23,
+            0,
+            0,
+            0});
+            this.numericUpDown_clockDo.Name = "numericUpDown_clockDo";
+            this.numericUpDown_clockDo.Size = new System.Drawing.Size(110, 20);
+            this.numericUpDown_clockDo.TabIndex = 27;
+            // 
+            // label_warning
+            // 
+            this.label_warning.AutoSize = true;
+            this.label_warning.ForeColor = System.Drawing.Color.Red;
+            this.label_warning.Location = new System.Drawing.Point(158, 344);
+            this.label_warning.Name = "label_warning";
+            this.label_warning.Size = new System.Drawing.Size(314, 13);
+            this.label_warning.TabIndex = 26;
+            this.label_warning.Text = "Пожалуйста, заполните все поля, отмеченные звездочками";
+            this.label_warning.Visible = false;
+            // 
             // AddAttraction
             // 
             this.AutoScaleDimensions = new System.Drawing.SizeF(6F, 13F);
             this.AutoScaleMode = System.Windows.Forms.AutoScaleMode.Font;
-            this.ClientSize = new System.Drawing.Size(584, 300);
+            this.ClientSize = new System.Drawing.Size(584, 366);
+            this.Controls.Add(this.label_warning);
+            this.Controls.Add(this.numericUpDown_countCarts);
+            this.Controls.Add(this.label9);
             this.Controls.Add(this.groupBox4);
             this.Controls.Add(this.groupBox1);
             this.Controls.Add(this.groupBox3);
@@ -286,7 +363,11 @@
             this.groupBox4.PerformLayout();
             this.groupBox1.ResumeLayout(false);
             this.groupBox1.PerformLayout();
+            ((System.ComponentModel.ISupportInitialize)(this.numericUpDown_countCarts)).EndInit();
+            ((System.ComponentModel.ISupportInitialize)(this.numericUpDown_clockS)).EndInit();
+            ((System.ComponentModel.ISupportInitialize)(this.numericUpDown_clockDo)).EndInit();
             this.ResumeLayout(false);
+            this.PerformLayout();
 
         }
 
@@ -294,15 +375,11 @@
         private System.Windows.Forms.Button buttonAddAttractionCancel;
         private System.Windows.Forms.Button buttonAddAttrationSave;
         private System.Windows.Forms.GroupBox groupBox3;
-        private System.Windows.Forms.TextBox textBoxOldTo;
-        private System.Windows.Forms.Label label12;
         private System.Windows.Forms.Label label1;
         private System.Windows.Forms.TextBox textBoxOldFrom;
         private System.Windows.Forms.GroupBox groupBox2;
         private System.Windows.Forms.Label label2;
         private System.Windows.Forms.TextBox textBoxWeightFrom;
-        private System.Windows.Forms.TextBox textBoxWeightTo;
-        private System.Windows.Forms.Label label3;
         private System.Windows.Forms.GroupBox groupBox4;
         private System.Windows.Forms.Label label4;
         private System.Windows.Forms.TextBox textBoxDuration;
@@ -313,5 +390,14 @@
         private System.Windows.Forms.Label label8;
         private System.Windows.Forms.Label label7;
         private System.Windows.Forms.TextBox textBoxCostChild;
+        private System.Windows.Forms.Label label3;
+        private System.Windows.Forms.Label label5;
+        private System.Windows.Forms.Label label6;
+        private System.Windows.Forms.TextBox textBox_growth;
+        private System.Windows.Forms.Label label9;
+        private System.Windows.Forms.NumericUpDown numericUpDown_countCarts;
+        private System.Windows.Forms.NumericUpDown numericUpDown_clockDo;
+        private System.Windows.Forms.NumericUpDown numericUpDown_clockS;
+        private System.Windows.Forms.Label label_warning;
     }
 }

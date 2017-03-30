@@ -32,7 +32,7 @@ namespace Razvlekator
 
         public float ticketpricekid { get; set; }
 
-        public int agerestrictions { get; set; }
+        public int agerestriction { get; set; }
 
         public int? growthrestriction { get; set; }
 

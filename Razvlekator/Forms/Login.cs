@@ -10,7 +10,7 @@ using System.Windows.Forms;
 
 namespace Razvlekator
 {
-    public partial class Login: Form
+    public partial class Login : Form
     {
         public Login()
         {
@@ -42,29 +42,48 @@ namespace Razvlekator
             {
                 //DEBUG
 
+                //using (var db = new Model())//DBEntities.DiscountContext())
+                //{
+
+                //    var d1 = new discount { name = "SashaKulik", value = 123 };
+                //    var d2 = new discount { name = "Mowniy", value = 321 };
+
+                //    db.discount.Add(d1);
+                //    db.discount.Add(d2);
+                //    db.SaveChanges();
+                //    Console.WriteLine("IT'S ALIVE");
+
+                //    // получаем объекты из бд и выводим на консоль
+                //    var discounts = db.discount;
+                //    foreach (discount d in discounts)
+                //    {
+                //        Console.WriteLine("{0}.{1} - {2}", d.pk_discount, d.name, d.value);
+                //    }
+                //}
                 using (var db = new Model())//DBEntities.DiscountContext())
                 {
-                    
-                    var d1 = new discount { name = "SashaKulik", value = 123 };
-                    var d2 = new discount { name = "Mowniy", value = 321 };
-                    
-                    db.discount.Add(d1);
-                    db.discount.Add(d2);
-                    db.SaveChanges();
-                    Console.WriteLine("IT'S ALIVE");
-
-                    // получаем объекты из бд и выводим на консоль
-                    var discounts = db.discount;
-                    foreach (discount d in discounts)
+                    var newAttraction2 = new attraction
                     {
-                        Console.WriteLine("{0}.{1} - {2}", d.pk_discount, d.name, d.value);
-                    }
+                        name = "Дерьмище",
+                        duration = 100,
+                        ticketpricekid = 200,     //todouble ??
+                        ticketpriceadult = 300,
+                        agerestriction = 85,
+                        weightrestriction = 20,
+                        cartcount = 1,
+                        starttime = 11,
+                        endtime = 12,
+                        growthrestriction = 20,
+                    };
+                    db.attraction.Add(newAttraction2);
+                    Console.WriteLine("zalupa");
+                    db.SaveChanges();
+
+                    //DEBUG
+
+
+                    //MessageBox.Show("Неправильный пароль");
                 }
-
-                //DEBUG
-
-
-                //MessageBox.Show("Неправильный пароль");
             }
         }
     }

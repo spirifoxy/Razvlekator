@@ -23,7 +23,10 @@ namespace Razvlekator
             {
                 if (textBoxDuration.Text != "" &&
                     textBoxCostChild.Text != "" &&
-                    textBoxCostAdult.Text != ""
+                    textBoxCostAdult.Text != "" &&
+                    numericUpDown_clockS.Text != "" &&
+                    numericUpDown_clockDo.Text != "" &&
+                    numericUpDown_countCarts.Text != ""
                     )
                 {
                     var newAttraction = new attraction
@@ -31,79 +34,34 @@ namespace Razvlekator
                         name = comboBoxAttractionName.Text,
                         duration = Convert.ToInt32(textBoxDuration.Text),
                         ticketpricekid = Convert.ToInt32(textBoxCostChild.Text),     //todouble ??
-                        ticketpriceadult = Convert.ToInt32(textBoxCostAdult.Text)
+                        ticketpriceadult = Convert.ToInt32(textBoxCostAdult.Text),
+                        starttime = Convert.ToInt32(numericUpDown_clockS.Text),
+                        endtime = Convert.ToInt32(numericUpDown_clockDo.Text),
+                        cartcount = Convert.ToInt32(numericUpDown_countCarts.Text)
                     };
 
-                    if (textBoxOldFrom.Text != "") newAttraction.agerestrictionfrom = Convert.ToInt32(textBoxOldFrom.Text);
-                    if (textBoxOldTo.Text != "") newAttraction.agerestrictionto = Convert.ToInt32(textBoxOldTo.Text);
-                    if (textBoxWeightFrom.Text != "") newAttraction.weightrestrictionfrom = Convert.ToInt32(textBoxWeightFrom.Text);
-                    if (textBoxWeightTo.Text != "") newAttraction.weightrestrictionto = Convert.ToInt32(textBoxWeightTo.Text);
+                    if (textBoxOldFrom.Text != "") newAttraction.agerestriction = Convert.ToInt32(textBoxOldFrom.Text);
+                    if (textBoxWeightFrom.Text != "") newAttraction.weightrestriction = Convert.ToInt32(textBoxWeightFrom.Text);
+                    if (textBoxOldFrom.Text != "") newAttraction.agerestriction = Convert.ToInt32(textBoxOldFrom.Text);
 
-                    //Не работает. А должно.
-
-                    //var newAttraction2 = new attraction
-                    //{
-                    //    name = "imya",
-                    //    duration = 100,
-                    //    ticketpricekid = 200,     //todouble ??
-                    //    ticketpriceadult = 300,
-                    //    agerestrictionfrom = 10,
-                    //    agerestrictionto = 85,
-                    //    weightrestrictionfrom = 20,
-                    //    weightrestrictionto = 150,
-                    //    cartcount = 1,
-                    //    starttime = 11,
-                    //    endtime = 12,
-                    //    growthrestrictionfrom = 20,
-                    //    growthrestrictionto = 220,
-                    //    pk_attraction = 50
-
-                    //};
-
-
-                    //db.attraction.Add(newAttraction2);
-                    //db.SaveChanges();
-
-
-
-                    //TODO
-                    //После добавления в интерфейс (на форму) ограничений по росту, количества телег,
-                    //времени начала и конца, сделать их добавление в запись таблицы
+                    db.attraction.Add(newAttraction);
                     
+                    db.SaveChanges();
+
+                    this.Close();
                 }
-
-                ///DEBUG
-                //var newAttraction2 = new attraction
-                //{
-                //    name = "imya",
-                //    duration = 100,
-                //    ticketpricekid = 200,     //todouble ??
-                //    ticketpriceadult = 300,
-                //    agerestrictionfrom = 10,
-                //    agerestrictionto = 85,
-                //    weightrestrictionfrom = 20,
-                //    weightrestrictionto = 150,
-                //    cartcount = 1,
-                //    starttime = 11,
-                //    endtime = 12,
-                //    growthrestrictionfrom = 20,
-                //    growthrestrictionto = 220,
-                //    pk_attraction = 50
-
-                //};
-
-
-                //db.attraction.Add(newAttraction2);
-                //db.SaveChanges();
-                ///DEBUG_END
+                else label_warning.Visible = true;              
             }
-
-            this.Close();
         }
 
         private void buttonAddAttractionCancel_Click(object sender, EventArgs e)
         {
             this.Close();
+        }
+
+        private void numericUpDown1_ValueChanged(object sender, EventArgs e)
+        {
+
         }
     }
 }
