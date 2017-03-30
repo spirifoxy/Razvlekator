@@ -16,5 +16,10 @@ namespace Razvlekator
         {
             InitializeComponent();
         }
+
+        private void buttonAttractionsAdd_Click(object sender, EventArgs e)
+        {
+            new AddAttraction().Show();
+        }
     }
 }

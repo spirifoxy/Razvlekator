@@ -29,7 +29,7 @@
         private void InitializeComponent()
         {
             this.button2 = new System.Windows.Forms.Button();
-            this.button1 = new System.Windows.Forms.Button();
+            this.buttonAttractionsAdd = new System.Windows.Forms.Button();
             this.dataGridView1 = new System.Windows.Forms.DataGridView();
             this.Column1 = new System.Windows.Forms.DataGridViewTextBoxColumn();
             this.Column2 = new System.Windows.Forms.DataGridViewTextBoxColumn();
@@ -51,14 +51,15 @@
             this.button2.Text = "Назад";
             this.button2.UseVisualStyleBackColor = true;
             // 
-            // button1
+            // buttonAttractionsAdd
             // 
-            this.button1.Location = new System.Drawing.Point(719, 406);
-            this.button1.Name = "button1";
-            this.button1.Size = new System.Drawing.Size(122, 55);
-            this.button1.TabIndex = 27;
-            this.button1.Text = "Добавить";
-            this.button1.UseVisualStyleBackColor = true;
+            this.buttonAttractionsAdd.Location = new System.Drawing.Point(719, 406);
+            this.buttonAttractionsAdd.Name = "buttonAttractionsAdd";
+            this.buttonAttractionsAdd.Size = new System.Drawing.Size(122, 55);
+            this.buttonAttractionsAdd.TabIndex = 27;
+            this.buttonAttractionsAdd.Text = "Добавить";
+            this.buttonAttractionsAdd.UseVisualStyleBackColor = true;
+            this.buttonAttractionsAdd.Click += new System.EventHandler(this.buttonAttractionsAdd_Click);
             // 
             // dataGridView1
             // 
@@ -126,7 +127,7 @@
             this.AutoScaleMode = System.Windows.Forms.AutoScaleMode.Font;
             this.ClientSize = new System.Drawing.Size(855, 473);
             this.Controls.Add(this.dataGridView1);
-            this.Controls.Add(this.button1);
+            this.Controls.Add(this.buttonAttractionsAdd);
             this.Controls.Add(this.button2);
             this.Name = "AdminAttractions";
             this.Text = "Аттракционы";
@@ -137,7 +138,7 @@
 
         #endregion
         private System.Windows.Forms.Button button2;
-        private System.Windows.Forms.Button button1;
+        private System.Windows.Forms.Button buttonAttractionsAdd;
         private System.Windows.Forms.DataGridView dataGridView1;
         private System.Windows.Forms.DataGridViewTextBoxColumn Column1;
         private System.Windows.Forms.DataGridViewTextBoxColumn Column2;
