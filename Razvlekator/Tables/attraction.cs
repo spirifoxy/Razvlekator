@@ -32,17 +32,11 @@ namespace Razvlekator
 
         public float ticketpricekid { get; set; }
 
-        public int agerestrictionfrom { get; set; }
+        public int agerestrictions { get; set; }
 
-        public int agerestrictionto { get; set; }
+        public int? growthrestriction { get; set; }
 
-        public int? growthrestrictionfrom { get; set; }
-
-        public int? growthrestrictionto { get; set; }
-
-        public int? weightrestrictionfrom { get; set; }
-
-        public int? weightrestrictionto { get; set; }
+        public int? weightrestriction { get; set; }
 
         public int? cartcount { get; set; }
 
