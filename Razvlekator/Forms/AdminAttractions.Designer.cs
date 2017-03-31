@@ -42,6 +42,7 @@
             this.Column_CartsCount = new System.Windows.Forms.DataGridViewTextBoxColumn();
             this.buttonColumn = new System.Windows.Forms.DataGridViewButtonColumn();
             this.button_save = new System.Windows.Forms.Button();
+            this.textBox_status = new System.Windows.Forms.TextBox();
             ((System.ComponentModel.ISupportInitialize)(this.dataGridView1)).BeginInit();
             this.SuspendLayout();
             // 
@@ -56,7 +57,7 @@
             // 
             // buttonAttractionsAdd
             // 
-            this.buttonAttractionsAdd.Location = new System.Drawing.Point(850, 406);
+            this.buttonAttractionsAdd.Location = new System.Drawing.Point(894, 406);
             this.buttonAttractionsAdd.Name = "buttonAttractionsAdd";
             this.buttonAttractionsAdd.Size = new System.Drawing.Size(122, 55);
             this.buttonAttractionsAdd.TabIndex = 27;
@@ -143,7 +144,7 @@
             // 
             // button_save
             // 
-            this.button_save.Location = new System.Drawing.Point(425, 406);
+            this.button_save.Location = new System.Drawing.Point(764, 406);
             this.button_save.Name = "button_save";
             this.button_save.Size = new System.Drawing.Size(124, 55);
             this.button_save.TabIndex = 29;
@@ -151,11 +152,20 @@
             this.button_save.UseVisualStyleBackColor = true;
             this.button_save.Click += new System.EventHandler(this.button_save_Click);
             // 
+            // textBox_status
+            // 
+            this.textBox_status.ForeColor = System.Drawing.Color.Red;
+            this.textBox_status.Location = new System.Drawing.Point(390, 424);
+            this.textBox_status.Name = "textBox_status";
+            this.textBox_status.Size = new System.Drawing.Size(206, 20);
+            this.textBox_status.TabIndex = 32;
+            // 
             // AdminAttractions
             // 
             this.AutoScaleDimensions = new System.Drawing.SizeF(6F, 13F);
             this.AutoScaleMode = System.Windows.Forms.AutoScaleMode.Font;
-            this.ClientSize = new System.Drawing.Size(1043, 473);
+            this.ClientSize = new System.Drawing.Size(1031, 473);
+            this.Controls.Add(this.textBox_status);
             this.Controls.Add(this.button_save);
             this.Controls.Add(this.dataGridView1);
             this.Controls.Add(this.buttonAttractionsAdd);
@@ -165,6 +175,7 @@
             this.Load += new System.EventHandler(this.AdminAttractions_Load);
             ((System.ComponentModel.ISupportInitialize)(this.dataGridView1)).EndInit();
             this.ResumeLayout(false);
+            this.PerformLayout();
 
         }
 
@@ -183,5 +194,6 @@
         private System.Windows.Forms.DataGridViewTextBoxColumn Column6;
         private System.Windows.Forms.DataGridViewTextBoxColumn Column_CartsCount;
         private System.Windows.Forms.DataGridViewButtonColumn buttonColumn;
+        private System.Windows.Forms.TextBox textBox_status;
     }
 }
