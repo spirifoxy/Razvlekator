@@ -29,61 +29,12 @@ namespace Razvlekator
 
         private void buttonLogin_Click(object sender, EventArgs e)
         {
-            if (comboBoxRole.SelectedItem.ToString() == "Кассир" && textBoxPassword.Text == "1")
-            {
-            }
-            else if (comboBoxRole.SelectedItem.ToString() == "Администратор" && textBoxPassword.Text == "1")
+            if (comboBoxRole.SelectedItem.ToString() == "Администратор")
             {
                 this.Hide();
-                new Admin().Show();
+                new Admin(this).Show();
                 //Потом при закрытии админской формы эта форма логина так и остается висеть Hide
             }
-            else
-            {
-                //DEBUG
-
-                //using (var db = new Model())//DBEntities.DiscountContext())
-                //{
-
-                //    var d1 = new discount { name = "SashaKulik", value = 123 };
-                //    var d2 = new discount { name = "Mowniy", value = 321 };
-
-                //    db.discount.Add(d1);
-                //    db.discount.Add(d2);
-                //    db.SaveChanges();
-                //    Console.WriteLine("IT'S ALIVE");
-
-                //    // получаем объекты из бд и выводим на консоль
-                //    var discounts = db.discount;
-                //    foreach (discount d in discounts)
-                //    {
-                //        Console.WriteLine("{0}.{1} - {2}", d.pk_discount, d.name, d.value);
-                //    }
-                //}
-                //using (var db = new Model())//DBEntities.DiscountContext())
-                //{
-                //    var newAttraction2 = new attraction
-                //    {
-                //        name = "",
-                //        duration = 100,
-                //        ticketpricekid = 200,     //todouble ??
-                //        ticketpriceadult = 300,
-                //        agerestriction = 85,
-                //        weightrestriction = 20,
-                //        cartcount = 1,
-                //        starttime = 11,
-                //        endtime = 12,
-                //        growthrestriction = 20,
-                //    };
-                //    db.attraction.Add(newAttraction2);
-                //    Console.WriteLine("zalupa");
-                //    db.SaveChanges();
-
-                    //DEBUG
-
-
-                    //MessageBox.Show("Неправильный пароль");
-                }
             }
         }
     }

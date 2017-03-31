@@ -30,7 +30,7 @@
         {
             this.buttonAdminAttractions = new System.Windows.Forms.Button();
             this.buttonAdminSalaries = new System.Windows.Forms.Button();
-            this.button3 = new System.Windows.Forms.Button();
+            this.button_adminExit = new System.Windows.Forms.Button();
             this.SuspendLayout();
             // 
             // buttonAdminAttractions
@@ -53,21 +53,22 @@
             this.buttonAdminSalaries.UseVisualStyleBackColor = true;
             this.buttonAdminSalaries.Click += new System.EventHandler(this.buttonAdminSalaries_Click);
             // 
-            // button3
+            // button_adminExit
             // 
-            this.button3.Location = new System.Drawing.Point(150, 218);
-            this.button3.Name = "button3";
-            this.button3.Size = new System.Drawing.Size(80, 38);
-            this.button3.TabIndex = 2;
-            this.button3.Text = "Выход";
-            this.button3.UseVisualStyleBackColor = true;
+            this.button_adminExit.Location = new System.Drawing.Point(150, 218);
+            this.button_adminExit.Name = "button_adminExit";
+            this.button_adminExit.Size = new System.Drawing.Size(80, 38);
+            this.button_adminExit.TabIndex = 2;
+            this.button_adminExit.Text = "Выход";
+            this.button_adminExit.UseVisualStyleBackColor = true;
+            this.button_adminExit.Click += new System.EventHandler(this.button_adminExit_Click);
             // 
             // Admin
             // 
             this.AutoScaleDimensions = new System.Drawing.SizeF(6F, 13F);
             this.AutoScaleMode = System.Windows.Forms.AutoScaleMode.Font;
             this.ClientSize = new System.Drawing.Size(377, 288);
-            this.Controls.Add(this.button3);
+            this.Controls.Add(this.button_adminExit);
             this.Controls.Add(this.buttonAdminSalaries);
             this.Controls.Add(this.buttonAdminAttractions);
             this.Name = "Admin";
@@ -80,6 +81,6 @@
 
         private System.Windows.Forms.Button buttonAdminAttractions;
         private System.Windows.Forms.Button buttonAdminSalaries;
-        private System.Windows.Forms.Button button3;
+        private System.Windows.Forms.Button button_adminExit;
     }
 }

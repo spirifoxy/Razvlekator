@@ -7,6 +7,8 @@ namespace Razvlekator
 {
     public partial class AdminAttractions : Form
     {
+        Admin adminForm;
+
         List<int> rowsToRemove;
         List<int> changedRows;
         public AdminAttractions()
@@ -14,6 +16,14 @@ namespace Razvlekator
             InitializeComponent();
             rowsToRemove = new List<int>();
             changedRows = new List<int>();
+        }
+
+        public AdminAttractions(Admin _adminFom)
+        {
+            InitializeComponent();
+            rowsToRemove = new List<int>();
+            changedRows = new List<int>();
+            adminForm = _adminFom;
         }
 
         private void buttonAttractionsAdd_Click(object sender, EventArgs e)
@@ -27,8 +37,6 @@ namespace Razvlekator
             {
                 using (var db = new Model())
                 {
-
-
                     dataGridView1.Rows.Clear();
                     var attractions = db.attraction;
 
@@ -49,9 +57,6 @@ namespace Razvlekator
                         dataGridView1[8, j].Value = d.cartcount;
                         j++;    //костыль
                     }
-
-
-
                 }
             }
 
@@ -153,6 +158,12 @@ namespace Razvlekator
                              MessageBoxButtons.OK,
                              MessageBoxIcon.Question);
             }
+        }
+
+        private void button_AdminAttractionsBack(object sender, EventArgs e)
+        {
+            this.Close();
+            adminForm.Show();
         }
     }
 }

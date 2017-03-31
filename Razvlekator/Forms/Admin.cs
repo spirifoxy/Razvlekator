@@ -12,21 +12,34 @@ namespace Razvlekator
 {
     public partial class Admin : Form
     {
+        Login loginForm;
         public Admin()
         {
             InitializeComponent();
         }
 
+        public Admin(Login _loginForm)
+        {
+            InitializeComponent();
+            loginForm = _loginForm;
+        }
+
         private void buttonAdminAttractions_Click(object sender, EventArgs e)
         {
             this.Hide();
-            new AdminAttractions().Show();
+            new AdminAttractions(this).Show();
         }
 
         private void buttonAdminSalaries_Click(object sender, EventArgs e)
         {
             this.Hide();
-            new AdminSales().Show();
+            new AdminSales(this).Show();
+        }
+
+        private void button_adminExit_Click(object sender, EventArgs e)
+        {
+            this.Close();
+            loginForm.Show();
         }
     }
 }

@@ -71,6 +71,12 @@ namespace Razvlekator
                              MessageBoxButtons.OK,
                              MessageBoxIcon.Question);
             }
+            catch (Exception)
+            {
+                MessageBox.Show("Что-то пошло не так", "Упс",
+                             MessageBoxButtons.OK,
+                             MessageBoxIcon.Question);
+            }
         }
 
 

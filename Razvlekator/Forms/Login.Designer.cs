@@ -55,13 +55,13 @@
             // 
             this.comboBoxRole.FormattingEnabled = true;
             this.comboBoxRole.Items.AddRange(new object[] {
-            "Кассир",
-            "Администратор"});
+            "Администратор",
+            "Кассир"});
             this.comboBoxRole.Location = new System.Drawing.Point(112, 55);
             this.comboBoxRole.Name = "comboBoxRole";
             this.comboBoxRole.Size = new System.Drawing.Size(121, 21);
             this.comboBoxRole.TabIndex = 6;
-            this.comboBoxRole.Text = "Кассир";
+            this.comboBoxRole.Text = "Администратор";
             // 
             // Login
             // 
