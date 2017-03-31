@@ -29,19 +29,20 @@
         private void InitializeComponent()
         {
             this.dataGridView1 = new System.Windows.Forms.DataGridView();
-            this.textBox1 = new System.Windows.Forms.TextBox();
-            this.textBox2 = new System.Windows.Forms.TextBox();
-            this.textBox3 = new System.Windows.Forms.TextBox();
+            this.Column1 = new System.Windows.Forms.DataGridViewTextBoxColumn();
+            this.Column2 = new System.Windows.Forms.DataGridViewTextBoxColumn();
+            this.textBox_endTime = new System.Windows.Forms.TextBox();
+            this.textBox_startTime = new System.Windows.Forms.TextBox();
+            this.textBox_duration = new System.Windows.Forms.TextBox();
             this.label1 = new System.Windows.Forms.Label();
             this.label2 = new System.Windows.Forms.Label();
             this.label3 = new System.Windows.Forms.Label();
             this.label4 = new System.Windows.Forms.Label();
-            this.textBox4 = new System.Windows.Forms.TextBox();
-            this.button1 = new System.Windows.Forms.Button();
+            this.textBox_timeBetween = new System.Windows.Forms.TextBox();
+            this.button_gererateSessions = new System.Windows.Forms.Button();
             this.dateTimePicker1 = new System.Windows.Forms.DateTimePicker();
             this.dateTimePicker2 = new System.Windows.Forms.DateTimePicker();
-            this.Column1 = new System.Windows.Forms.DataGridViewTextBoxColumn();
-            this.Column2 = new System.Windows.Forms.DataGridViewTextBoxColumn();
+            this.button_saveSessions = new System.Windows.Forms.Button();
             ((System.ComponentModel.ISupportInitialize)(this.dataGridView1)).BeginInit();
             this.SuspendLayout();
             // 
@@ -51,33 +52,45 @@
             this.dataGridView1.Columns.AddRange(new System.Windows.Forms.DataGridViewColumn[] {
             this.Column1,
             this.Column2});
-            this.dataGridView1.Location = new System.Drawing.Point(52, 140);
+            this.dataGridView1.Location = new System.Drawing.Point(41, 140);
             this.dataGridView1.Name = "dataGridView1";
             this.dataGridView1.RowHeadersVisible = false;
-            this.dataGridView1.Size = new System.Drawing.Size(300, 163);
+            this.dataGridView1.Size = new System.Drawing.Size(326, 163);
             this.dataGridView1.TabIndex = 0;
             // 
-            // textBox1
+            // Column1
             // 
-            this.textBox1.Location = new System.Drawing.Point(252, 54);
-            this.textBox1.Name = "textBox1";
-            this.textBox1.Size = new System.Drawing.Size(100, 20);
-            this.textBox1.TabIndex = 1;
-            this.textBox1.TextChanged += new System.EventHandler(this.textBox1_TextChanged);
+            this.Column1.HeaderText = "Время начала";
+            this.Column1.Name = "Column1";
+            this.Column1.Width = 147;
             // 
-            // textBox2
+            // Column2
             // 
-            this.textBox2.Location = new System.Drawing.Point(252, 22);
-            this.textBox2.Name = "textBox2";
-            this.textBox2.Size = new System.Drawing.Size(100, 20);
-            this.textBox2.TabIndex = 2;
+            this.Column2.HeaderText = "Время конца";
+            this.Column2.Name = "Column2";
+            this.Column2.Width = 147;
             // 
-            // textBox3
+            // textBox_endTime
             // 
-            this.textBox3.Location = new System.Drawing.Point(252, 83);
-            this.textBox3.Name = "textBox3";
-            this.textBox3.Size = new System.Drawing.Size(100, 20);
-            this.textBox3.TabIndex = 3;
+            this.textBox_endTime.Location = new System.Drawing.Point(252, 54);
+            this.textBox_endTime.Name = "textBox_endTime";
+            this.textBox_endTime.Size = new System.Drawing.Size(100, 20);
+            this.textBox_endTime.TabIndex = 1;
+            this.textBox_endTime.TextChanged += new System.EventHandler(this.textBox1_TextChanged);
+            // 
+            // textBox_startTime
+            // 
+            this.textBox_startTime.Location = new System.Drawing.Point(252, 22);
+            this.textBox_startTime.Name = "textBox_startTime";
+            this.textBox_startTime.Size = new System.Drawing.Size(100, 20);
+            this.textBox_startTime.TabIndex = 2;
+            // 
+            // textBox_duration
+            // 
+            this.textBox_duration.Location = new System.Drawing.Point(252, 83);
+            this.textBox_duration.Name = "textBox_duration";
+            this.textBox_duration.Size = new System.Drawing.Size(100, 20);
+            this.textBox_duration.TabIndex = 3;
             // 
             // label1
             // 
@@ -115,21 +128,22 @@
             this.label4.TabIndex = 8;
             this.label4.Text = "Промежуток между сеансами";
             // 
-            // textBox4
+            // textBox_timeBetween
             // 
-            this.textBox4.Location = new System.Drawing.Point(252, 111);
-            this.textBox4.Name = "textBox4";
-            this.textBox4.Size = new System.Drawing.Size(100, 20);
-            this.textBox4.TabIndex = 7;
+            this.textBox_timeBetween.Location = new System.Drawing.Point(252, 111);
+            this.textBox_timeBetween.Name = "textBox_timeBetween";
+            this.textBox_timeBetween.Size = new System.Drawing.Size(100, 20);
+            this.textBox_timeBetween.TabIndex = 7;
             // 
-            // button1
+            // button_gererateSessions
             // 
-            this.button1.Location = new System.Drawing.Point(248, 336);
-            this.button1.Name = "button1";
-            this.button1.Size = new System.Drawing.Size(98, 23);
-            this.button1.TabIndex = 9;
-            this.button1.Text = "Сгенерировать";
-            this.button1.UseVisualStyleBackColor = true;
+            this.button_gererateSessions.Location = new System.Drawing.Point(52, 345);
+            this.button_gererateSessions.Name = "button_gererateSessions";
+            this.button_gererateSessions.Size = new System.Drawing.Size(98, 35);
+            this.button_gererateSessions.TabIndex = 9;
+            this.button_gererateSessions.Text = "Сгенерировать";
+            this.button_gererateSessions.UseVisualStyleBackColor = true;
+            this.button_gererateSessions.Click += new System.EventHandler(this.button_generateSessions_Click);
             // 
             // dateTimePicker1
             // 
@@ -145,37 +159,37 @@
             this.dateTimePicker2.Size = new System.Drawing.Size(141, 20);
             this.dateTimePicker2.TabIndex = 11;
             // 
-            // Column1
+            // button_saveSessions
             // 
-            this.Column1.HeaderText = "Время начала";
-            this.Column1.Name = "Column1";
-            this.Column1.Width = 147;
-            // 
-            // Column2
-            // 
-            this.Column2.HeaderText = "Время конца";
-            this.Column2.Name = "Column2";
-            this.Column2.Width = 147;
+            this.button_saveSessions.Location = new System.Drawing.Point(252, 345);
+            this.button_saveSessions.Name = "button_saveSessions";
+            this.button_saveSessions.Size = new System.Drawing.Size(98, 35);
+            this.button_saveSessions.TabIndex = 12;
+            this.button_saveSessions.Text = "Сохранить";
+            this.button_saveSessions.UseVisualStyleBackColor = true;
+            this.button_saveSessions.Click += new System.EventHandler(this.button_saveSessions_Click);
             // 
             // Sessions
             // 
             this.AutoScaleDimensions = new System.Drawing.SizeF(6F, 13F);
             this.AutoScaleMode = System.Windows.Forms.AutoScaleMode.Font;
-            this.ClientSize = new System.Drawing.Size(412, 392);
+            this.ClientSize = new System.Drawing.Size(406, 392);
+            this.Controls.Add(this.button_saveSessions);
             this.Controls.Add(this.dateTimePicker2);
             this.Controls.Add(this.dateTimePicker1);
-            this.Controls.Add(this.button1);
+            this.Controls.Add(this.button_gererateSessions);
             this.Controls.Add(this.label4);
-            this.Controls.Add(this.textBox4);
+            this.Controls.Add(this.textBox_timeBetween);
             this.Controls.Add(this.label3);
             this.Controls.Add(this.label2);
             this.Controls.Add(this.label1);
-            this.Controls.Add(this.textBox3);
-            this.Controls.Add(this.textBox2);
-            this.Controls.Add(this.textBox1);
+            this.Controls.Add(this.textBox_duration);
+            this.Controls.Add(this.textBox_startTime);
+            this.Controls.Add(this.textBox_endTime);
             this.Controls.Add(this.dataGridView1);
             this.Name = "Sessions";
             this.Text = "Сеансы";
+            this.Load += new System.EventHandler(this.Sessions_Load);
             ((System.ComponentModel.ISupportInitialize)(this.dataGridView1)).EndInit();
             this.ResumeLayout(false);
             this.PerformLayout();
@@ -185,18 +199,19 @@
         #endregion
 
         private System.Windows.Forms.DataGridView dataGridView1;
-        private System.Windows.Forms.TextBox textBox1;
-        private System.Windows.Forms.TextBox textBox2;
-        private System.Windows.Forms.TextBox textBox3;
+        private System.Windows.Forms.TextBox textBox_endTime;
+        private System.Windows.Forms.TextBox textBox_startTime;
+        private System.Windows.Forms.TextBox textBox_duration;
         private System.Windows.Forms.Label label1;
         private System.Windows.Forms.Label label2;
         private System.Windows.Forms.Label label3;
         private System.Windows.Forms.Label label4;
-        private System.Windows.Forms.TextBox textBox4;
-        private System.Windows.Forms.Button button1;
+        private System.Windows.Forms.TextBox textBox_timeBetween;
+        private System.Windows.Forms.Button button_gererateSessions;
         private System.Windows.Forms.DataGridViewTextBoxColumn Column1;
         private System.Windows.Forms.DataGridViewTextBoxColumn Column2;
         private System.Windows.Forms.DateTimePicker dateTimePicker1;
         private System.Windows.Forms.DateTimePicker dateTimePicker2;
+        private System.Windows.Forms.Button button_saveSessions;
     }
 }

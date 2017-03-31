@@ -85,6 +85,7 @@
             this.dataGridView1.Name = "dataGridView1";
             this.dataGridView1.Size = new System.Drawing.Size(1002, 389);
             this.dataGridView1.TabIndex = 28;
+            this.dataGridView1.CellContentClick += new System.Windows.Forms.DataGridViewCellEventHandler(this.dataGridView1_CellContentClick);
             this.dataGridView1.CellEndEdit += new System.Windows.Forms.DataGridViewCellEventHandler(this.dataGridView1_CellEndEdit);
             this.dataGridView1.UserDeletingRow += new System.Windows.Forms.DataGridViewRowCancelEventHandler(this.dataGridView1_UserDeletingRow);
             // 
@@ -155,6 +156,7 @@
             // 
             // textBox_status
             // 
+            this.textBox_status.Enabled = false;
             this.textBox_status.ForeColor = System.Drawing.Color.Red;
             this.textBox_status.Location = new System.Drawing.Point(390, 424);
             this.textBox_status.Name = "textBox_status";

@@ -158,12 +158,26 @@ namespace Razvlekator
                              MessageBoxButtons.OK,
                              MessageBoxIcon.Question);
             }
+            catch (Exception)
+            {
+                MessageBox.Show("Что-то пошло не так", "Упс",
+                             MessageBoxButtons.OK,
+                             MessageBoxIcon.Question);
+            }
         }
 
         private void button_AdminAttractionsBack(object sender, EventArgs e)
         {
             this.Close();
             adminForm.Show();
+        }
+
+        private void dataGridView1_CellContentClick(object sender, DataGridViewCellEventArgs e)
+        {
+            if (e.ColumnIndex == 9)
+            {
+                new Sessions(this,Convert.ToInt32(dataGridView1[0,e.RowIndex].Value)).Show();
+            }
         }
     }
 }
