@@ -12,9 +12,16 @@ namespace Razvlekator
 {
     public partial class AddAttraction : Form
     {
+        private AdminAttractions parentForm;
         public AddAttraction()
         {
             InitializeComponent();
+        }
+
+        public AddAttraction(AdminAttractions _parentForm)
+        {
+            InitializeComponent();
+            parentForm = _parentForm;
         }
 
         private void buttonAddAttrationSave_Click(object sender, EventArgs e)
@@ -49,6 +56,9 @@ namespace Razvlekator
                     db.SaveChanges();
 
                     this.Close();
+                    parentForm.AdminAttractions_Load(sender,e);
+
+
                 }
                 else label_warning.Visible = true;              
             }

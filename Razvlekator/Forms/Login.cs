@@ -60,24 +60,24 @@ namespace Razvlekator
                 //        Console.WriteLine("{0}.{1} - {2}", d.pk_discount, d.name, d.value);
                 //    }
                 //}
-                using (var db = new Model())//DBEntities.DiscountContext())
-                {
-                    var newAttraction2 = new attraction
-                    {
-                        name = "Дерьмище",
-                        duration = 100,
-                        ticketpricekid = 200,     //todouble ??
-                        ticketpriceadult = 300,
-                        agerestriction = 85,
-                        weightrestriction = 20,
-                        cartcount = 1,
-                        starttime = 11,
-                        endtime = 12,
-                        growthrestriction = 20,
-                    };
-                    db.attraction.Add(newAttraction2);
-                    Console.WriteLine("zalupa");
-                    db.SaveChanges();
+                //using (var db = new Model())//DBEntities.DiscountContext())
+                //{
+                //    var newAttraction2 = new attraction
+                //    {
+                //        name = "",
+                //        duration = 100,
+                //        ticketpricekid = 200,     //todouble ??
+                //        ticketpriceadult = 300,
+                //        agerestriction = 85,
+                //        weightrestriction = 20,
+                //        cartcount = 1,
+                //        starttime = 11,
+                //        endtime = 12,
+                //        growthrestriction = 20,
+                //    };
+                //    db.attraction.Add(newAttraction2);
+                //    Console.WriteLine("zalupa");
+                //    db.SaveChanges();
 
                     //DEBUG
 
@@ -87,4 +87,4 @@ namespace Razvlekator
             }
         }
     }
-}
+

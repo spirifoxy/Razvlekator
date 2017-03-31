@@ -31,14 +31,17 @@
             this.button2 = new System.Windows.Forms.Button();
             this.buttonAttractionsAdd = new System.Windows.Forms.Button();
             this.dataGridView1 = new System.Windows.Forms.DataGridView();
+            this.Column_pk = new System.Windows.Forms.DataGridViewTextBoxColumn();
             this.Column1 = new System.Windows.Forms.DataGridViewTextBoxColumn();
             this.Column2 = new System.Windows.Forms.DataGridViewTextBoxColumn();
             this.Column3 = new System.Windows.Forms.DataGridViewTextBoxColumn();
             this.alkjsf = new System.Windows.Forms.DataGridViewTextBoxColumn();
             this.Column4 = new System.Windows.Forms.DataGridViewTextBoxColumn();
-            this.Column5 = new System.Windows.Forms.DataGridViewTextBoxColumn();
+            this.Column_growth = new System.Windows.Forms.DataGridViewTextBoxColumn();
             this.Column6 = new System.Windows.Forms.DataGridViewTextBoxColumn();
+            this.Column_CartsCount = new System.Windows.Forms.DataGridViewTextBoxColumn();
             this.buttonColumn = new System.Windows.Forms.DataGridViewButtonColumn();
+            this.button_save = new System.Windows.Forms.Button();
             ((System.ComponentModel.ISupportInitialize)(this.dataGridView1)).BeginInit();
             this.SuspendLayout();
             // 
@@ -53,7 +56,7 @@
             // 
             // buttonAttractionsAdd
             // 
-            this.buttonAttractionsAdd.Location = new System.Drawing.Point(719, 406);
+            this.buttonAttractionsAdd.Location = new System.Drawing.Point(850, 406);
             this.buttonAttractionsAdd.Name = "buttonAttractionsAdd";
             this.buttonAttractionsAdd.Size = new System.Drawing.Size(122, 55);
             this.buttonAttractionsAdd.TabIndex = 27;
@@ -63,26 +66,38 @@
             // 
             // dataGridView1
             // 
+            this.dataGridView1.AllowUserToAddRows = false;
             this.dataGridView1.ColumnHeadersHeightSizeMode = System.Windows.Forms.DataGridViewColumnHeadersHeightSizeMode.AutoSize;
             this.dataGridView1.Columns.AddRange(new System.Windows.Forms.DataGridViewColumn[] {
+            this.Column_pk,
             this.Column1,
             this.Column2,
             this.Column3,
             this.alkjsf,
             this.Column4,
-            this.Column5,
+            this.Column_growth,
             this.Column6,
+            this.Column_CartsCount,
             this.buttonColumn});
             this.dataGridView1.Location = new System.Drawing.Point(14, 2);
             this.dataGridView1.Name = "dataGridView1";
-            this.dataGridView1.RowHeadersVisible = false;
-            this.dataGridView1.Size = new System.Drawing.Size(829, 389);
+            this.dataGridView1.Size = new System.Drawing.Size(1002, 389);
             this.dataGridView1.TabIndex = 28;
+            this.dataGridView1.CellEndEdit += new System.Windows.Forms.DataGridViewCellEventHandler(this.dataGridView1_CellEndEdit);
+            this.dataGridView1.UserDeletingRow += new System.Windows.Forms.DataGridViewRowCancelEventHandler(this.dataGridView1_UserDeletingRow);
+            // 
+            // Column_pk
+            // 
+            this.Column_pk.HeaderText = "ключ";
+            this.Column_pk.Name = "Column_pk";
+            this.Column_pk.ReadOnly = true;
+            this.Column_pk.Visible = false;
             // 
             // Column1
             // 
             this.Column1.HeaderText = "Аттракцион";
             this.Column1.Name = "Column1";
+            this.Column1.Width = 130;
             // 
             // Column2
             // 
@@ -105,15 +120,20 @@
             this.Column4.HeaderText = "Возраст с";
             this.Column4.Name = "Column4";
             // 
-            // Column5
+            // Column_growth
             // 
-            this.Column5.HeaderText = "Вес с";
-            this.Column5.Name = "Column5";
+            this.Column_growth.HeaderText = "Рост с";
+            this.Column_growth.Name = "Column_growth";
             // 
             // Column6
             // 
             this.Column6.HeaderText = "Вес до";
             this.Column6.Name = "Column6";
+            // 
+            // Column_CartsCount
+            // 
+            this.Column_CartsCount.HeaderText = "Кол-во телег";
+            this.Column_CartsCount.Name = "Column_CartsCount";
             // 
             // buttonColumn
             // 
@@ -121,16 +141,28 @@
             this.buttonColumn.Name = "buttonColumn";
             this.buttonColumn.Text = "11";
             // 
+            // button_save
+            // 
+            this.button_save.Location = new System.Drawing.Point(425, 406);
+            this.button_save.Name = "button_save";
+            this.button_save.Size = new System.Drawing.Size(124, 55);
+            this.button_save.TabIndex = 29;
+            this.button_save.Text = "Сохранить изменения";
+            this.button_save.UseVisualStyleBackColor = true;
+            this.button_save.Click += new System.EventHandler(this.button_save_Click);
+            // 
             // AdminAttractions
             // 
             this.AutoScaleDimensions = new System.Drawing.SizeF(6F, 13F);
             this.AutoScaleMode = System.Windows.Forms.AutoScaleMode.Font;
-            this.ClientSize = new System.Drawing.Size(855, 473);
+            this.ClientSize = new System.Drawing.Size(1043, 473);
+            this.Controls.Add(this.button_save);
             this.Controls.Add(this.dataGridView1);
             this.Controls.Add(this.buttonAttractionsAdd);
             this.Controls.Add(this.button2);
             this.Name = "AdminAttractions";
             this.Text = "Аттракционы";
+            this.Load += new System.EventHandler(this.AdminAttractions_Load);
             ((System.ComponentModel.ISupportInitialize)(this.dataGridView1)).EndInit();
             this.ResumeLayout(false);
 
@@ -140,13 +172,16 @@
         private System.Windows.Forms.Button button2;
         private System.Windows.Forms.Button buttonAttractionsAdd;
         private System.Windows.Forms.DataGridView dataGridView1;
+        private System.Windows.Forms.Button button_save;
+        private System.Windows.Forms.DataGridViewTextBoxColumn Column_pk;
         private System.Windows.Forms.DataGridViewTextBoxColumn Column1;
         private System.Windows.Forms.DataGridViewTextBoxColumn Column2;
         private System.Windows.Forms.DataGridViewTextBoxColumn Column3;
         private System.Windows.Forms.DataGridViewTextBoxColumn alkjsf;
         private System.Windows.Forms.DataGridViewTextBoxColumn Column4;
-        private System.Windows.Forms.DataGridViewTextBoxColumn Column5;
+        private System.Windows.Forms.DataGridViewTextBoxColumn Column_growth;
         private System.Windows.Forms.DataGridViewTextBoxColumn Column6;
+        private System.Windows.Forms.DataGridViewTextBoxColumn Column_CartsCount;
         private System.Windows.Forms.DataGridViewButtonColumn buttonColumn;
     }
 }
