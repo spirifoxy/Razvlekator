@@ -12,12 +12,12 @@ namespace Razvlekator
 {
     public partial class AdminAttractions : Form
     {
-        List<int> removedRows;      //костыль. плохо.
+        List<int> rowsToRemove;      //костыль. плохо.
         List<int> changedRows;      //костыль. плохо.
         public AdminAttractions()
         {
             InitializeComponent();
-            removedRows = new List<int>();
+            rowsToRemove = new List<int>();
             changedRows = new List<int>();
         }
 
@@ -57,7 +57,7 @@ namespace Razvlekator
 
         private void dataGridView1_UserDeletingRow(object sender, DataGridViewRowCancelEventArgs e)
         {
-            removedRows.Add(e.Row.Index);
+            rowsToRemove.Add((int) dataGridView1.Rows[e.Row.Index].Cells[0].Value);
         }
 
         private void dataGridView1_CellEndEdit(object sender, DataGridViewCellEventArgs e)
@@ -73,44 +73,61 @@ namespace Razvlekator
             using (var db = new Model())
             {
                 
-                for (int i = 0; i < removedRows.Count(); i++)
+                for (int i = 0; i < rowsToRemove.Count(); i++)
                 {
-                    attraction deletedAttraction = new attraction
+                    //attraction deletedAttraction = new attraction
+                    //{
+                    //    pk_attraction = removedRows[i],
+                    //};
+
+
+                    /*attraction attr = db.attraction
+                        .Where(a => a.pk_attraction == rowsToRemove[i])
+                        .FirstOrDefault();
+                        */
+                    attraction attr = null;
+
+                    foreach (attraction a in db.attraction)
+                    {
+                        if (a.pk_attraction == rowsToRemove[i]) {
+                            attr = a;
+                        }
+                    }
+                    if (attr == null)
+                        continue;
+                    db.attraction.Remove(attr);
+                    db.SaveChanges();
+                    /*attraction deletedAttraction = new attraction
                     {
                         pk_attraction = removedRows[i],
+                        name = 
+                        duration =
+                        ticketprice
+                        ticketprice
+                        starttime =
+                        endtime = 
+                        cartcount =
                     };
 
-                        /*attraction deletedAttraction = new attraction
-                        {
-                            pk_attraction = removedRows[i],
-                            name = 
-                            duration =
-                            ticketprice
-                            ticketprice
-                            starttime =
-                            endtime = 
-                            cartcount =
-                        };
+                    var newAttraction = new attraction
+                    {
+                        name = comboBoxAttractionName.Text,
+                        duration = Convert.ToInt32(textBoxDuration.Text),
+                        ticketpricekid = Convert.ToInt32(textBoxCostChild.Text),     //todouble ??
+                        ticketpriceadult = Convert.ToInt32(textBoxCostAdult.Text),
+                        starttime = Convert.ToInt32(numericUpDown_clockS.Text),
+                        endtime = Convert.ToInt32(numericUpDown_clockDo.Text),
+                        cartcount = Convert.ToInt32(numericUpDown_countCarts.Text)
+                    };
 
-                        var newAttraction = new attraction
-                        {
-                            name = comboBoxAttractionName.Text,
-                            duration = Convert.ToInt32(textBoxDuration.Text),
-                            ticketpricekid = Convert.ToInt32(textBoxCostChild.Text),     //todouble ??
-                            ticketpriceadult = Convert.ToInt32(textBoxCostAdult.Text),
-                            starttime = Convert.ToInt32(numericUpDown_clockS.Text),
-                            endtime = Convert.ToInt32(numericUpDown_clockDo.Text),
-                            cartcount = Convert.ToInt32(numericUpDown_countCarts.Text)
-                        };
+                    if (textBoxOldFrom.Text != "") newAttraction.agerestriction = Convert.ToInt32(textBoxOldFrom.Text);
+                    if (textBoxWeightFrom.Text != "") newAttraction.weightrestriction = Convert.ToInt32(textBoxWeightFrom.Text);
+                    if (textBoxOldFrom.Text != "") newAttraction.agerestriction = Convert.ToInt32(textBoxOldFrom.Text);
+                    */
 
-                        if (textBoxOldFrom.Text != "") newAttraction.agerestriction = Convert.ToInt32(textBoxOldFrom.Text);
-                        if (textBoxWeightFrom.Text != "") newAttraction.weightrestriction = Convert.ToInt32(textBoxWeightFrom.Text);
-                        if (textBoxOldFrom.Text != "") newAttraction.agerestriction = Convert.ToInt32(textBoxOldFrom.Text);
-                        */
-
-                        db.attraction.Attach(deletedAttraction);
-                    db.attraction.Remove(deletedAttraction);
-                    db.SaveChanges();
+                    //db.attraction.Attach(deletedAttraction);
+                    //db.attraction.Remove(deletedAttraction);
+                    //db.SaveChanges();
                 }
             }
         }
