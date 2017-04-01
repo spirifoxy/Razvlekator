@@ -55,6 +55,9 @@
             this.label9 = new System.Windows.Forms.Label();
             this.numericUpDown_countCarts = new System.Windows.Forms.NumericUpDown();
             this.label_warning = new System.Windows.Forms.Label();
+            this.groupBox5 = new System.Windows.Forms.GroupBox();
+            this.label10 = new System.Windows.Forms.Label();
+            this.numericUpDown_countPlaces = new System.Windows.Forms.NumericUpDown();
             this.groupBox3.SuspendLayout();
             this.groupBox2.SuspendLayout();
             ((System.ComponentModel.ISupportInitialize)(this.numericUpDown_clockDo)).BeginInit();
@@ -62,13 +65,15 @@
             this.groupBox4.SuspendLayout();
             this.groupBox1.SuspendLayout();
             ((System.ComponentModel.ISupportInitialize)(this.numericUpDown_countCarts)).BeginInit();
+            this.groupBox5.SuspendLayout();
+            ((System.ComponentModel.ISupportInitialize)(this.numericUpDown_countPlaces)).BeginInit();
             this.SuspendLayout();
             // 
             // buttonAddAttractionCancel
             // 
-            this.buttonAddAttractionCancel.Location = new System.Drawing.Point(106, 263);
+            this.buttonAddAttractionCancel.Location = new System.Drawing.Point(106, 291);
             this.buttonAddAttractionCancel.Name = "buttonAddAttractionCancel";
-            this.buttonAddAttractionCancel.Size = new System.Drawing.Size(133, 68);
+            this.buttonAddAttractionCancel.Size = new System.Drawing.Size(133, 40);
             this.buttonAddAttractionCancel.TabIndex = 22;
             this.buttonAddAttractionCancel.Text = "Отмена";
             this.buttonAddAttractionCancel.UseVisualStyleBackColor = true;
@@ -76,9 +81,9 @@
             // 
             // buttonAddAttrationSave
             // 
-            this.buttonAddAttrationSave.Location = new System.Drawing.Point(350, 263);
+            this.buttonAddAttrationSave.Location = new System.Drawing.Point(350, 291);
             this.buttonAddAttrationSave.Name = "buttonAddAttrationSave";
-            this.buttonAddAttrationSave.Size = new System.Drawing.Size(137, 68);
+            this.buttonAddAttrationSave.Size = new System.Drawing.Size(137, 40);
             this.buttonAddAttrationSave.TabIndex = 5;
             this.buttonAddAttrationSave.Text = "Добавить";
             this.buttonAddAttrationSave.UseVisualStyleBackColor = true;
@@ -94,7 +99,7 @@
             this.groupBox3.Controls.Add(this.textBoxOldFrom);
             this.groupBox3.Location = new System.Drawing.Point(12, 112);
             this.groupBox3.Name = "groupBox3";
-            this.groupBox3.Size = new System.Drawing.Size(276, 125);
+            this.groupBox3.Size = new System.Drawing.Size(276, 173);
             this.groupBox3.TabIndex = 24;
             this.groupBox3.TabStop = false;
             this.groupBox3.Text = "Ограничения";
@@ -304,7 +309,7 @@
             // label9
             // 
             this.label9.AutoSize = true;
-            this.label9.Location = new System.Drawing.Point(315, 211);
+            this.label9.Location = new System.Drawing.Point(17, 16);
             this.label9.Name = "label9";
             this.label9.Size = new System.Drawing.Size(101, 13);
             this.label9.TabIndex = 22;
@@ -312,7 +317,7 @@
             // 
             // numericUpDown_countCarts
             // 
-            this.numericUpDown_countCarts.Location = new System.Drawing.Point(421, 209);
+            this.numericUpDown_countCarts.Location = new System.Drawing.Point(127, 14);
             this.numericUpDown_countCarts.Minimum = new decimal(new int[] {
             1,
             0,
@@ -339,14 +344,52 @@
             this.label_warning.Text = "Пожалуйста, заполните все поля, отмеченные звездочками";
             this.label_warning.Visible = false;
             // 
+            // groupBox5
+            // 
+            this.groupBox5.Controls.Add(this.numericUpDown_countPlaces);
+            this.groupBox5.Controls.Add(this.label10);
+            this.groupBox5.Controls.Add(this.label9);
+            this.groupBox5.Controls.Add(this.numericUpDown_countCarts);
+            this.groupBox5.Location = new System.Drawing.Point(294, 208);
+            this.groupBox5.Name = "groupBox5";
+            this.groupBox5.Size = new System.Drawing.Size(276, 77);
+            this.groupBox5.TabIndex = 27;
+            this.groupBox5.TabStop = false;
+            this.groupBox5.Text = "Телеги";
+            // 
+            // label10
+            // 
+            this.label10.AutoSize = true;
+            this.label10.Location = new System.Drawing.Point(17, 44);
+            this.label10.Name = "label10";
+            this.label10.Size = new System.Drawing.Size(98, 13);
+            this.label10.TabIndex = 26;
+            this.label10.Text = "*Колечество мест";
+            // 
+            // numericUpDown_countPlaces
+            // 
+            this.numericUpDown_countPlaces.Location = new System.Drawing.Point(127, 42);
+            this.numericUpDown_countPlaces.Minimum = new decimal(new int[] {
+            1,
+            0,
+            0,
+            0});
+            this.numericUpDown_countPlaces.Name = "numericUpDown_countPlaces";
+            this.numericUpDown_countPlaces.Size = new System.Drawing.Size(110, 20);
+            this.numericUpDown_countPlaces.TabIndex = 27;
+            this.numericUpDown_countPlaces.Value = new decimal(new int[] {
+            1,
+            0,
+            0,
+            0});
+            // 
             // AddAttraction
             // 
             this.AutoScaleDimensions = new System.Drawing.SizeF(6F, 13F);
             this.AutoScaleMode = System.Windows.Forms.AutoScaleMode.Font;
             this.ClientSize = new System.Drawing.Size(584, 366);
+            this.Controls.Add(this.groupBox5);
             this.Controls.Add(this.label_warning);
-            this.Controls.Add(this.numericUpDown_countCarts);
-            this.Controls.Add(this.label9);
             this.Controls.Add(this.groupBox4);
             this.Controls.Add(this.groupBox1);
             this.Controls.Add(this.groupBox3);
@@ -366,6 +409,9 @@
             this.groupBox1.ResumeLayout(false);
             this.groupBox1.PerformLayout();
             ((System.ComponentModel.ISupportInitialize)(this.numericUpDown_countCarts)).EndInit();
+            this.groupBox5.ResumeLayout(false);
+            this.groupBox5.PerformLayout();
+            ((System.ComponentModel.ISupportInitialize)(this.numericUpDown_countPlaces)).EndInit();
             this.ResumeLayout(false);
             this.PerformLayout();
 
@@ -399,5 +445,8 @@
         private System.Windows.Forms.NumericUpDown numericUpDown_clockDo;
         private System.Windows.Forms.NumericUpDown numericUpDown_clockS;
         private System.Windows.Forms.Label label_warning;
+        private System.Windows.Forms.GroupBox groupBox5;
+        private System.Windows.Forms.NumericUpDown numericUpDown_countPlaces;
+        private System.Windows.Forms.Label label10;
     }
 }
