@@ -30,6 +30,7 @@ namespace Razvlekator
             {
                 using (var db = new Model())//DBEntities.DiscountContext())
                 {
+                    #region Создание Аттракциона
                     if (textBoxDuration.Text != "" &&
                         textBoxCostChild.Text != "" &&
                         textBoxCostAdult.Text != "" &&
@@ -42,7 +43,7 @@ namespace Razvlekator
                         {
                             name = comboBoxAttractionName.Text,
                             duration = Convert.ToInt32(textBoxDuration.Text),
-                            ticketpricekid = Convert.ToInt32(textBoxCostChild.Text),     //todouble ??
+                            ticketpricekid = Convert.ToSingle(textBoxCostChild.Text),     
                             ticketpriceadult = Convert.ToInt32(textBoxCostAdult.Text),
                             starttime = Convert.ToInt32(numericUpDown_clockS.Text),
                             endtime = Convert.ToInt32(numericUpDown_clockDo.Text),
@@ -54,6 +55,29 @@ namespace Razvlekator
                         if (textBoxOldFrom.Text != "") newAttraction.agerestriction = Convert.ToInt32(textBoxOldFrom.Text);
 
                         db.attraction.Add(newAttraction);
+                    #endregion
+                    #region Создание тележек и мест в них
+
+                        for (int i = 0; i < Convert.ToInt32(numericUpDown_countCarts.Value); i++)
+                        {
+                            var newCart = new cart()
+                            {
+                                attraction = newAttraction,
+                                placecount = (int)numericUpDown_countPlaces.Value
+                            };
+                            for (int j = 0; j < Convert.ToInt32(numericUpDown_countPlaces.Value); i++)
+                            {
+                                var newPlace = new place()
+                                {
+                                    Number = j + 1,
+                                    cart = newCart
+                                };
+                                db.place.Add(newPlace);
+                            }
+                            db.cart.Add(newCart);
+                        }
+
+                    #endregion
 
                         db.SaveChanges();
 
