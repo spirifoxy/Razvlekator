@@ -52,7 +52,7 @@ namespace Razvlekator
 
                         if (textBoxOldFrom.Text != "") newAttraction.agerestriction = Convert.ToInt32(textBoxOldFrom.Text);
                         if (textBoxWeightFrom.Text != "") newAttraction.weightrestriction = Convert.ToInt32(textBoxWeightFrom.Text);
-                        if (textBoxOldFrom.Text != "") newAttraction.agerestriction = Convert.ToInt32(textBoxOldFrom.Text);
+                        if (textBox_growth.Text != "") newAttraction.growthrestriction = Convert.ToInt32(textBox_growth.Text);
 
                         db.attraction.Add(newAttraction);
                     #endregion
@@ -65,7 +65,7 @@ namespace Razvlekator
                                 attraction = newAttraction,
                                 placecount = (int)numericUpDown_countPlaces.Value
                             };
-                            for (int j = 0; j < Convert.ToInt32(numericUpDown_countPlaces.Value); i++)
+                            for (int j = 0; j < Convert.ToInt32(numericUpDown_countPlaces.Value); j++)
                             {
                                 var newPlace = new place()
                                 {

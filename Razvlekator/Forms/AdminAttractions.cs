@@ -82,7 +82,8 @@ namespace Razvlekator
         private void button_save_Click(object sender, EventArgs e)
         {
             //не работает
-            //textBox_status.Text = "Ожидайте...";
+            textBox_status.Text = "Ожидайте...";
+            textBox_status.Update();
             try
             {
                 using (var db = new Model())
