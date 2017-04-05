@@ -41,5 +41,10 @@ namespace Razvlekator
             this.Close();
             loginForm.Show();
         }
+
+        private void Admin_FormClosed(object sender, FormClosedEventArgs e)
+        {
+            Application.Exit();
+        }
     }
 }

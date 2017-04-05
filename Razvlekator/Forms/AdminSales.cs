@@ -56,6 +56,7 @@ namespace Razvlekator
                         dataGridView3[0, j].Value = d.pk_discount;
                         dataGridView3[1, j].Value = d.name;
                         dataGridView3[2, j].Value = d.value;
+                        if (d.isActive == 1) dataGridView3[3, j].Value = true; 
                         j++;    //костыль
                     }
                 }
@@ -122,6 +123,8 @@ namespace Razvlekator
                             if (dataGridView3[0, numberOfRow].Value != null) disc.pk_discount = Convert.ToInt32(dataGridView3[0, numberOfRow].Value);
                             if (dataGridView3[1, numberOfRow].Value != null) disc.name = Convert.ToString(dataGridView3[1, numberOfRow].Value);
                             if (dataGridView3[2, numberOfRow].Value != null) disc.value = Convert.ToInt32(dataGridView3[2, numberOfRow].Value);
+                            if (dataGridView3[3, numberOfRow].Value.Equals(true)) disc.isActive = 1;
+                            if (dataGridView3[3, numberOfRow].Value.Equals(false)) disc.isActive = 0;
                         }
                         else
                             throw new Exception("В БД не найден соответствующий первичный ключ");

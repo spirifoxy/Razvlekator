@@ -81,7 +81,6 @@ namespace Razvlekator
 
         private void button_save_Click(object sender, EventArgs e)
         {
-            //не работает
             textBox_status.Text = "Ожидайте...";
             textBox_status.Update();
             try
@@ -124,12 +123,6 @@ namespace Razvlekator
                         attraction attr = null;
                         foreach (var a in db.attraction)
                             if (a.pk_attraction == changedRows[i]) attr = a;
-
-                        //больше часа пытался сделать, чтобы эта строчка работала вместо цикла выше, очень уж хотелось в linq
-                        //если кому-то будет любопытно, и кто-то найдёт причину вылетаний - буду признателен
-                        //
-                        //attraction attr = db.attraction.FirstOrDefault(s => (int) s.pk_attraction == (int) changedRows[i]);
-
 
                         if (attr != null)
                         {
@@ -179,6 +172,11 @@ namespace Razvlekator
             {
                 new Sessions(this,Convert.ToInt32(dataGridView1[0,e.RowIndex].Value)).Show();
             }
+        }
+
+        private void AdminAttractions_FormClosed(object sender, FormClosedEventArgs e)
+        {
+            Application.Exit();
         }
     }
 }

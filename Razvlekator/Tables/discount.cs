@@ -25,6 +25,8 @@ namespace Razvlekator
 
         public int value { get; set; }
 
+        public int isActive { get; set; }
+
         [System.Diagnostics.CodeAnalysis.SuppressMessage("Microsoft.Usage", "CA2227:CollectionPropertiesShouldBeReadOnly")]
         public virtual ICollection<ticket> Ticket { get; set; }
     }

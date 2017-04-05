@@ -29,8 +29,6 @@
         private void InitializeComponent()
         {
             this.dataGridView1 = new System.Windows.Forms.DataGridView();
-            this.Column1 = new System.Windows.Forms.DataGridViewTextBoxColumn();
-            this.Column2 = new System.Windows.Forms.DataGridViewTextBoxColumn();
             this.label1 = new System.Windows.Forms.Label();
             this.label2 = new System.Windows.Forms.Label();
             this.label3 = new System.Windows.Forms.Label();
@@ -43,6 +41,9 @@
             this.textBox_timeBetween = new System.Windows.Forms.NumericUpDown();
             this.textBox_duration = new System.Windows.Forms.NumericUpDown();
             this.textBox_endTime = new System.Windows.Forms.NumericUpDown();
+            this.Column1 = new System.Windows.Forms.DataGridViewTextBoxColumn();
+            this.Column2 = new System.Windows.Forms.DataGridViewTextBoxColumn();
+            this.Column_pk = new System.Windows.Forms.DataGridViewTextBoxColumn();
             ((System.ComponentModel.ISupportInitialize)(this.dataGridView1)).BeginInit();
             ((System.ComponentModel.ISupportInitialize)(this.textBox_startTime)).BeginInit();
             ((System.ComponentModel.ISupportInitialize)(this.textBox_timeBetween)).BeginInit();
@@ -55,29 +56,18 @@
             this.dataGridView1.ColumnHeadersHeightSizeMode = System.Windows.Forms.DataGridViewColumnHeadersHeightSizeMode.AutoSize;
             this.dataGridView1.Columns.AddRange(new System.Windows.Forms.DataGridViewColumn[] {
             this.Column1,
-            this.Column2});
+            this.Column2,
+            this.Column_pk});
             this.dataGridView1.Location = new System.Drawing.Point(41, 140);
             this.dataGridView1.Name = "dataGridView1";
-            this.dataGridView1.RowHeadersVisible = false;
-            this.dataGridView1.Size = new System.Drawing.Size(326, 163);
+            this.dataGridView1.Size = new System.Drawing.Size(341, 163);
             this.dataGridView1.TabIndex = 0;
-            // 
-            // Column1
-            // 
-            this.Column1.HeaderText = "Время начала";
-            this.Column1.Name = "Column1";
-            this.Column1.Width = 147;
-            // 
-            // Column2
-            // 
-            this.Column2.HeaderText = "Время конца";
-            this.Column2.Name = "Column2";
-            this.Column2.Width = 147;
+            this.dataGridView1.UserDeletingRow += new System.Windows.Forms.DataGridViewRowCancelEventHandler(this.dataGridView1_UserDeletingRow);
             // 
             // label1
             // 
             this.label1.AutoSize = true;
-            this.label1.Location = new System.Drawing.Point(49, 57);
+            this.label1.Location = new System.Drawing.Point(39, 57);
             this.label1.Name = "label1";
             this.label1.Size = new System.Drawing.Size(180, 13);
             this.label1.TabIndex = 4;
@@ -86,7 +76,7 @@
             // label2
             // 
             this.label2.AutoSize = true;
-            this.label2.Location = new System.Drawing.Point(49, 25);
+            this.label2.Location = new System.Drawing.Point(39, 25);
             this.label2.Name = "label2";
             this.label2.Size = new System.Drawing.Size(185, 13);
             this.label2.TabIndex = 5;
@@ -95,7 +85,7 @@
             // label3
             // 
             this.label3.AutoSize = true;
-            this.label3.Location = new System.Drawing.Point(49, 86);
+            this.label3.Location = new System.Drawing.Point(39, 86);
             this.label3.Name = "label3";
             this.label3.Size = new System.Drawing.Size(150, 13);
             this.label3.TabIndex = 6;
@@ -104,7 +94,7 @@
             // label4
             // 
             this.label4.AutoSize = true;
-            this.label4.Location = new System.Drawing.Point(49, 114);
+            this.label4.Location = new System.Drawing.Point(39, 114);
             this.label4.Name = "label4";
             this.label4.Size = new System.Drawing.Size(160, 13);
             this.label4.TabIndex = 8;
@@ -146,31 +136,49 @@
             // 
             // textBox_startTime
             // 
-            this.textBox_startTime.Location = new System.Drawing.Point(247, 25);
+            this.textBox_startTime.Location = new System.Drawing.Point(262, 25);
             this.textBox_startTime.Name = "textBox_startTime";
             this.textBox_startTime.Size = new System.Drawing.Size(120, 20);
             this.textBox_startTime.TabIndex = 13;
             // 
             // textBox_timeBetween
             // 
-            this.textBox_timeBetween.Location = new System.Drawing.Point(247, 112);
+            this.textBox_timeBetween.Location = new System.Drawing.Point(262, 112);
             this.textBox_timeBetween.Name = "textBox_timeBetween";
             this.textBox_timeBetween.Size = new System.Drawing.Size(120, 20);
             this.textBox_timeBetween.TabIndex = 14;
             // 
             // textBox_duration
             // 
-            this.textBox_duration.Location = new System.Drawing.Point(247, 84);
+            this.textBox_duration.Location = new System.Drawing.Point(262, 84);
             this.textBox_duration.Name = "textBox_duration";
             this.textBox_duration.Size = new System.Drawing.Size(120, 20);
             this.textBox_duration.TabIndex = 15;
             // 
             // textBox_endTime
             // 
-            this.textBox_endTime.Location = new System.Drawing.Point(247, 55);
+            this.textBox_endTime.Location = new System.Drawing.Point(262, 55);
             this.textBox_endTime.Name = "textBox_endTime";
             this.textBox_endTime.Size = new System.Drawing.Size(120, 20);
             this.textBox_endTime.TabIndex = 16;
+            // 
+            // Column1
+            // 
+            this.Column1.HeaderText = "Время начала";
+            this.Column1.Name = "Column1";
+            this.Column1.Width = 147;
+            // 
+            // Column2
+            // 
+            this.Column2.HeaderText = "Время конца";
+            this.Column2.Name = "Column2";
+            this.Column2.Width = 147;
+            // 
+            // Column_pk
+            // 
+            this.Column_pk.HeaderText = "pk";
+            this.Column_pk.Name = "Column_pk";
+            this.Column_pk.Visible = false;
             // 
             // Sessions
             // 
@@ -211,8 +219,6 @@
         private System.Windows.Forms.Label label3;
         private System.Windows.Forms.Label label4;
         private System.Windows.Forms.Button button_gererateSessions;
-        private System.Windows.Forms.DataGridViewTextBoxColumn Column1;
-        private System.Windows.Forms.DataGridViewTextBoxColumn Column2;
         private System.Windows.Forms.DateTimePicker dateTimePicker1;
         private System.Windows.Forms.DateTimePicker dateTimePicker2;
         private System.Windows.Forms.Button button_saveSessions;
@@ -220,5 +226,8 @@
         private System.Windows.Forms.NumericUpDown textBox_timeBetween;
         private System.Windows.Forms.NumericUpDown textBox_duration;
         private System.Windows.Forms.NumericUpDown textBox_endTime;
+        private System.Windows.Forms.DataGridViewTextBoxColumn Column1;
+        private System.Windows.Forms.DataGridViewTextBoxColumn Column2;
+        private System.Windows.Forms.DataGridViewTextBoxColumn Column_pk;
     }
 }

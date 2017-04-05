@@ -9,15 +9,18 @@ namespace Razvlekator
     {
         AdminAttractions adminForm;
         int pk_attraction;
+        List<int> rowsToRemove;
         public Sessions()
         {
             InitializeComponent();
+            rowsToRemove = new List<int>();
         }
         public Sessions(AdminAttractions _adminForm, int _pk_attraction)
         {
             InitializeComponent();
             adminForm = _adminForm;
             pk_attraction = _pk_attraction;
+            rowsToRemove = new List<int>();
         }
 
         private void textBox1_TextChanged(object sender, EventArgs e)
@@ -53,6 +56,8 @@ namespace Razvlekator
                         TimeSpan temp2 = new TimeSpan(0,attr.duration,0);
                         temp += temp2;
                         dataGridView1[1, j].Value = (temp.ToString("hh':'mm"));
+                        dataGridView1[2, j].Value = (d.pk_session);
+
                         j++;    //костыль
                     }
 
@@ -107,6 +112,26 @@ namespace Razvlekator
                 {
                     using (var db = new Model())//DBEntities.DiscountContext())
                     {
+                        for (int i = 0; i < rowsToRemove.Count(); i++)
+                        {
+                            session ses = null;
+
+                            foreach (session a in db.session)
+                            {
+                                if (a.pk_session == rowsToRemove[i])
+                                {
+                                    ses = a;
+                                    break;
+                                }
+                            }
+                            if (ses == null)
+                                continue;
+                            db.session.Remove(ses);
+                            db.SaveChanges();
+                        }
+
+
+
                         for (DateTime mydate = new DateTime
                             (dateTimePicker1.Value.Year,
                             dateTimePicker1.Value.Month,
@@ -153,6 +178,11 @@ namespace Razvlekator
                                  MessageBoxIcon.Question);
                 }
             }
+        }
+
+        private void dataGridView1_UserDeletingRow(object sender, DataGridViewRowCancelEventArgs e)
+        {
+            rowsToRemove.Add((int)dataGridView1.Rows[e.Row.Index].Cells[2].Value);
         }
     }
 }

@@ -73,6 +73,7 @@
             this.Controls.Add(this.buttonAdminAttractions);
             this.Name = "Admin";
             this.Text = "Администратор";
+            this.FormClosed += new System.Windows.Forms.FormClosedEventHandler(this.Admin_FormClosed);
             this.ResumeLayout(false);
 
         }

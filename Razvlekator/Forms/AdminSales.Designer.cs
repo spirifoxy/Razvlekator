@@ -31,11 +31,12 @@
             this.dataGridView3 = new System.Windows.Forms.DataGridView();
             this.button_sales_back = new System.Windows.Forms.Button();
             this.button_add_sales = new System.Windows.Forms.Button();
+            this.button_save = new System.Windows.Forms.Button();
+            this.textBox_status = new System.Windows.Forms.TextBox();
             this.Column_pk_discount = new System.Windows.Forms.DataGridViewTextBoxColumn();
             this.dataGridViewTextBoxColumn1 = new System.Windows.Forms.DataGridViewTextBoxColumn();
             this.dataGridViewTextBoxColumn2 = new System.Windows.Forms.DataGridViewTextBoxColumn();
-            this.button_save = new System.Windows.Forms.Button();
-            this.textBox_status = new System.Windows.Forms.TextBox();
+            this.Column_active = new System.Windows.Forms.DataGridViewCheckBoxColumn();
             ((System.ComponentModel.ISupportInitialize)(this.dataGridView3)).BeginInit();
             this.SuspendLayout();
             // 
@@ -45,10 +46,11 @@
             this.dataGridView3.Columns.AddRange(new System.Windows.Forms.DataGridViewColumn[] {
             this.Column_pk_discount,
             this.dataGridViewTextBoxColumn1,
-            this.dataGridViewTextBoxColumn2});
+            this.dataGridViewTextBoxColumn2,
+            this.Column_active});
             this.dataGridView3.Location = new System.Drawing.Point(12, 12);
             this.dataGridView3.Name = "dataGridView3";
-            this.dataGridView3.Size = new System.Drawing.Size(268, 178);
+            this.dataGridView3.Size = new System.Drawing.Size(285, 178);
             this.dataGridView3.TabIndex = 26;
             this.dataGridView3.CellEndEdit += new System.Windows.Forms.DataGridViewCellEventHandler(this.dataGridView3_CellEndEdit);
             this.dataGridView3.UserDeletingRow += new System.Windows.Forms.DataGridViewRowCancelEventHandler(this.dataGridView3_UserDeletingRow);
@@ -73,22 +75,6 @@
             this.button_add_sales.UseVisualStyleBackColor = true;
             this.button_add_sales.Click += new System.EventHandler(this.button_add_sales_Click);
             // 
-            // Column_pk_discount
-            // 
-            this.Column_pk_discount.HeaderText = "pk_discount";
-            this.Column_pk_discount.Name = "Column_pk_discount";
-            this.Column_pk_discount.Visible = false;
-            // 
-            // dataGridViewTextBoxColumn1
-            // 
-            this.dataGridViewTextBoxColumn1.HeaderText = "Наименование соц. группы";
-            this.dataGridViewTextBoxColumn1.Name = "dataGridViewTextBoxColumn1";
-            // 
-            // dataGridViewTextBoxColumn2
-            // 
-            this.dataGridViewTextBoxColumn2.HeaderText = "Процент скидки";
-            this.dataGridViewTextBoxColumn2.Name = "dataGridViewTextBoxColumn2";
-            // 
             // button_save
             // 
             this.button_save.Location = new System.Drawing.Point(109, 226);
@@ -108,11 +94,35 @@
             this.textBox_status.TabIndex = 46;
             this.textBox_status.TextAlign = System.Windows.Forms.HorizontalAlignment.Center;
             // 
+            // Column_pk_discount
+            // 
+            this.Column_pk_discount.HeaderText = "pk_discount";
+            this.Column_pk_discount.Name = "Column_pk_discount";
+            this.Column_pk_discount.Visible = false;
+            // 
+            // dataGridViewTextBoxColumn1
+            // 
+            this.dataGridViewTextBoxColumn1.HeaderText = "Наименование соц. группы";
+            this.dataGridViewTextBoxColumn1.Name = "dataGridViewTextBoxColumn1";
+            // 
+            // dataGridViewTextBoxColumn2
+            // 
+            this.dataGridViewTextBoxColumn2.HeaderText = "Процент скидки";
+            this.dataGridViewTextBoxColumn2.Name = "dataGridViewTextBoxColumn2";
+            // 
+            // Column_active
+            // 
+            this.Column_active.HeaderText = ".";
+            this.Column_active.Name = "Column_active";
+            this.Column_active.Resizable = System.Windows.Forms.DataGridViewTriState.True;
+            this.Column_active.SortMode = System.Windows.Forms.DataGridViewColumnSortMode.Automatic;
+            this.Column_active.Width = 30;
+            // 
             // AdminSales
             // 
             this.AutoScaleDimensions = new System.Drawing.SizeF(6F, 13F);
             this.AutoScaleMode = System.Windows.Forms.AutoScaleMode.Font;
-            this.ClientSize = new System.Drawing.Size(292, 341);
+            this.ClientSize = new System.Drawing.Size(309, 341);
             this.Controls.Add(this.textBox_status);
             this.Controls.Add(this.button_save);
             this.Controls.Add(this.button_sales_back);
@@ -132,10 +142,11 @@
         private System.Windows.Forms.DataGridView dataGridView3;
         private System.Windows.Forms.Button button_sales_back;
         private System.Windows.Forms.Button button_add_sales;
+        private System.Windows.Forms.Button button_save;
+        private System.Windows.Forms.TextBox textBox_status;
         private System.Windows.Forms.DataGridViewTextBoxColumn Column_pk_discount;
         private System.Windows.Forms.DataGridViewTextBoxColumn dataGridViewTextBoxColumn1;
         private System.Windows.Forms.DataGridViewTextBoxColumn dataGridViewTextBoxColumn2;
-        private System.Windows.Forms.Button button_save;
-        private System.Windows.Forms.TextBox textBox_status;
+        private System.Windows.Forms.DataGridViewCheckBoxColumn Column_active;
     }
 }
