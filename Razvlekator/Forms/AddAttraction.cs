@@ -31,12 +31,12 @@ namespace Razvlekator
                 using (var db = new Model())//DBEntities.DiscountContext())
                 {
                     #region Создание Аттракциона
-                    if (textBoxDuration.Text != "" &&
-                        textBoxCostChild.Text != "" &&
-                        textBoxCostAdult.Text != "" &&
-                        numericUpDown_clockS.Text != "" &&
-                        numericUpDown_clockDo.Text != "" &&
-                        numericUpDown_countCarts.Text != ""
+                    if (textBoxDuration.Value != 0 &&
+                        textBoxCostChild.Value != 0 &&
+                        textBoxCostAdult.Value != 0 &&
+                        numericUpDown_clockS.Value != 0 &&
+                        numericUpDown_clockDo.Value != 0 &&
+                        numericUpDown_countCarts.Value != 0
                         )
                     {
                         var newAttraction = new attraction
@@ -50,9 +50,9 @@ namespace Razvlekator
                             cartcount = Convert.ToInt32(numericUpDown_countCarts.Text)
                         };
 
-                        if (textBoxOldFrom.Text != "") newAttraction.agerestriction = Convert.ToInt32(textBoxOldFrom.Text);
-                        if (textBoxWeightFrom.Text != "") newAttraction.weightrestriction = Convert.ToInt32(textBoxWeightFrom.Text);
-                        if (textBox_growth.Text != "") newAttraction.growthrestriction = Convert.ToInt32(textBox_growth.Text);
+                        if (textBoxOldFrom.Value != 0) newAttraction.agerestrictions = Convert.ToInt32(textBoxOldFrom.Text);
+                        if (textBoxWeightFrom.Value != 0) newAttraction.weightrestriction = Convert.ToInt32(textBoxWeightFrom.Text);
+                        if (textBox_growth.Value != 0) newAttraction.growthrestriction = Convert.ToInt32(textBox_growth.Text);
 
                         db.attraction.Add(newAttraction);
                     #endregion
@@ -95,9 +95,10 @@ namespace Razvlekator
                              MessageBoxButtons.OK,
                              MessageBoxIcon.Question);
             }
-            catch (Exception)
+            catch (Exception a)
             {
-                MessageBox.Show("Что-то пошло не так", "Упс",
+                
+                MessageBox.Show(a.Message, "Упс",
                              MessageBoxButtons.OK,
                              MessageBoxIcon.Question);
             }

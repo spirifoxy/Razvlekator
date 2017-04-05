@@ -38,6 +38,25 @@ namespace Razvlekator
                     textBox_duration.Text = attr.duration.ToString();
                     textBox_startTime.Text = attr.starttime.ToString();
                     textBox_endTime.Text = attr.endtime.ToString();
+
+                    dataGridView1.Rows.Clear();
+                    var session = db.session;
+
+                    while (dataGridView1.Rows.Count < session.Count())
+                        dataGridView1.Rows.Add();
+
+                    int j = 0;
+                    foreach (session d in session)
+                    {
+                        dataGridView1[0, j].Value = d.time.ToString("hh':'mm");
+                        TimeSpan temp = d.time;
+                        TimeSpan temp2 = new TimeSpan(0,attr.duration,0);
+                        temp += temp2;
+                        dataGridView1[1, j].Value = (temp.ToString("hh':'mm"));
+                        j++;    //костыль
+                    }
+
+
                 }
             }
 
@@ -51,7 +70,7 @@ namespace Razvlekator
 
         private void button_generateSessions_Click(object sender, EventArgs e)
         {
-            if (textBox_timeBetween.Text != "")
+            if (textBox_timeBetween.Value != 0)
             {
                 dataGridView1.Rows.Clear();
                 //min
@@ -110,7 +129,7 @@ namespace Razvlekator
                                 {
                                     date = mydate,
                                     time = mytime,
-                                    pk_place = 2    //фу.
+                                    pk_place = 11    //фу.
                                 };
 
                                 db.session.Add(newSession);
@@ -127,9 +146,9 @@ namespace Razvlekator
                                  MessageBoxButtons.OK,
                                  MessageBoxIcon.Question);
                 }
-                catch (Exception)
+                catch (Exception a)
                 {
-                    MessageBox.Show("Что-то пошло не так", "Упс",
+                    MessageBox.Show(a.Message, "Упс",
                                  MessageBoxButtons.OK,
                                  MessageBoxIcon.Question);
                 }

@@ -51,7 +51,7 @@ namespace Razvlekator
                         dataGridView1[2, j].Value = d.ticketpricekid;
                         dataGridView1[3, j].Value = d.ticketpriceadult;
                         dataGridView1[4, j].Value = d.duration;
-                        dataGridView1[5, j].Value = d.agerestriction;
+                        dataGridView1[5, j].Value = d.agerestrictions;
                         dataGridView1[6, j].Value = d.growthrestriction;
                         dataGridView1[7, j].Value = d.weightrestriction;
                         dataGridView1[8, j].Value = d.cartcount;
@@ -138,7 +138,7 @@ namespace Razvlekator
                             if (dataGridView1[2, numberOfRow].Value != null) attr.ticketpricekid = Convert.ToInt32(dataGridView1[2, numberOfRow].Value);  //todouble??
                             if (dataGridView1[3, numberOfRow].Value != null) attr.ticketpriceadult = Convert.ToInt32(dataGridView1[3, numberOfRow].Value);  //todouble??
                             if (dataGridView1[4, numberOfRow].Value != null) attr.duration = Convert.ToInt32(dataGridView1[4, numberOfRow].Value);
-                            if (dataGridView1[5, numberOfRow].Value != null) attr.agerestriction = Convert.ToInt32(dataGridView1[5, numberOfRow].Value);
+                            if (dataGridView1[5, numberOfRow].Value != null) attr.agerestrictions = Convert.ToInt32(dataGridView1[5, numberOfRow].Value);
                             if (dataGridView1[6, numberOfRow].Value != null) attr.growthrestriction = Convert.ToInt32(dataGridView1[6, numberOfRow].Value);
                             if (dataGridView1[7, numberOfRow].Value != null) attr.weightrestriction = Convert.ToInt32(dataGridView1[7, numberOfRow].Value);
                             if (dataGridView1[8, numberOfRow].Value != null) attr.cartcount = Convert.ToInt32(dataGridView1[8, numberOfRow].Value);
@@ -159,9 +159,9 @@ namespace Razvlekator
                              MessageBoxButtons.OK,
                              MessageBoxIcon.Question);
             }
-            catch (Exception)
+            catch (Exception a)
             {
-                MessageBox.Show("Что-то пошло не так", "Упс",
+                MessageBox.Show(a.Message, "Упс",
                              MessageBoxButtons.OK,
                              MessageBoxIcon.Question);
             }

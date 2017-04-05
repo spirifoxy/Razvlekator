@@ -34,9 +34,6 @@
             this.label6 = new System.Windows.Forms.Label();
             this.label2 = new System.Windows.Forms.Label();
             this.label1 = new System.Windows.Forms.Label();
-            this.textBox_growth = new System.Windows.Forms.TextBox();
-            this.textBoxWeightFrom = new System.Windows.Forms.TextBox();
-            this.textBoxOldFrom = new System.Windows.Forms.TextBox();
             this.groupBox2 = new System.Windows.Forms.GroupBox();
             this.numericUpDown_clockDo = new System.Windows.Forms.NumericUpDown();
             this.label3 = new System.Windows.Forms.Label();
@@ -44,20 +41,23 @@
             this.label5 = new System.Windows.Forms.Label();
             this.groupBox4 = new System.Windows.Forms.GroupBox();
             this.label4 = new System.Windows.Forms.Label();
-            this.textBoxDuration = new System.Windows.Forms.TextBox();
             this.label15 = new System.Windows.Forms.Label();
             this.comboBoxAttractionName = new System.Windows.Forms.ComboBox();
             this.groupBox1 = new System.Windows.Forms.GroupBox();
-            this.textBoxCostAdult = new System.Windows.Forms.TextBox();
             this.label8 = new System.Windows.Forms.Label();
             this.label7 = new System.Windows.Forms.Label();
-            this.textBoxCostChild = new System.Windows.Forms.TextBox();
             this.label9 = new System.Windows.Forms.Label();
             this.numericUpDown_countCarts = new System.Windows.Forms.NumericUpDown();
             this.label_warning = new System.Windows.Forms.Label();
             this.groupBox5 = new System.Windows.Forms.GroupBox();
-            this.label10 = new System.Windows.Forms.Label();
             this.numericUpDown_countPlaces = new System.Windows.Forms.NumericUpDown();
+            this.label10 = new System.Windows.Forms.Label();
+            this.textBoxCostChild = new System.Windows.Forms.NumericUpDown();
+            this.textBoxCostAdult = new System.Windows.Forms.NumericUpDown();
+            this.textBoxWeightFrom = new System.Windows.Forms.NumericUpDown();
+            this.textBox_growth = new System.Windows.Forms.NumericUpDown();
+            this.textBoxOldFrom = new System.Windows.Forms.NumericUpDown();
+            this.textBoxDuration = new System.Windows.Forms.NumericUpDown();
             this.groupBox3.SuspendLayout();
             this.groupBox2.SuspendLayout();
             ((System.ComponentModel.ISupportInitialize)(this.numericUpDown_clockDo)).BeginInit();
@@ -67,6 +67,12 @@
             ((System.ComponentModel.ISupportInitialize)(this.numericUpDown_countCarts)).BeginInit();
             this.groupBox5.SuspendLayout();
             ((System.ComponentModel.ISupportInitialize)(this.numericUpDown_countPlaces)).BeginInit();
+            ((System.ComponentModel.ISupportInitialize)(this.textBoxCostChild)).BeginInit();
+            ((System.ComponentModel.ISupportInitialize)(this.textBoxCostAdult)).BeginInit();
+            ((System.ComponentModel.ISupportInitialize)(this.textBoxWeightFrom)).BeginInit();
+            ((System.ComponentModel.ISupportInitialize)(this.textBox_growth)).BeginInit();
+            ((System.ComponentModel.ISupportInitialize)(this.textBoxOldFrom)).BeginInit();
+            ((System.ComponentModel.ISupportInitialize)(this.textBoxDuration)).BeginInit();
             this.SuspendLayout();
             // 
             // buttonAddAttractionCancel
@@ -91,12 +97,12 @@
             // 
             // groupBox3
             // 
+            this.groupBox3.Controls.Add(this.textBoxOldFrom);
+            this.groupBox3.Controls.Add(this.textBox_growth);
             this.groupBox3.Controls.Add(this.label6);
+            this.groupBox3.Controls.Add(this.textBoxWeightFrom);
             this.groupBox3.Controls.Add(this.label2);
             this.groupBox3.Controls.Add(this.label1);
-            this.groupBox3.Controls.Add(this.textBox_growth);
-            this.groupBox3.Controls.Add(this.textBoxWeightFrom);
-            this.groupBox3.Controls.Add(this.textBoxOldFrom);
             this.groupBox3.Location = new System.Drawing.Point(12, 112);
             this.groupBox3.Name = "groupBox3";
             this.groupBox3.Size = new System.Drawing.Size(276, 173);
@@ -130,27 +136,6 @@
             this.label1.Size = new System.Drawing.Size(62, 13);
             this.label1.TabIndex = 15;
             this.label1.Text = "возраст от";
-            // 
-            // textBox_growth
-            // 
-            this.textBox_growth.Location = new System.Drawing.Point(108, 63);
-            this.textBox_growth.Name = "textBox_growth";
-            this.textBox_growth.Size = new System.Drawing.Size(110, 20);
-            this.textBox_growth.TabIndex = 19;
-            // 
-            // textBoxWeightFrom
-            // 
-            this.textBoxWeightFrom.Location = new System.Drawing.Point(108, 96);
-            this.textBoxWeightFrom.Name = "textBoxWeightFrom";
-            this.textBoxWeightFrom.Size = new System.Drawing.Size(110, 20);
-            this.textBoxWeightFrom.TabIndex = 16;
-            // 
-            // textBoxOldFrom
-            // 
-            this.textBoxOldFrom.Location = new System.Drawing.Point(108, 27);
-            this.textBoxOldFrom.Name = "textBoxOldFrom";
-            this.textBoxOldFrom.Size = new System.Drawing.Size(110, 20);
-            this.textBoxOldFrom.TabIndex = 17;
             // 
             // groupBox2
             // 
@@ -209,8 +194,8 @@
             // 
             // groupBox4
             // 
-            this.groupBox4.Controls.Add(this.label4);
             this.groupBox4.Controls.Add(this.textBoxDuration);
+            this.groupBox4.Controls.Add(this.label4);
             this.groupBox4.Controls.Add(this.label15);
             this.groupBox4.Controls.Add(this.comboBoxAttractionName);
             this.groupBox4.Location = new System.Drawing.Point(12, 12);
@@ -228,13 +213,6 @@
             this.label4.Size = new System.Drawing.Size(88, 13);
             this.label4.TabIndex = 26;
             this.label4.Text = "*наименование:";
-            // 
-            // textBoxDuration
-            // 
-            this.textBoxDuration.Location = new System.Drawing.Point(127, 58);
-            this.textBoxDuration.Name = "textBoxDuration";
-            this.textBoxDuration.Size = new System.Drawing.Size(110, 20);
-            this.textBoxDuration.TabIndex = 25;
             // 
             // label15
             // 
@@ -264,22 +242,15 @@
             // groupBox1
             // 
             this.groupBox1.Controls.Add(this.textBoxCostAdult);
+            this.groupBox1.Controls.Add(this.textBoxCostChild);
             this.groupBox1.Controls.Add(this.label8);
             this.groupBox1.Controls.Add(this.label7);
-            this.groupBox1.Controls.Add(this.textBoxCostChild);
             this.groupBox1.Location = new System.Drawing.Point(294, 12);
             this.groupBox1.Name = "groupBox1";
             this.groupBox1.Size = new System.Drawing.Size(276, 94);
             this.groupBox1.TabIndex = 22;
             this.groupBox1.TabStop = false;
             this.groupBox1.Text = "Цена";
-            // 
-            // textBoxCostAdult
-            // 
-            this.textBoxCostAdult.Location = new System.Drawing.Point(108, 58);
-            this.textBoxCostAdult.Name = "textBoxCostAdult";
-            this.textBoxCostAdult.Size = new System.Drawing.Size(110, 20);
-            this.textBoxCostAdult.TabIndex = 12;
             // 
             // label8
             // 
@@ -298,13 +269,6 @@
             this.label7.Size = new System.Drawing.Size(55, 13);
             this.label7.TabIndex = 9;
             this.label7.Text = "*детский:";
-            // 
-            // textBoxCostChild
-            // 
-            this.textBoxCostChild.Location = new System.Drawing.Point(108, 28);
-            this.textBoxCostChild.Name = "textBoxCostChild";
-            this.textBoxCostChild.Size = new System.Drawing.Size(110, 20);
-            this.textBoxCostChild.TabIndex = 11;
             // 
             // label9
             // 
@@ -357,15 +321,6 @@
             this.groupBox5.TabStop = false;
             this.groupBox5.Text = "Телеги";
             // 
-            // label10
-            // 
-            this.label10.AutoSize = true;
-            this.label10.Location = new System.Drawing.Point(17, 44);
-            this.label10.Name = "label10";
-            this.label10.Size = new System.Drawing.Size(98, 13);
-            this.label10.TabIndex = 26;
-            this.label10.Text = "*Колечество мест";
-            // 
             // numericUpDown_countPlaces
             // 
             this.numericUpDown_countPlaces.Location = new System.Drawing.Point(127, 42);
@@ -382,6 +337,57 @@
             0,
             0,
             0});
+            // 
+            // label10
+            // 
+            this.label10.AutoSize = true;
+            this.label10.Location = new System.Drawing.Point(17, 44);
+            this.label10.Name = "label10";
+            this.label10.Size = new System.Drawing.Size(98, 13);
+            this.label10.TabIndex = 26;
+            this.label10.Text = "*Количество мест";
+            // 
+            // textBoxCostChild
+            // 
+            this.textBoxCostChild.Location = new System.Drawing.Point(108, 23);
+            this.textBoxCostChild.Name = "textBoxCostChild";
+            this.textBoxCostChild.Size = new System.Drawing.Size(120, 20);
+            this.textBoxCostChild.TabIndex = 13;
+            // 
+            // textBoxCostAdult
+            // 
+            this.textBoxCostAdult.Location = new System.Drawing.Point(108, 57);
+            this.textBoxCostAdult.Name = "textBoxCostAdult";
+            this.textBoxCostAdult.Size = new System.Drawing.Size(120, 20);
+            this.textBoxCostAdult.TabIndex = 14;
+            // 
+            // textBoxWeightFrom
+            // 
+            this.textBoxWeightFrom.Location = new System.Drawing.Point(127, 97);
+            this.textBoxWeightFrom.Name = "textBoxWeightFrom";
+            this.textBoxWeightFrom.Size = new System.Drawing.Size(110, 20);
+            this.textBoxWeightFrom.TabIndex = 15;
+            // 
+            // textBox_growth
+            // 
+            this.textBox_growth.Location = new System.Drawing.Point(127, 61);
+            this.textBox_growth.Name = "textBox_growth";
+            this.textBox_growth.Size = new System.Drawing.Size(110, 20);
+            this.textBox_growth.TabIndex = 16;
+            // 
+            // textBoxOldFrom
+            // 
+            this.textBoxOldFrom.Location = new System.Drawing.Point(127, 23);
+            this.textBoxOldFrom.Name = "textBoxOldFrom";
+            this.textBoxOldFrom.Size = new System.Drawing.Size(110, 20);
+            this.textBoxOldFrom.TabIndex = 17;
+            // 
+            // textBoxDuration
+            // 
+            this.textBoxDuration.Location = new System.Drawing.Point(127, 61);
+            this.textBoxDuration.Name = "textBoxDuration";
+            this.textBoxDuration.Size = new System.Drawing.Size(110, 20);
+            this.textBoxDuration.TabIndex = 19;
             // 
             // AddAttraction
             // 
@@ -412,6 +418,12 @@
             this.groupBox5.ResumeLayout(false);
             this.groupBox5.PerformLayout();
             ((System.ComponentModel.ISupportInitialize)(this.numericUpDown_countPlaces)).EndInit();
+            ((System.ComponentModel.ISupportInitialize)(this.textBoxCostChild)).EndInit();
+            ((System.ComponentModel.ISupportInitialize)(this.textBoxCostAdult)).EndInit();
+            ((System.ComponentModel.ISupportInitialize)(this.textBoxWeightFrom)).EndInit();
+            ((System.ComponentModel.ISupportInitialize)(this.textBox_growth)).EndInit();
+            ((System.ComponentModel.ISupportInitialize)(this.textBoxOldFrom)).EndInit();
+            ((System.ComponentModel.ISupportInitialize)(this.textBoxDuration)).EndInit();
             this.ResumeLayout(false);
             this.PerformLayout();
 
@@ -422,24 +434,18 @@
         private System.Windows.Forms.Button buttonAddAttrationSave;
         private System.Windows.Forms.GroupBox groupBox3;
         private System.Windows.Forms.Label label1;
-        private System.Windows.Forms.TextBox textBoxOldFrom;
         private System.Windows.Forms.GroupBox groupBox2;
         private System.Windows.Forms.Label label2;
-        private System.Windows.Forms.TextBox textBoxWeightFrom;
         private System.Windows.Forms.GroupBox groupBox4;
         private System.Windows.Forms.Label label4;
-        private System.Windows.Forms.TextBox textBoxDuration;
         private System.Windows.Forms.Label label15;
         private System.Windows.Forms.ComboBox comboBoxAttractionName;
         private System.Windows.Forms.GroupBox groupBox1;
-        private System.Windows.Forms.TextBox textBoxCostAdult;
         private System.Windows.Forms.Label label8;
         private System.Windows.Forms.Label label7;
-        private System.Windows.Forms.TextBox textBoxCostChild;
         private System.Windows.Forms.Label label3;
         private System.Windows.Forms.Label label5;
         private System.Windows.Forms.Label label6;
-        private System.Windows.Forms.TextBox textBox_growth;
         private System.Windows.Forms.Label label9;
         private System.Windows.Forms.NumericUpDown numericUpDown_countCarts;
         private System.Windows.Forms.NumericUpDown numericUpDown_clockDo;
@@ -448,5 +454,11 @@
         private System.Windows.Forms.GroupBox groupBox5;
         private System.Windows.Forms.NumericUpDown numericUpDown_countPlaces;
         private System.Windows.Forms.Label label10;
+        private System.Windows.Forms.NumericUpDown textBoxOldFrom;
+        private System.Windows.Forms.NumericUpDown textBox_growth;
+        private System.Windows.Forms.NumericUpDown textBoxWeightFrom;
+        private System.Windows.Forms.NumericUpDown textBoxDuration;
+        private System.Windows.Forms.NumericUpDown textBoxCostAdult;
+        private System.Windows.Forms.NumericUpDown textBoxCostChild;
     }
 }
