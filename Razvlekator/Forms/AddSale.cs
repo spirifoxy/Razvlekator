@@ -42,9 +42,9 @@ namespace Razvlekator
                         var newDiscount = new discount
                         {
                             name = textBox_name_sale.Text,
-                            value = Convert.ToInt32(textBox_value_sale.Text)
-                        };
-
+                            value = Convert.ToInt32(textBox_value_sale.Text),
+                            isActive = checkBox_active.Checked == true ? 1 : 0
+                    };
                        
                         db.discount.Add(newDiscount);
 

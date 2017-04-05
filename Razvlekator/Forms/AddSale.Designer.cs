@@ -35,6 +35,7 @@
             this.textBox_name_sale = new System.Windows.Forms.TextBox();
             this.textBox_value_sale = new System.Windows.Forms.TextBox();
             this.label_warning = new System.Windows.Forms.Label();
+            this.checkBox_active = new System.Windows.Forms.CheckBox();
             this.SuspendLayout();
             // 
             // button_cancel
@@ -100,11 +101,24 @@
             this.label_warning.Text = "Пожалуйста, заполните все поля";
             this.label_warning.Visible = false;
             // 
+            // checkBox_active
+            // 
+            this.checkBox_active.AutoSize = true;
+            this.checkBox_active.Checked = true;
+            this.checkBox_active.CheckState = System.Windows.Forms.CheckState.Checked;
+            this.checkBox_active.Location = new System.Drawing.Point(10, 104);
+            this.checkBox_active.Name = "checkBox_active";
+            this.checkBox_active.Size = new System.Drawing.Size(68, 17);
+            this.checkBox_active.TabIndex = 52;
+            this.checkBox_active.Text = "Активна";
+            this.checkBox_active.UseVisualStyleBackColor = true;
+            // 
             // AddSale
             // 
             this.AutoScaleDimensions = new System.Drawing.SizeF(6F, 13F);
             this.AutoScaleMode = System.Windows.Forms.AutoScaleMode.Font;
             this.ClientSize = new System.Drawing.Size(227, 222);
+            this.Controls.Add(this.checkBox_active);
             this.Controls.Add(this.label_warning);
             this.Controls.Add(this.textBox_value_sale);
             this.Controls.Add(this.textBox_name_sale);
@@ -127,5 +141,6 @@
         private System.Windows.Forms.TextBox textBox_name_sale;
         private System.Windows.Forms.TextBox textBox_value_sale;
         private System.Windows.Forms.Label label_warning;
+        private System.Windows.Forms.CheckBox checkBox_active;
     }
 }
