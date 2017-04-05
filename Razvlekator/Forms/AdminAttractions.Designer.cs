@@ -31,8 +31,10 @@
             this.button2 = new System.Windows.Forms.Button();
             this.buttonAttractionsAdd = new System.Windows.Forms.Button();
             this.dataGridView1 = new System.Windows.Forms.DataGridView();
+            this.button_save = new System.Windows.Forms.Button();
+            this.textBox_status = new System.Windows.Forms.TextBox();
             this.Column_pk = new System.Windows.Forms.DataGridViewTextBoxColumn();
-            this.Column1 = new System.Windows.Forms.DataGridViewTextBoxColumn();
+            this.Column1 = new System.Windows.Forms.DataGridViewComboBoxColumn();
             this.Column2 = new System.Windows.Forms.DataGridViewTextBoxColumn();
             this.Column3 = new System.Windows.Forms.DataGridViewTextBoxColumn();
             this.alkjsf = new System.Windows.Forms.DataGridViewTextBoxColumn();
@@ -41,8 +43,6 @@
             this.Column6 = new System.Windows.Forms.DataGridViewTextBoxColumn();
             this.Column_CartsCount = new System.Windows.Forms.DataGridViewTextBoxColumn();
             this.buttonColumn = new System.Windows.Forms.DataGridViewButtonColumn();
-            this.button_save = new System.Windows.Forms.Button();
-            this.textBox_status = new System.Windows.Forms.TextBox();
             ((System.ComponentModel.ISupportInitialize)(this.dataGridView1)).BeginInit();
             this.SuspendLayout();
             // 
@@ -89,6 +89,25 @@
             this.dataGridView1.CellEndEdit += new System.Windows.Forms.DataGridViewCellEventHandler(this.dataGridView1_CellEndEdit);
             this.dataGridView1.UserDeletingRow += new System.Windows.Forms.DataGridViewRowCancelEventHandler(this.dataGridView1_UserDeletingRow);
             // 
+            // button_save
+            // 
+            this.button_save.Location = new System.Drawing.Point(764, 406);
+            this.button_save.Name = "button_save";
+            this.button_save.Size = new System.Drawing.Size(124, 55);
+            this.button_save.TabIndex = 29;
+            this.button_save.Text = "Сохранить изменения";
+            this.button_save.UseVisualStyleBackColor = true;
+            this.button_save.Click += new System.EventHandler(this.button_save_Click);
+            // 
+            // textBox_status
+            // 
+            this.textBox_status.Enabled = false;
+            this.textBox_status.ForeColor = System.Drawing.Color.Red;
+            this.textBox_status.Location = new System.Drawing.Point(390, 424);
+            this.textBox_status.Name = "textBox_status";
+            this.textBox_status.Size = new System.Drawing.Size(206, 20);
+            this.textBox_status.TabIndex = 32;
+            // 
             // Column_pk
             // 
             this.Column_pk.HeaderText = "ключ";
@@ -99,7 +118,16 @@
             // Column1
             // 
             this.Column1.HeaderText = "Аттракцион";
+            this.Column1.Items.AddRange(new object[] {
+            "Паровозики",
+            "Лодочки",
+            "Американские горки",
+            "Машинки",
+            "Карусель \"Лошадки\"",
+            "Карусель \"Дракончики\""});
             this.Column1.Name = "Column1";
+            this.Column1.Resizable = System.Windows.Forms.DataGridViewTriState.True;
+            this.Column1.SortMode = System.Windows.Forms.DataGridViewColumnSortMode.Automatic;
             this.Column1.Width = 130;
             // 
             // Column2
@@ -144,25 +172,6 @@
             this.buttonColumn.Name = "buttonColumn";
             this.buttonColumn.Text = "11";
             // 
-            // button_save
-            // 
-            this.button_save.Location = new System.Drawing.Point(764, 406);
-            this.button_save.Name = "button_save";
-            this.button_save.Size = new System.Drawing.Size(124, 55);
-            this.button_save.TabIndex = 29;
-            this.button_save.Text = "Сохранить изменения";
-            this.button_save.UseVisualStyleBackColor = true;
-            this.button_save.Click += new System.EventHandler(this.button_save_Click);
-            // 
-            // textBox_status
-            // 
-            this.textBox_status.Enabled = false;
-            this.textBox_status.ForeColor = System.Drawing.Color.Red;
-            this.textBox_status.Location = new System.Drawing.Point(390, 424);
-            this.textBox_status.Name = "textBox_status";
-            this.textBox_status.Size = new System.Drawing.Size(206, 20);
-            this.textBox_status.TabIndex = 32;
-            // 
             // AdminAttractions
             // 
             this.AutoScaleDimensions = new System.Drawing.SizeF(6F, 13F);
@@ -188,8 +197,9 @@
         private System.Windows.Forms.Button buttonAttractionsAdd;
         private System.Windows.Forms.DataGridView dataGridView1;
         private System.Windows.Forms.Button button_save;
+        private System.Windows.Forms.TextBox textBox_status;
         private System.Windows.Forms.DataGridViewTextBoxColumn Column_pk;
-        private System.Windows.Forms.DataGridViewTextBoxColumn Column1;
+        private System.Windows.Forms.DataGridViewComboBoxColumn Column1;
         private System.Windows.Forms.DataGridViewTextBoxColumn Column2;
         private System.Windows.Forms.DataGridViewTextBoxColumn Column3;
         private System.Windows.Forms.DataGridViewTextBoxColumn alkjsf;
@@ -198,6 +208,5 @@
         private System.Windows.Forms.DataGridViewTextBoxColumn Column6;
         private System.Windows.Forms.DataGridViewTextBoxColumn Column_CartsCount;
         private System.Windows.Forms.DataGridViewButtonColumn buttonColumn;
-        private System.Windows.Forms.TextBox textBox_status;
     }
 }
