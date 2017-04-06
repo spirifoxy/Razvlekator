@@ -34,9 +34,9 @@ namespace Razvlekator
 
         public int agerestrictions { get; set; }
 
-        public int? growthrestriction { get; set; }
+        public int growthrestriction { get; set; }
 
-        public int? weightrestriction { get; set; }
+        public int weightrestriction { get; set; }
 
         public int? cartcount { get; set; }
 

@@ -29,13 +29,27 @@ namespace Razvlekator
 
         private void buttonLogin_Click(object sender, EventArgs e)
         {
-            if (comboBoxRole.SelectedItem.ToString() == "Администратор")
+            //if (comboBoxRole.SelectedItem.ToString() == "Администратор")
+            //{
+            //    this.Hide();
+            //    new Admin(this).Show();
+            //    //Потом при закрытии админской формы эта форма логина так и остается висеть Hide
+            //}
+            this.Hide();
+            switch (comboBoxRole.SelectedItem.ToString())
             {
-                this.Hide();
-                new Admin(this).Show();
-                //Потом при закрытии админской формы эта форма логина так и остается висеть Hide
+                case "Администратор":
+                    new Admin(this).Show();
+                    //Потом при закрытии админской формы эта форма логина так и остается висеть Hide
+                    break;
+                case "Кассир":
+                    new Cashier().Show();
+                    break;
+                default:
+                    break;
             }
-            }
+
         }
     }
+}
 
