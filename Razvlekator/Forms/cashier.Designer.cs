@@ -28,21 +28,27 @@
         /// </summary>
         private void InitializeComponent()
         {
+            System.Windows.Forms.DataGridViewCellStyle dataGridViewCellStyle13 = new System.Windows.Forms.DataGridViewCellStyle();
+            System.Windows.Forms.DataGridViewCellStyle dataGridViewCellStyle14 = new System.Windows.Forms.DataGridViewCellStyle();
+            System.Windows.Forms.DataGridViewCellStyle dataGridViewCellStyle15 = new System.Windows.Forms.DataGridViewCellStyle();
+            System.Windows.Forms.DataGridViewCellStyle dataGridViewCellStyle16 = new System.Windows.Forms.DataGridViewCellStyle();
+            System.Windows.Forms.DataGridViewCellStyle dataGridViewCellStyle17 = new System.Windows.Forms.DataGridViewCellStyle();
+            System.Windows.Forms.DataGridViewCellStyle dataGridViewCellStyle18 = new System.Windows.Forms.DataGridViewCellStyle();
             this.comboBoxAttraction = new System.Windows.Forms.ComboBox();
             this.textBoxPriceAdult = new System.Windows.Forms.TextBox();
             this.textBoxPriceKid = new System.Windows.Forms.TextBox();
             this.label8 = new System.Windows.Forms.Label();
             this.label7 = new System.Windows.Forms.Label();
-            this.button1 = new System.Windows.Forms.Button();
-            this.dataGridView1 = new System.Windows.Forms.DataGridView();
-            this.Attraction = new System.Windows.Forms.DataGridViewTextBoxColumn();
-            this.Column1 = new System.Windows.Forms.DataGridViewTextBoxColumn();
-            this.Тип = new System.Windows.Forms.DataGridViewTextBoxColumn();
-            this.Date = new System.Windows.Forms.DataGridViewTextBoxColumn();
-            this.Time = new System.Windows.Forms.DataGridViewTextBoxColumn();
-            this.Column2 = new System.Windows.Forms.DataGridViewTextBoxColumn();
-            this.button2 = new System.Windows.Forms.Button();
-            this.button3 = new System.Windows.Forms.Button();
+            this.AddAttraction_button = new System.Windows.Forms.Button();
+            this.attractions_dataGridView = new System.Windows.Forms.DataGridView();
+            this.AttractionColumn = new System.Windows.Forms.DataGridViewTextBoxColumn();
+            this.CountColumn = new System.Windows.Forms.DataGridViewTextBoxColumn();
+            this.TypeColumn = new System.Windows.Forms.DataGridViewComboBoxColumn();
+            this.DateColumn = new System.Windows.Forms.DataGridViewTextBoxColumn();
+            this.TimeColumn = new System.Windows.Forms.DataGridViewTextBoxColumn();
+            this.PriceColumn = new System.Windows.Forms.DataGridViewTextBoxColumn();
+            this.ClearAttractions_button = new System.Windows.Forms.Button();
+            this.CheckOut_button = new System.Windows.Forms.Button();
             this.button4 = new System.Windows.Forms.Button();
             this.label15 = new System.Windows.Forms.Label();
             this.textBoxDuration = new System.Windows.Forms.TextBox();
@@ -51,37 +57,36 @@
             this.label4 = new System.Windows.Forms.Label();
             this.groupBox5 = new System.Windows.Forms.GroupBox();
             this.groupBox6 = new System.Windows.Forms.GroupBox();
-            this.comboBoxDiscountValue = new System.Windows.Forms.ComboBox();
             this.textBoxDiscountValue = new System.Windows.Forms.TextBox();
             this.label9 = new System.Windows.Forms.Label();
             this.comboBoxDiscount = new System.Windows.Forms.ComboBox();
             this.label1 = new System.Windows.Forms.Label();
-            this.label2 = new System.Windows.Forms.Label();
-            this.panel1 = new System.Windows.Forms.Panel();
+            this.TotalPrice_label = new System.Windows.Forms.Label();
             this.textBoxGrowthRestriction = new System.Windows.Forms.TextBox();
             this.label6 = new System.Windows.Forms.Label();
             this.label5 = new System.Windows.Forms.Label();
             this.textBoxAgeRestriction = new System.Windows.Forms.TextBox();
             this.textBoxWeightRestriction = new System.Windows.Forms.TextBox();
             this.label3 = new System.Windows.Forms.Label();
-            this.dataGridViewAttractions = new System.Windows.Forms.DataGridView();
-            this.Column_pk = new System.Windows.Forms.DataGridViewTextBoxColumn();
-            this.dataGridViewComboBoxColumn1 = new System.Windows.Forms.DataGridViewComboBoxColumn();
-            this.dataGridViewTextBoxColumn1 = new System.Windows.Forms.DataGridViewTextBoxColumn();
-            this.Column3 = new System.Windows.Forms.DataGridViewTextBoxColumn();
-            this.alkjsf = new System.Windows.Forms.DataGridViewTextBoxColumn();
-            this.Column4 = new System.Windows.Forms.DataGridViewTextBoxColumn();
-            this.Column_growth = new System.Windows.Forms.DataGridViewTextBoxColumn();
-            this.Column6 = new System.Windows.Forms.DataGridViewTextBoxColumn();
-            this.Column_CartsCount = new System.Windows.Forms.DataGridViewTextBoxColumn();
-            this.buttonColumn = new System.Windows.Forms.DataGridViewButtonColumn();
-            ((System.ComponentModel.ISupportInitialize)(this.dataGridView1)).BeginInit();
+            this.groupBox2 = new System.Windows.Forms.GroupBox();
+            this.DatePicker_panel = new System.Windows.Forms.Panel();
+            this.CancelDatePicker_button = new System.Windows.Forms.Button();
+            this.OKDatePicker_button = new System.Windows.Forms.Button();
+            this.label10 = new System.Windows.Forms.Label();
+            this.datePicker = new System.Windows.Forms.DateTimePicker();
+            this.TimePicker_panel = new System.Windows.Forms.Panel();
+            this.CancelTimePicker_button = new System.Windows.Forms.Button();
+            this.OKTimePicker_button = new System.Windows.Forms.Button();
+            this.label11 = new System.Windows.Forms.Label();
+            this.timePicker = new System.Windows.Forms.DateTimePicker();
+            ((System.ComponentModel.ISupportInitialize)(this.attractions_dataGridView)).BeginInit();
             this.groupBox1.SuspendLayout();
             this.groupBox4.SuspendLayout();
             this.groupBox5.SuspendLayout();
             this.groupBox6.SuspendLayout();
-            this.panel1.SuspendLayout();
-            ((System.ComponentModel.ISupportInitialize)(this.dataGridViewAttractions)).BeginInit();
+            this.groupBox2.SuspendLayout();
+            this.DatePicker_panel.SuspendLayout();
+            this.TimePicker_panel.SuspendLayout();
             this.SuspendLayout();
             // 
             // comboBoxAttraction
@@ -121,97 +126,140 @@
             this.label8.AutoSize = true;
             this.label8.Location = new System.Drawing.Point(17, 61);
             this.label8.Name = "label8";
-            this.label8.Size = new System.Drawing.Size(60, 13);
+            this.label8.Size = new System.Drawing.Size(61, 13);
             this.label8.TabIndex = 10;
-            this.label8.Text = "взрослый:";
+            this.label8.Text = "Взрослый:";
             // 
             // label7
             // 
             this.label7.AutoSize = true;
             this.label7.Location = new System.Drawing.Point(17, 30);
             this.label7.Name = "label7";
-            this.label7.Size = new System.Drawing.Size(51, 13);
+            this.label7.Size = new System.Drawing.Size(54, 13);
             this.label7.TabIndex = 9;
-            this.label7.Text = "детский:";
+            this.label7.Text = "Детский:";
             // 
-            // button1
+            // AddAttraction_button
             // 
-            this.button1.Location = new System.Drawing.Point(661, 189);
-            this.button1.Name = "button1";
-            this.button1.Size = new System.Drawing.Size(96, 48);
-            this.button1.TabIndex = 5;
-            this.button1.Text = "Добавить";
-            this.button1.UseVisualStyleBackColor = true;
+            this.AddAttraction_button.Location = new System.Drawing.Point(661, 189);
+            this.AddAttraction_button.Name = "AddAttraction_button";
+            this.AddAttraction_button.Size = new System.Drawing.Size(95, 50);
+            this.AddAttraction_button.TabIndex = 5;
+            this.AddAttraction_button.Text = "Добавить";
+            this.AddAttraction_button.UseVisualStyleBackColor = true;
+            this.AddAttraction_button.Click += new System.EventHandler(this.AddAttraction_button_Click);
             // 
-            // dataGridView1
+            // attractions_dataGridView
             // 
-            this.dataGridView1.ColumnHeadersHeightSizeMode = System.Windows.Forms.DataGridViewColumnHeadersHeightSizeMode.AutoSize;
-            this.dataGridView1.Columns.AddRange(new System.Windows.Forms.DataGridViewColumn[] {
-            this.Attraction,
-            this.Column1,
-            this.Тип,
-            this.Date,
-            this.Time,
-            this.Column2});
-            this.dataGridView1.Location = new System.Drawing.Point(6, 19);
-            this.dataGridView1.Name = "dataGridView1";
-            this.dataGridView1.RowHeadersVisible = false;
-            this.dataGridView1.Size = new System.Drawing.Size(607, 201);
-            this.dataGridView1.TabIndex = 8;
+            this.attractions_dataGridView.AllowUserToAddRows = false;
+            this.attractions_dataGridView.AllowUserToDeleteRows = false;
+            this.attractions_dataGridView.AllowUserToResizeRows = false;
+            this.attractions_dataGridView.ColumnHeadersHeightSizeMode = System.Windows.Forms.DataGridViewColumnHeadersHeightSizeMode.AutoSize;
+            this.attractions_dataGridView.Columns.AddRange(new System.Windows.Forms.DataGridViewColumn[] {
+            this.AttractionColumn,
+            this.CountColumn,
+            this.TypeColumn,
+            this.DateColumn,
+            this.TimeColumn,
+            this.PriceColumn});
+            this.attractions_dataGridView.Cursor = System.Windows.Forms.Cursors.Hand;
+            this.attractions_dataGridView.Location = new System.Drawing.Point(9, 19);
+            this.attractions_dataGridView.MultiSelect = false;
+            this.attractions_dataGridView.Name = "attractions_dataGridView";
+            this.attractions_dataGridView.RowHeadersVisible = false;
+            this.attractions_dataGridView.ScrollBars = System.Windows.Forms.ScrollBars.Vertical;
+            this.attractions_dataGridView.SelectionMode = System.Windows.Forms.DataGridViewSelectionMode.CellSelect;
+            this.attractions_dataGridView.Size = new System.Drawing.Size(620, 201);
+            this.attractions_dataGridView.TabIndex = 8;
+            this.attractions_dataGridView.CellBeginEdit += new System.Windows.Forms.DataGridViewCellCancelEventHandler(this.attractions_dataGridView_CellBeginEdit);
+            this.attractions_dataGridView.CellValueChanged += new System.Windows.Forms.DataGridViewCellEventHandler(this.attractions_dataGridView_CellValueChanged);
             // 
-            // Attraction
+            // AttractionColumn
             // 
-            this.Attraction.HeaderText = "Аттракцион";
-            this.Attraction.Name = "Attraction";
+            this.AttractionColumn.AutoSizeMode = System.Windows.Forms.DataGridViewAutoSizeColumnMode.Fill;
+            dataGridViewCellStyle13.SelectionBackColor = System.Drawing.Color.FromArgb(((int)(((byte)(224)))), ((int)(((byte)(224)))), ((int)(((byte)(224)))));
+            dataGridViewCellStyle13.SelectionForeColor = System.Drawing.Color.Black;
+            this.AttractionColumn.DefaultCellStyle = dataGridViewCellStyle13;
+            this.AttractionColumn.HeaderText = "Аттракцион";
+            this.AttractionColumn.MinimumWidth = 100;
+            this.AttractionColumn.Name = "AttractionColumn";
+            this.AttractionColumn.ReadOnly = true;
             // 
-            // Column1
+            // CountColumn
             // 
-            this.Column1.HeaderText = "Количество";
-            this.Column1.Name = "Column1";
+            dataGridViewCellStyle14.SelectionBackColor = System.Drawing.Color.FromArgb(((int)(((byte)(224)))), ((int)(((byte)(224)))), ((int)(((byte)(224)))));
+            dataGridViewCellStyle14.SelectionForeColor = System.Drawing.Color.Black;
+            this.CountColumn.DefaultCellStyle = dataGridViewCellStyle14;
+            this.CountColumn.HeaderText = "Количество";
+            this.CountColumn.MaxInputLength = 2;
+            this.CountColumn.MinimumWidth = 20;
+            this.CountColumn.Name = "CountColumn";
+            this.CountColumn.Width = 80;
             // 
-            // Тип
+            // TypeColumn
             // 
-            this.Тип.HeaderText = "Тип";
-            this.Тип.Name = "Тип";
+            dataGridViewCellStyle15.SelectionBackColor = System.Drawing.Color.FromArgb(((int)(((byte)(224)))), ((int)(((byte)(224)))), ((int)(((byte)(224)))));
+            dataGridViewCellStyle15.SelectionForeColor = System.Drawing.Color.Black;
+            this.TypeColumn.DefaultCellStyle = dataGridViewCellStyle15;
+            this.TypeColumn.HeaderText = "Тип";
+            this.TypeColumn.MinimumWidth = 100;
+            this.TypeColumn.Name = "TypeColumn";
+            this.TypeColumn.Resizable = System.Windows.Forms.DataGridViewTriState.True;
+            this.TypeColumn.SortMode = System.Windows.Forms.DataGridViewColumnSortMode.Automatic;
             // 
-            // Date
+            // DateColumn
             // 
-            this.Date.HeaderText = "Дата";
-            this.Date.Name = "Date";
+            dataGridViewCellStyle16.SelectionBackColor = System.Drawing.Color.FromArgb(((int)(((byte)(224)))), ((int)(((byte)(224)))), ((int)(((byte)(224)))));
+            dataGridViewCellStyle16.SelectionForeColor = System.Drawing.Color.Black;
+            this.DateColumn.DefaultCellStyle = dataGridViewCellStyle16;
+            this.DateColumn.HeaderText = "Дата";
+            this.DateColumn.MinimumWidth = 100;
+            this.DateColumn.Name = "DateColumn";
             // 
-            // Time
+            // TimeColumn
             // 
-            this.Time.HeaderText = "Время";
-            this.Time.Name = "Time";
+            dataGridViewCellStyle17.SelectionBackColor = System.Drawing.Color.FromArgb(((int)(((byte)(224)))), ((int)(((byte)(224)))), ((int)(((byte)(224)))));
+            dataGridViewCellStyle17.SelectionForeColor = System.Drawing.Color.Black;
+            this.TimeColumn.DefaultCellStyle = dataGridViewCellStyle17;
+            this.TimeColumn.HeaderText = "Время";
+            this.TimeColumn.MinimumWidth = 100;
+            this.TimeColumn.Name = "TimeColumn";
             // 
-            // Column2
+            // PriceColumn
             // 
-            this.Column2.HeaderText = "Цена";
-            this.Column2.Name = "Column2";
+            dataGridViewCellStyle18.SelectionBackColor = System.Drawing.Color.FromArgb(((int)(((byte)(224)))), ((int)(((byte)(224)))), ((int)(((byte)(224)))));
+            dataGridViewCellStyle18.SelectionForeColor = System.Drawing.Color.Black;
+            this.PriceColumn.DefaultCellStyle = dataGridViewCellStyle18;
+            this.PriceColumn.HeaderText = "Цена";
+            this.PriceColumn.MinimumWidth = 80;
+            this.PriceColumn.Name = "PriceColumn";
+            this.PriceColumn.ReadOnly = true;
+            this.PriceColumn.Width = 80;
             // 
-            // button2
+            // ClearAttractions_button
             // 
-            this.button2.Location = new System.Drawing.Point(661, 243);
-            this.button2.Name = "button2";
-            this.button2.Size = new System.Drawing.Size(96, 54);
-            this.button2.TabIndex = 9;
-            this.button2.Text = "Очистить";
-            this.button2.UseVisualStyleBackColor = true;
+            this.ClearAttractions_button.Location = new System.Drawing.Point(661, 243);
+            this.ClearAttractions_button.Name = "ClearAttractions_button";
+            this.ClearAttractions_button.Size = new System.Drawing.Size(95, 50);
+            this.ClearAttractions_button.TabIndex = 9;
+            this.ClearAttractions_button.Text = "Очистить";
+            this.ClearAttractions_button.UseVisualStyleBackColor = true;
+            this.ClearAttractions_button.Click += new System.EventHandler(this.ClearAttractions_button_Click);
             // 
-            // button3
+            // CheckOut_button
             // 
-            this.button3.Location = new System.Drawing.Point(661, 303);
-            this.button3.Name = "button3";
-            this.button3.Size = new System.Drawing.Size(96, 48);
-            this.button3.TabIndex = 10;
-            this.button3.Text = "Оформить";
-            this.button3.UseVisualStyleBackColor = true;
+            this.CheckOut_button.Location = new System.Drawing.Point(661, 299);
+            this.CheckOut_button.Name = "CheckOut_button";
+            this.CheckOut_button.Size = new System.Drawing.Size(95, 50);
+            this.CheckOut_button.TabIndex = 10;
+            this.CheckOut_button.Text = "Оформить";
+            this.CheckOut_button.UseVisualStyleBackColor = true;
             // 
             // button4
             // 
             this.button4.Location = new System.Drawing.Point(538, 112);
             this.button4.Name = "button4";
-            this.button4.Size = new System.Drawing.Size(219, 61);
+            this.button4.Size = new System.Drawing.Size(218, 65);
             this.button4.TabIndex = 11;
             this.button4.Text = "Возврат";
             this.button4.UseVisualStyleBackColor = true;
@@ -221,9 +269,9 @@
             this.label15.AutoSize = true;
             this.label15.Location = new System.Drawing.Point(6, 59);
             this.label15.Name = "label15";
-            this.label15.Size = new System.Drawing.Size(112, 13);
+            this.label15.Size = new System.Drawing.Size(114, 13);
             this.label15.TabIndex = 24;
-            this.label15.Text = "продолжительность:";
+            this.label15.Text = "Продолжительность:";
             // 
             // textBoxDuration
             // 
@@ -264,13 +312,13 @@
             this.label4.AutoSize = true;
             this.label4.Location = new System.Drawing.Point(6, 30);
             this.label4.Name = "label4";
-            this.label4.Size = new System.Drawing.Size(84, 13);
+            this.label4.Size = new System.Drawing.Size(86, 13);
             this.label4.TabIndex = 26;
-            this.label4.Text = "наименование:";
+            this.label4.Text = "Наименование:";
             // 
             // groupBox5
             // 
-            this.groupBox5.Controls.Add(this.dataGridView1);
+            this.groupBox5.Controls.Add(this.attractions_dataGridView);
             this.groupBox5.Location = new System.Drawing.Point(26, 183);
             this.groupBox5.Name = "groupBox5";
             this.groupBox5.Size = new System.Drawing.Size(629, 226);
@@ -289,16 +337,6 @@
             this.groupBox6.TabIndex = 25;
             this.groupBox6.TabStop = false;
             this.groupBox6.Text = "Скидка";
-            // 
-            // comboBoxDiscountValue
-            // 
-            this.comboBoxDiscountValue.FormattingEnabled = true;
-            this.comboBoxDiscountValue.Location = new System.Drawing.Point(598, 2);
-            this.comboBoxDiscountValue.Name = "comboBoxDiscountValue";
-            this.comboBoxDiscountValue.Size = new System.Drawing.Size(142, 21);
-            this.comboBoxDiscountValue.TabIndex = 29;
-            this.comboBoxDiscountValue.Text = "скрытое поле-значения скидок";
-            this.comboBoxDiscountValue.Visible = false;
             // 
             // textBoxDiscountValue
             // 
@@ -343,34 +381,20 @@
             this.label1.TabIndex = 26;
             this.label1.Text = "Итого:";
             // 
-            // label2
+            // TotalPrice_label
             // 
-            this.label2.AutoSize = true;
-            this.label2.Font = new System.Drawing.Font("Microsoft Sans Serif", 13F);
-            this.label2.Location = new System.Drawing.Point(661, 381);
-            this.label2.Name = "label2";
-            this.label2.Size = new System.Drawing.Size(79, 22);
-            this.label2.TabIndex = 27;
-            this.label2.Text = "300 руб.";
-            // 
-            // panel1
-            // 
-            this.panel1.BorderStyle = System.Windows.Forms.BorderStyle.FixedSingle;
-            this.panel1.Controls.Add(this.textBoxGrowthRestriction);
-            this.panel1.Controls.Add(this.label6);
-            this.panel1.Controls.Add(this.label5);
-            this.panel1.Controls.Add(this.textBoxAgeRestriction);
-            this.panel1.Controls.Add(this.textBoxWeightRestriction);
-            this.panel1.Controls.Add(this.label3);
-            this.panel1.Location = new System.Drawing.Point(26, 112);
-            this.panel1.Name = "panel1";
-            this.panel1.Size = new System.Drawing.Size(506, 61);
-            this.panel1.TabIndex = 28;
+            this.TotalPrice_label.AutoSize = true;
+            this.TotalPrice_label.Font = new System.Drawing.Font("Microsoft Sans Serif", 13F);
+            this.TotalPrice_label.Location = new System.Drawing.Point(661, 381);
+            this.TotalPrice_label.Name = "TotalPrice_label";
+            this.TotalPrice_label.Size = new System.Drawing.Size(20, 22);
+            this.TotalPrice_label.TabIndex = 27;
+            this.TotalPrice_label.Text = "0";
             // 
             // textBoxGrowthRestriction
             // 
             this.textBoxGrowthRestriction.Enabled = false;
-            this.textBoxGrowthRestriction.Location = new System.Drawing.Point(196, 26);
+            this.textBoxGrowthRestriction.Location = new System.Drawing.Point(187, 32);
             this.textBoxGrowthRestriction.Name = "textBoxGrowthRestriction";
             this.textBoxGrowthRestriction.Size = new System.Drawing.Size(110, 20);
             this.textBoxGrowthRestriction.TabIndex = 25;
@@ -378,7 +402,7 @@
             // label6
             // 
             this.label6.AutoSize = true;
-            this.label6.Location = new System.Drawing.Point(195, 10);
+            this.label6.Location = new System.Drawing.Point(184, 16);
             this.label6.Name = "label6";
             this.label6.Size = new System.Drawing.Size(112, 13);
             this.label6.TabIndex = 24;
@@ -387,7 +411,7 @@
             // label5
             // 
             this.label5.AutoSize = true;
-            this.label5.Location = new System.Drawing.Point(349, 10);
+            this.label5.Location = new System.Drawing.Point(361, 16);
             this.label5.Name = "label5";
             this.label5.Size = new System.Drawing.Size(124, 13);
             this.label5.TabIndex = 22;
@@ -396,7 +420,7 @@
             // textBoxAgeRestriction
             // 
             this.textBoxAgeRestriction.Enabled = false;
-            this.textBoxAgeRestriction.Location = new System.Drawing.Point(354, 26);
+            this.textBoxAgeRestriction.Location = new System.Drawing.Point(364, 32);
             this.textBoxAgeRestriction.Name = "textBoxAgeRestriction";
             this.textBoxAgeRestriction.Size = new System.Drawing.Size(110, 20);
             this.textBoxAgeRestriction.TabIndex = 23;
@@ -404,7 +428,7 @@
             // textBoxWeightRestriction
             // 
             this.textBoxWeightRestriction.Enabled = false;
-            this.textBoxWeightRestriction.Location = new System.Drawing.Point(36, 26);
+            this.textBoxWeightRestriction.Location = new System.Drawing.Point(9, 32);
             this.textBoxWeightRestriction.Name = "textBoxWeightRestriction";
             this.textBoxWeightRestriction.Size = new System.Drawing.Size(110, 20);
             this.textBoxWeightRestriction.TabIndex = 22;
@@ -412,121 +436,152 @@
             // label3
             // 
             this.label3.AutoSize = true;
-            this.label3.Location = new System.Drawing.Point(34, 10);
+            this.label3.Location = new System.Drawing.Point(6, 16);
             this.label3.Name = "label3";
             this.label3.Size = new System.Drawing.Size(107, 13);
             this.label3.TabIndex = 21;
             this.label3.Text = "Максимальный вес";
             // 
-            // dataGridViewAttractions
+            // groupBox2
             // 
-            this.dataGridViewAttractions.AllowUserToAddRows = false;
-            this.dataGridViewAttractions.ColumnHeadersHeightSizeMode = System.Windows.Forms.DataGridViewColumnHeadersHeightSizeMode.AutoSize;
-            this.dataGridViewAttractions.Columns.AddRange(new System.Windows.Forms.DataGridViewColumn[] {
-            this.Column_pk,
-            this.dataGridViewComboBoxColumn1,
-            this.dataGridViewTextBoxColumn1,
-            this.Column3,
-            this.alkjsf,
-            this.Column4,
-            this.Column_growth,
-            this.Column6,
-            this.Column_CartsCount,
-            this.buttonColumn});
-            this.dataGridViewAttractions.Enabled = false;
-            this.dataGridViewAttractions.Location = new System.Drawing.Point(153, -23);
-            this.dataGridViewAttractions.Name = "dataGridViewAttractions";
-            this.dataGridViewAttractions.Size = new System.Drawing.Size(288, 46);
-            this.dataGridViewAttractions.TabIndex = 29;
-            this.dataGridViewAttractions.Visible = false;
+            this.groupBox2.Controls.Add(this.textBoxWeightRestriction);
+            this.groupBox2.Controls.Add(this.textBoxGrowthRestriction);
+            this.groupBox2.Controls.Add(this.label3);
+            this.groupBox2.Controls.Add(this.textBoxAgeRestriction);
+            this.groupBox2.Controls.Add(this.label6);
+            this.groupBox2.Controls.Add(this.label5);
+            this.groupBox2.Location = new System.Drawing.Point(26, 112);
+            this.groupBox2.Name = "groupBox2";
+            this.groupBox2.Size = new System.Drawing.Size(506, 65);
+            this.groupBox2.TabIndex = 30;
+            this.groupBox2.TabStop = false;
+            this.groupBox2.Text = "Ограничения";
             // 
-            // Column_pk
+            // DatePicker_panel
             // 
-            this.Column_pk.HeaderText = "ключ";
-            this.Column_pk.Name = "Column_pk";
-            this.Column_pk.ReadOnly = true;
-            this.Column_pk.Visible = false;
+            this.DatePicker_panel.BorderStyle = System.Windows.Forms.BorderStyle.FixedSingle;
+            this.DatePicker_panel.Controls.Add(this.CancelDatePicker_button);
+            this.DatePicker_panel.Controls.Add(this.OKDatePicker_button);
+            this.DatePicker_panel.Controls.Add(this.label10);
+            this.DatePicker_panel.Controls.Add(this.datePicker);
+            this.DatePicker_panel.Location = new System.Drawing.Point(868, 12);
+            this.DatePicker_panel.Name = "DatePicker_panel";
+            this.DatePicker_panel.Size = new System.Drawing.Size(170, 82);
+            this.DatePicker_panel.TabIndex = 31;
             // 
-            // dataGridViewComboBoxColumn1
+            // CancelDatePicker_button
             // 
-            this.dataGridViewComboBoxColumn1.HeaderText = "Аттракцион";
-            this.dataGridViewComboBoxColumn1.Items.AddRange(new object[] {
-            "Паровозики",
-            "Лодочки",
-            "Американские горки",
-            "Машинки",
-            "Карусель \"Лошадки\"",
-            "Карусель \"Дракончики\""});
-            this.dataGridViewComboBoxColumn1.Name = "dataGridViewComboBoxColumn1";
-            this.dataGridViewComboBoxColumn1.Resizable = System.Windows.Forms.DataGridViewTriState.True;
-            this.dataGridViewComboBoxColumn1.SortMode = System.Windows.Forms.DataGridViewColumnSortMode.Automatic;
-            this.dataGridViewComboBoxColumn1.Width = 130;
+            this.CancelDatePicker_button.Location = new System.Drawing.Point(87, 47);
+            this.CancelDatePicker_button.Name = "CancelDatePicker_button";
+            this.CancelDatePicker_button.Size = new System.Drawing.Size(75, 23);
+            this.CancelDatePicker_button.TabIndex = 3;
+            this.CancelDatePicker_button.Text = "Отмена";
+            this.CancelDatePicker_button.UseVisualStyleBackColor = true;
+            this.CancelDatePicker_button.Click += new System.EventHandler(this.CancelDatePicker_button_Click);
             // 
-            // dataGridViewTextBoxColumn1
+            // OKDatePicker_button
             // 
-            this.dataGridViewTextBoxColumn1.HeaderText = "Цена д.";
-            this.dataGridViewTextBoxColumn1.Name = "dataGridViewTextBoxColumn1";
+            this.OKDatePicker_button.Location = new System.Drawing.Point(6, 47);
+            this.OKDatePicker_button.Name = "OKDatePicker_button";
+            this.OKDatePicker_button.Size = new System.Drawing.Size(75, 23);
+            this.OKDatePicker_button.TabIndex = 2;
+            this.OKDatePicker_button.Text = "OK";
+            this.OKDatePicker_button.UseVisualStyleBackColor = true;
+            this.OKDatePicker_button.Click += new System.EventHandler(this.OKDatePicker_button_Click);
             // 
-            // Column3
+            // label10
             // 
-            this.Column3.HeaderText = "Цена в.";
-            this.Column3.Name = "Column3";
+            this.label10.AutoSize = true;
+            this.label10.Location = new System.Drawing.Point(23, 3);
+            this.label10.Name = "label10";
+            this.label10.Size = new System.Drawing.Size(121, 13);
+            this.label10.TabIndex = 1;
+            this.label10.Text = "Выберите дату сеанса";
             // 
-            // alkjsf
+            // datePicker
             // 
-            this.alkjsf.HeaderText = "Продолжительность";
-            this.alkjsf.Name = "alkjsf";
-            this.alkjsf.Width = 120;
+            this.datePicker.DropDownAlign = System.Windows.Forms.LeftRightAlignment.Right;
+            this.datePicker.Format = System.Windows.Forms.DateTimePickerFormat.Short;
+            this.datePicker.Location = new System.Drawing.Point(26, 19);
+            this.datePicker.Name = "datePicker";
+            this.datePicker.Size = new System.Drawing.Size(118, 20);
+            this.datePicker.TabIndex = 0;
+            this.datePicker.Value = new System.DateTime(2017, 4, 9, 3, 24, 13, 0);
             // 
-            // Column4
+            // TimePicker_panel
             // 
-            this.Column4.HeaderText = "Возраст с";
-            this.Column4.Name = "Column4";
+            this.TimePicker_panel.BorderStyle = System.Windows.Forms.BorderStyle.FixedSingle;
+            this.TimePicker_panel.Controls.Add(this.CancelTimePicker_button);
+            this.TimePicker_panel.Controls.Add(this.OKTimePicker_button);
+            this.TimePicker_panel.Controls.Add(this.label11);
+            this.TimePicker_panel.Controls.Add(this.timePicker);
+            this.TimePicker_panel.Location = new System.Drawing.Point(868, 112);
+            this.TimePicker_panel.Name = "TimePicker_panel";
+            this.TimePicker_panel.Size = new System.Drawing.Size(170, 74);
+            this.TimePicker_panel.TabIndex = 32;
             // 
-            // Column_growth
+            // CancelTimePicker_button
             // 
-            this.Column_growth.HeaderText = "Рост с";
-            this.Column_growth.Name = "Column_growth";
+            this.CancelTimePicker_button.Location = new System.Drawing.Point(87, 41);
+            this.CancelTimePicker_button.Name = "CancelTimePicker_button";
+            this.CancelTimePicker_button.Size = new System.Drawing.Size(75, 23);
+            this.CancelTimePicker_button.TabIndex = 5;
+            this.CancelTimePicker_button.Text = "Отмена";
+            this.CancelTimePicker_button.UseVisualStyleBackColor = true;
+            this.CancelTimePicker_button.Click += new System.EventHandler(this.CancelTimePicker_button_Click);
             // 
-            // Column6
+            // OKTimePicker_button
             // 
-            this.Column6.HeaderText = "Вес до";
-            this.Column6.Name = "Column6";
+            this.OKTimePicker_button.Location = new System.Drawing.Point(6, 41);
+            this.OKTimePicker_button.Name = "OKTimePicker_button";
+            this.OKTimePicker_button.Size = new System.Drawing.Size(75, 23);
+            this.OKTimePicker_button.TabIndex = 4;
+            this.OKTimePicker_button.Text = "OK";
+            this.OKTimePicker_button.UseVisualStyleBackColor = true;
+            this.OKTimePicker_button.Click += new System.EventHandler(this.OKTimePicker_button_Click);
             // 
-            // Column_CartsCount
+            // label11
             // 
-            this.Column_CartsCount.HeaderText = "Кол-во телег";
-            this.Column_CartsCount.Name = "Column_CartsCount";
+            this.label11.AutoSize = true;
+            this.label11.Location = new System.Drawing.Point(16, 3);
+            this.label11.Name = "label11";
+            this.label11.Size = new System.Drawing.Size(131, 13);
+            this.label11.TabIndex = 1;
+            this.label11.Text = "Выберите время сеанса";
             // 
-            // buttonColumn
+            // timePicker
             // 
-            this.buttonColumn.HeaderText = "Сеансы";
-            this.buttonColumn.Name = "buttonColumn";
-            this.buttonColumn.Text = "11";
+            this.timePicker.DropDownAlign = System.Windows.Forms.LeftRightAlignment.Right;
+            this.timePicker.Format = System.Windows.Forms.DateTimePickerFormat.Time;
+            this.timePicker.Location = new System.Drawing.Point(19, 19);
+            this.timePicker.Name = "timePicker";
+            this.timePicker.Size = new System.Drawing.Size(128, 20);
+            this.timePicker.TabIndex = 0;
+            this.timePicker.Value = new System.DateTime(2017, 4, 9, 3, 24, 13, 0);
             // 
             // Cashier
             // 
             this.AutoScaleDimensions = new System.Drawing.SizeF(6F, 13F);
             this.AutoScaleMode = System.Windows.Forms.AutoScaleMode.Font;
-            this.ClientSize = new System.Drawing.Size(773, 426);
-            this.Controls.Add(this.comboBoxDiscountValue);
-            this.Controls.Add(this.dataGridViewAttractions);
-            this.Controls.Add(this.panel1);
-            this.Controls.Add(this.label2);
+            this.ClientSize = new System.Drawing.Size(1048, 426);
+            this.Controls.Add(this.TimePicker_panel);
+            this.Controls.Add(this.DatePicker_panel);
+            this.Controls.Add(this.groupBox2);
+            this.Controls.Add(this.TotalPrice_label);
             this.Controls.Add(this.label1);
             this.Controls.Add(this.groupBox6);
             this.Controls.Add(this.groupBox5);
             this.Controls.Add(this.groupBox4);
             this.Controls.Add(this.groupBox1);
-            this.Controls.Add(this.button1);
+            this.Controls.Add(this.AddAttraction_button);
             this.Controls.Add(this.button4);
-            this.Controls.Add(this.button3);
-            this.Controls.Add(this.button2);
+            this.Controls.Add(this.CheckOut_button);
+            this.Controls.Add(this.ClearAttractions_button);
             this.Name = "Cashier";
             this.Text = "Развлекатор";
             this.FormClosed += new System.Windows.Forms.FormClosedEventHandler(this.Cashier_FormClosed);
             this.Load += new System.EventHandler(this.Cashier_Load);
-            ((System.ComponentModel.ISupportInitialize)(this.dataGridView1)).EndInit();
+            ((System.ComponentModel.ISupportInitialize)(this.attractions_dataGridView)).EndInit();
             this.groupBox1.ResumeLayout(false);
             this.groupBox1.PerformLayout();
             this.groupBox4.ResumeLayout(false);
@@ -534,9 +589,12 @@
             this.groupBox5.ResumeLayout(false);
             this.groupBox6.ResumeLayout(false);
             this.groupBox6.PerformLayout();
-            this.panel1.ResumeLayout(false);
-            this.panel1.PerformLayout();
-            ((System.ComponentModel.ISupportInitialize)(this.dataGridViewAttractions)).EndInit();
+            this.groupBox2.ResumeLayout(false);
+            this.groupBox2.PerformLayout();
+            this.DatePicker_panel.ResumeLayout(false);
+            this.DatePicker_panel.PerformLayout();
+            this.TimePicker_panel.ResumeLayout(false);
+            this.TimePicker_panel.PerformLayout();
             this.ResumeLayout(false);
             this.PerformLayout();
 
@@ -548,47 +606,45 @@
         private System.Windows.Forms.TextBox textBoxPriceKid;
         private System.Windows.Forms.Label label8;
         private System.Windows.Forms.Label label7;
-        private System.Windows.Forms.Button button1;
-        private System.Windows.Forms.DataGridView dataGridView1;
-        private System.Windows.Forms.Button button2;
-        private System.Windows.Forms.Button button3;
+        private System.Windows.Forms.Button AddAttraction_button;
+        private System.Windows.Forms.DataGridView attractions_dataGridView;
+        private System.Windows.Forms.Button ClearAttractions_button;
+        private System.Windows.Forms.Button CheckOut_button;
         private System.Windows.Forms.Button button4;
         private System.Windows.Forms.TextBox textBoxDuration;
         private System.Windows.Forms.Label label15;
         private System.Windows.Forms.GroupBox groupBox1;
         private System.Windows.Forms.GroupBox groupBox4;
         private System.Windows.Forms.GroupBox groupBox5;
-        private System.Windows.Forms.DataGridViewTextBoxColumn Attraction;
-        private System.Windows.Forms.DataGridViewTextBoxColumn Column1;
-        private System.Windows.Forms.DataGridViewTextBoxColumn Тип;
-        private System.Windows.Forms.DataGridViewTextBoxColumn Date;
-        private System.Windows.Forms.DataGridViewTextBoxColumn Time;
-        private System.Windows.Forms.DataGridViewTextBoxColumn Column2;
         private System.Windows.Forms.Label label4;
         private System.Windows.Forms.GroupBox groupBox6;
         private System.Windows.Forms.ComboBox comboBoxDiscount;
         private System.Windows.Forms.Label label1;
-        private System.Windows.Forms.Label label2;
+        private System.Windows.Forms.Label TotalPrice_label;
         private System.Windows.Forms.TextBox textBoxDiscountValue;
         private System.Windows.Forms.Label label9;
-        private System.Windows.Forms.Panel panel1;
         private System.Windows.Forms.TextBox textBoxGrowthRestriction;
         private System.Windows.Forms.Label label6;
         private System.Windows.Forms.Label label5;
         private System.Windows.Forms.TextBox textBoxAgeRestriction;
         private System.Windows.Forms.TextBox textBoxWeightRestriction;
         private System.Windows.Forms.Label label3;
-        private System.Windows.Forms.ComboBox comboBoxDiscountValue;
-        private System.Windows.Forms.DataGridView dataGridViewAttractions;
-        private System.Windows.Forms.DataGridViewTextBoxColumn Column_pk;
-        private System.Windows.Forms.DataGridViewComboBoxColumn dataGridViewComboBoxColumn1;
-        private System.Windows.Forms.DataGridViewTextBoxColumn dataGridViewTextBoxColumn1;
-        private System.Windows.Forms.DataGridViewTextBoxColumn Column3;
-        private System.Windows.Forms.DataGridViewTextBoxColumn alkjsf;
-        private System.Windows.Forms.DataGridViewTextBoxColumn Column4;
-        private System.Windows.Forms.DataGridViewTextBoxColumn Column_growth;
-        private System.Windows.Forms.DataGridViewTextBoxColumn Column6;
-        private System.Windows.Forms.DataGridViewTextBoxColumn Column_CartsCount;
-        private System.Windows.Forms.DataGridViewButtonColumn buttonColumn;
+        private System.Windows.Forms.GroupBox groupBox2;
+        private System.Windows.Forms.DataGridViewTextBoxColumn AttractionColumn;
+        private System.Windows.Forms.DataGridViewTextBoxColumn CountColumn;
+        private System.Windows.Forms.DataGridViewComboBoxColumn TypeColumn;
+        private System.Windows.Forms.DataGridViewTextBoxColumn DateColumn;
+        private System.Windows.Forms.DataGridViewTextBoxColumn TimeColumn;
+        private System.Windows.Forms.DataGridViewTextBoxColumn PriceColumn;
+        private System.Windows.Forms.Panel DatePicker_panel;
+        private System.Windows.Forms.Label label10;
+        private System.Windows.Forms.DateTimePicker datePicker;
+        private System.Windows.Forms.Panel TimePicker_panel;
+        private System.Windows.Forms.Label label11;
+        private System.Windows.Forms.DateTimePicker timePicker;
+        private System.Windows.Forms.Button CancelDatePicker_button;
+        private System.Windows.Forms.Button OKDatePicker_button;
+        private System.Windows.Forms.Button CancelTimePicker_button;
+        private System.Windows.Forms.Button OKTimePicker_button;
     }
 }
