@@ -7,6 +7,7 @@ using System.Linq;
 using System.Text;
 using System.Threading.Tasks;
 using System.Windows.Forms;
+using Razvlekator.Forms;
 
 namespace Razvlekator
 {
@@ -151,6 +152,8 @@ namespace Razvlekator
             if (e.RowIndex >= 0 && e.ColumnIndex >= 0) {
                 rowIndexEditing = e.RowIndex;
                 colummnIndexEditing = e.ColumnIndex;
+                var datepickerform = new DateTimePickerForm(e.RowIndex);
+                datepickerform.Owner = this;
                 // Редактирование даты
                 if (e.ColumnIndex == 3)
                 {
@@ -161,8 +164,10 @@ namespace Razvlekator
                     int xShift = pCell.X + pDgv.X;
                     int yShift = pCell.Y + pDgv.Y + attractions_dataGridView.CurrentRow.Height;
                     #endregion
-                    DatePicker_panel.Location = new Point( xShift, yShift);
-                    e.Cancel = true;
+                    //DatePicker_panel.Location = new Point( xShift, yShift);
+                    
+                    datepickerform.Location = new Point(xShift, yShift);
+                    datepickerform.ShowDialog();
                 }
                 // Редактирование времени
                 if (e.ColumnIndex == 4)
@@ -174,8 +179,9 @@ namespace Razvlekator
                     int xShift = pCell.X + pDgv.X;
                     int yShift = pCell.Y + pDgv.Y + attractions_dataGridView.CurrentRow.Height;
                     #endregion
-                    TimePicker_panel.Location = new Point(xShift, yShift);
-                    e.Cancel = true;
+                    //TimePicker_panel.Location = new Point(xShift, yShift);
+                    datepickerform.Location = new Point(xShift, yShift);
+                    datepickerform.ShowDialog();
                 }
             }
         }

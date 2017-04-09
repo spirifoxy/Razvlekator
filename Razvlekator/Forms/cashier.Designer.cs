@@ -28,12 +28,12 @@
         /// </summary>
         private void InitializeComponent()
         {
-            System.Windows.Forms.DataGridViewCellStyle dataGridViewCellStyle13 = new System.Windows.Forms.DataGridViewCellStyle();
-            System.Windows.Forms.DataGridViewCellStyle dataGridViewCellStyle14 = new System.Windows.Forms.DataGridViewCellStyle();
-            System.Windows.Forms.DataGridViewCellStyle dataGridViewCellStyle15 = new System.Windows.Forms.DataGridViewCellStyle();
-            System.Windows.Forms.DataGridViewCellStyle dataGridViewCellStyle16 = new System.Windows.Forms.DataGridViewCellStyle();
-            System.Windows.Forms.DataGridViewCellStyle dataGridViewCellStyle17 = new System.Windows.Forms.DataGridViewCellStyle();
-            System.Windows.Forms.DataGridViewCellStyle dataGridViewCellStyle18 = new System.Windows.Forms.DataGridViewCellStyle();
+            System.Windows.Forms.DataGridViewCellStyle dataGridViewCellStyle1 = new System.Windows.Forms.DataGridViewCellStyle();
+            System.Windows.Forms.DataGridViewCellStyle dataGridViewCellStyle2 = new System.Windows.Forms.DataGridViewCellStyle();
+            System.Windows.Forms.DataGridViewCellStyle dataGridViewCellStyle3 = new System.Windows.Forms.DataGridViewCellStyle();
+            System.Windows.Forms.DataGridViewCellStyle dataGridViewCellStyle4 = new System.Windows.Forms.DataGridViewCellStyle();
+            System.Windows.Forms.DataGridViewCellStyle dataGridViewCellStyle5 = new System.Windows.Forms.DataGridViewCellStyle();
+            System.Windows.Forms.DataGridViewCellStyle dataGridViewCellStyle6 = new System.Windows.Forms.DataGridViewCellStyle();
             this.comboBoxAttraction = new System.Windows.Forms.ComboBox();
             this.textBoxPriceAdult = new System.Windows.Forms.TextBox();
             this.textBoxPriceKid = new System.Windows.Forms.TextBox();
@@ -177,9 +177,9 @@
             // AttractionColumn
             // 
             this.AttractionColumn.AutoSizeMode = System.Windows.Forms.DataGridViewAutoSizeColumnMode.Fill;
-            dataGridViewCellStyle13.SelectionBackColor = System.Drawing.Color.FromArgb(((int)(((byte)(224)))), ((int)(((byte)(224)))), ((int)(((byte)(224)))));
-            dataGridViewCellStyle13.SelectionForeColor = System.Drawing.Color.Black;
-            this.AttractionColumn.DefaultCellStyle = dataGridViewCellStyle13;
+            dataGridViewCellStyle1.SelectionBackColor = System.Drawing.Color.FromArgb(((int)(((byte)(224)))), ((int)(((byte)(224)))), ((int)(((byte)(224)))));
+            dataGridViewCellStyle1.SelectionForeColor = System.Drawing.Color.Black;
+            this.AttractionColumn.DefaultCellStyle = dataGridViewCellStyle1;
             this.AttractionColumn.HeaderText = "Аттракцион";
             this.AttractionColumn.MinimumWidth = 100;
             this.AttractionColumn.Name = "AttractionColumn";
@@ -187,9 +187,9 @@
             // 
             // CountColumn
             // 
-            dataGridViewCellStyle14.SelectionBackColor = System.Drawing.Color.FromArgb(((int)(((byte)(224)))), ((int)(((byte)(224)))), ((int)(((byte)(224)))));
-            dataGridViewCellStyle14.SelectionForeColor = System.Drawing.Color.Black;
-            this.CountColumn.DefaultCellStyle = dataGridViewCellStyle14;
+            dataGridViewCellStyle2.SelectionBackColor = System.Drawing.Color.FromArgb(((int)(((byte)(224)))), ((int)(((byte)(224)))), ((int)(((byte)(224)))));
+            dataGridViewCellStyle2.SelectionForeColor = System.Drawing.Color.Black;
+            this.CountColumn.DefaultCellStyle = dataGridViewCellStyle2;
             this.CountColumn.HeaderText = "Количество";
             this.CountColumn.MaxInputLength = 2;
             this.CountColumn.MinimumWidth = 20;
@@ -198,9 +198,9 @@
             // 
             // TypeColumn
             // 
-            dataGridViewCellStyle15.SelectionBackColor = System.Drawing.Color.FromArgb(((int)(((byte)(224)))), ((int)(((byte)(224)))), ((int)(((byte)(224)))));
-            dataGridViewCellStyle15.SelectionForeColor = System.Drawing.Color.Black;
-            this.TypeColumn.DefaultCellStyle = dataGridViewCellStyle15;
+            dataGridViewCellStyle3.SelectionBackColor = System.Drawing.Color.FromArgb(((int)(((byte)(224)))), ((int)(((byte)(224)))), ((int)(((byte)(224)))));
+            dataGridViewCellStyle3.SelectionForeColor = System.Drawing.Color.Black;
+            this.TypeColumn.DefaultCellStyle = dataGridViewCellStyle3;
             this.TypeColumn.HeaderText = "Тип";
             this.TypeColumn.MinimumWidth = 100;
             this.TypeColumn.Name = "TypeColumn";
@@ -209,27 +209,27 @@
             // 
             // DateColumn
             // 
-            dataGridViewCellStyle16.SelectionBackColor = System.Drawing.Color.FromArgb(((int)(((byte)(224)))), ((int)(((byte)(224)))), ((int)(((byte)(224)))));
-            dataGridViewCellStyle16.SelectionForeColor = System.Drawing.Color.Black;
-            this.DateColumn.DefaultCellStyle = dataGridViewCellStyle16;
+            dataGridViewCellStyle4.SelectionBackColor = System.Drawing.Color.FromArgb(((int)(((byte)(224)))), ((int)(((byte)(224)))), ((int)(((byte)(224)))));
+            dataGridViewCellStyle4.SelectionForeColor = System.Drawing.Color.Black;
+            this.DateColumn.DefaultCellStyle = dataGridViewCellStyle4;
             this.DateColumn.HeaderText = "Дата";
             this.DateColumn.MinimumWidth = 100;
             this.DateColumn.Name = "DateColumn";
             // 
             // TimeColumn
             // 
-            dataGridViewCellStyle17.SelectionBackColor = System.Drawing.Color.FromArgb(((int)(((byte)(224)))), ((int)(((byte)(224)))), ((int)(((byte)(224)))));
-            dataGridViewCellStyle17.SelectionForeColor = System.Drawing.Color.Black;
-            this.TimeColumn.DefaultCellStyle = dataGridViewCellStyle17;
+            dataGridViewCellStyle5.SelectionBackColor = System.Drawing.Color.FromArgb(((int)(((byte)(224)))), ((int)(((byte)(224)))), ((int)(((byte)(224)))));
+            dataGridViewCellStyle5.SelectionForeColor = System.Drawing.Color.Black;
+            this.TimeColumn.DefaultCellStyle = dataGridViewCellStyle5;
             this.TimeColumn.HeaderText = "Время";
             this.TimeColumn.MinimumWidth = 100;
             this.TimeColumn.Name = "TimeColumn";
             // 
             // PriceColumn
             // 
-            dataGridViewCellStyle18.SelectionBackColor = System.Drawing.Color.FromArgb(((int)(((byte)(224)))), ((int)(((byte)(224)))), ((int)(((byte)(224)))));
-            dataGridViewCellStyle18.SelectionForeColor = System.Drawing.Color.Black;
-            this.PriceColumn.DefaultCellStyle = dataGridViewCellStyle18;
+            dataGridViewCellStyle6.SelectionBackColor = System.Drawing.Color.FromArgb(((int)(((byte)(224)))), ((int)(((byte)(224)))), ((int)(((byte)(224)))));
+            dataGridViewCellStyle6.SelectionForeColor = System.Drawing.Color.Black;
+            this.PriceColumn.DefaultCellStyle = dataGridViewCellStyle6;
             this.PriceColumn.HeaderText = "Цена";
             this.PriceColumn.MinimumWidth = 80;
             this.PriceColumn.Name = "PriceColumn";
@@ -607,7 +607,6 @@
         private System.Windows.Forms.Label label8;
         private System.Windows.Forms.Label label7;
         private System.Windows.Forms.Button AddAttraction_button;
-        private System.Windows.Forms.DataGridView attractions_dataGridView;
         private System.Windows.Forms.Button ClearAttractions_button;
         private System.Windows.Forms.Button CheckOut_button;
         private System.Windows.Forms.Button button4;
@@ -646,5 +645,6 @@
         private System.Windows.Forms.Button OKDatePicker_button;
         private System.Windows.Forms.Button CancelTimePicker_button;
         private System.Windows.Forms.Button OKTimePicker_button;
+        public System.Windows.Forms.DataGridView attractions_dataGridView;
     }
 }

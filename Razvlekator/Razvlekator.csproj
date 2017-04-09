@@ -94,6 +94,12 @@
     <Compile Include="Forms\AdminSales.Designer.cs">
       <DependentUpon>AdminSales.cs</DependentUpon>
     </Compile>
+    <Compile Include="Forms\DateTimePickerForm.cs">
+      <SubType>Form</SubType>
+    </Compile>
+    <Compile Include="Forms\DateTimePickerForm.Designer.cs">
+      <DependentUpon>DateTimePickerForm.cs</DependentUpon>
+    </Compile>
     <Compile Include="Tables\attraction.cs" />
     <Compile Include="Tables\cart.cs" />
     <Compile Include="Forms\Cashier.cs">
@@ -149,6 +155,9 @@
     </EmbeddedResource>
     <EmbeddedResource Include="Forms\Cashier.resx">
       <DependentUpon>Cashier.cs</DependentUpon>
+    </EmbeddedResource>
+    <EmbeddedResource Include="Forms\DateTimePickerForm.resx">
+      <DependentUpon>DateTimePickerForm.cs</DependentUpon>
     </EmbeddedResource>
     <EmbeddedResource Include="Forms\Login.resx">
       <DependentUpon>Login.cs</DependentUpon>
