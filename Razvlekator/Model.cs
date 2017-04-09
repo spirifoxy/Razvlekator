@@ -22,7 +22,7 @@ namespace Razvlekator
         public virtual DbSet<session> session { get; set; }
         public virtual DbSet<ticket> Ticket { get; set; }
 
-        public List<session> GetAllSessionsFromAttr(attraction attr)
+        public List<place> GetAllPlacesFromAttr(attraction attr)
         {
             //ключ аттракциона
             var pk_attract = attr.pk_attraction;
@@ -35,21 +35,27 @@ namespace Razvlekator
                     cartsfromattr.Add(c.pk_cart);
 
             //лист мест по всем картам с аттракциона
-            var placesfromcarts = new List<int>();
+            var placesfromcarts = new List<place>();
             var places = this.place;
 
             foreach (var pkcart in cartsfromattr)
                 foreach (var place in places)
                 {
                     if (place.pk_cart == pkcart)
-                        placesfromcarts.Add(place.pk_place);
+                        placesfromcarts.Add(place);
                 }
+            return placesfromcarts;
+        }
+
+        public List<session> GetAllSessionsFromAttr(attraction attr)
+        {
+            var places = GetAllPlacesFromAttr(attr);
 
             var places2 = this.place;
             var sessionsfromattr = new List<session>();
             var sessions = this.session;
             foreach (var ses in sessions)
-                foreach (var placeinplaces in places2)
+                foreach (var placeinplaces in places)
                     if (ses.pk_place == placeinplaces.pk_place)
                         sessionsfromattr.Add(ses);
             return sessionsfromattr;

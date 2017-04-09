@@ -46,23 +46,30 @@ namespace Razvlekator
 
                     
                     var sessions = db.GetAllSessionsFromAttr(attr);
-                    while (dataGridView1.Rows.Count < sessions.Count())
-                        dataGridView1.Rows.Add();
+
+                    int oneplaceforout = -1;
+                    if (sessions.Count() > 0)
+                        oneplaceforout = sessions.First().pk_place;
+
+                    foreach (var ses in sessions)
+                        if (ses.pk_place == oneplaceforout)
+                            dataGridView1.Rows.Add();
 
                     int j = 0;
                     foreach (session d in sessions)
                     {
-                        dataGridView1[0, j].Value = d.time.ToString("hh':'mm");
-                        TimeSpan temp = d.time;
-                        TimeSpan temp2 = new TimeSpan(0,attr.duration,0);
-                        temp += temp2;
-                        dataGridView1[1, j].Value = (temp.ToString("hh':'mm"));
-                        dataGridView1[2, j].Value = (d.pk_session);
+                        if (d.pk_place == oneplaceforout)
+                        {
+                            dataGridView1[0, j].Value = d.time.ToString("hh':'mm");
+                            TimeSpan temp = d.time;
+                            TimeSpan temp2 = new TimeSpan(0, attr.duration, 0);
+                            temp += temp2;
+                            dataGridView1[1, j].Value = (temp.ToString("hh':'mm"));
+                            dataGridView1[2, j].Value = (d.pk_session);
 
-                        j++;    //костыль
+                            j++;
+                        }
                     }
-
-
                 }
             }
 
@@ -131,8 +138,6 @@ namespace Razvlekator
                             db.SaveChanges();
                         }
 
-
-
                         for (DateTime mydate = new DateTime
                             (dateTimePicker1.Value.Year,
                             dateTimePicker1.Value.Month,
@@ -151,14 +156,23 @@ namespace Razvlekator
                                     Convert.ToInt32(dataGridView1[0, i].Value.ToString().Split(':')[1]),
                                     0);
 
-                                newSession = new session
-                                {
-                                    date = mydate,
-                                    time = mytime,
-                                    pk_place = 11    //фу.
-                                };
+                                attraction attr = null;
+                                foreach (var a in db.attraction)
+                                    if (a.pk_attraction == pk_attraction) attr = a;
+                                
+                                var allPlaces = db.GetAllPlacesFromAttr(attr);
 
-                                db.session.Add(newSession);
+                                foreach (var place in allPlaces)
+                                {
+                                    newSession = new session
+                                    {
+                                        date = mydate,
+                                        time = mytime,
+                                        pk_place = place.pk_place
+                                    };
+
+                                    db.session.Add(newSession);
+                                }
                             }
                         }
                         db.SaveChanges();
