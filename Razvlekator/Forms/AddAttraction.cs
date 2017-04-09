@@ -43,7 +43,7 @@ namespace Razvlekator
                         {
                             name = comboBoxAttractionName.Text,
                             duration = Convert.ToInt32(textBoxDuration.Text),
-                            ticketpricekid = Convert.ToSingle(textBoxCostChild.Text),     
+                            ticketpricekid = Convert.ToSingle(textBoxCostChild.Text),
                             ticketpriceadult = Convert.ToInt32(textBoxCostAdult.Text),
                             starttime = Convert.ToInt32(numericUpDown_clockS.Text),
                             endtime = Convert.ToInt32(numericUpDown_clockDo.Text),
@@ -54,14 +54,14 @@ namespace Razvlekator
                         if (textBoxWeightFrom.Value != 0) newAttraction.weightrestriction = Convert.ToInt32(textBoxWeightFrom.Text);
                         if (textBox_growth.Value != 0) newAttraction.growthrestriction = Convert.ToInt32(textBox_growth.Text);
 
-                        db.attraction.Add(newAttraction);
-                    #endregion
-                    #region Создание тележек и мест в них
+
+                        #endregion
+                        #region Создание тележек и мест в них
 
                         for (int i = 0; i < Convert.ToInt32(numericUpDown_countCarts.Value); i++)
                         {
                             var newCart = new cart()
-                            {
+                            { 
                                 attraction = newAttraction,
                                 placecount = (int)numericUpDown_countPlaces.Value
                             };
@@ -75,10 +75,11 @@ namespace Razvlekator
                                 db.place.Add(newPlace);
                             }
                             db.cart.Add(newCart);
+                            newAttraction.cart.Add(newCart);
                         }
 
-                    #endregion
-
+                        #endregion
+                        db.attraction.Add(newAttraction);
                         db.SaveChanges();
 
                         this.Close();
@@ -97,7 +98,7 @@ namespace Razvlekator
             }
             catch (Exception a)
             {
-                
+
                 MessageBox.Show(a.Message, "Упс",
                              MessageBoxButtons.OK,
                              MessageBoxIcon.Question);

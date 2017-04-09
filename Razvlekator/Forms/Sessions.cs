@@ -43,13 +43,14 @@ namespace Razvlekator
                     textBox_endTime.Text = attr.endtime.ToString();
 
                     dataGridView1.Rows.Clear();
-                    var session = db.session;
 
-                    while (dataGridView1.Rows.Count < session.Count())
+                    
+                    var sessions = db.GetAllSessionsFromAttr(attr);
+                    while (dataGridView1.Rows.Count < sessions.Count())
                         dataGridView1.Rows.Add();
 
                     int j = 0;
-                    foreach (session d in session)
+                    foreach (session d in sessions)
                     {
                         dataGridView1[0, j].Value = d.time.ToString("hh':'mm");
                         TimeSpan temp = d.time;
