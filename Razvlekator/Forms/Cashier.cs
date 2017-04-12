@@ -13,7 +13,6 @@ namespace Razvlekator
 {
     public partial class Cashier : Form
     {
-        private Model db;
         private attraction selectedAttraction;
         private List<attraction> attractionList;
 
@@ -36,28 +35,30 @@ namespace Razvlekator
         {
             try
             {
-                db = new Model();
-                #region Заполнение скидок
-                comboBoxDiscount.Items.Clear();
-                var discounts = db.discount;
-                    
-                foreach (var item in discounts)
+                using (var db = new Model())
                 {
-                    if (item.isActive != 1)
-                        continue;
-                    comboBoxDiscount.Items.Add(item.name);
+                    #region Заполнение скидок
+                    comboBoxDiscount.Items.Clear();
+                    var discounts = db.discount;
+
+                    foreach (var item in discounts)
+                    {
+                        if (item.isActive != 1)
+                            continue;
+                        comboBoxDiscount.Items.Add(item.name);
+                    }
+                    #endregion
+
+                    #region Заполнение аттракционов
+                    comboBoxAttraction.Items.Clear();
+                    attractions_dataGridView.Rows.Clear();
+                    var attractions = db.attraction;
+
+                    foreach (var item in attractions)
+                        comboBoxAttraction.Items.Add(item.name);
+
+                    #endregion
                 }
-                #endregion
-
-                #region Заполнение аттракционов
-                comboBoxAttraction.Items.Clear();
-                attractions_dataGridView.Rows.Clear();
-                var attractions = db.attraction;
-
-                foreach (var item in attractions)
-                    comboBoxAttraction.Items.Add(item.name);
-
-                #endregion
             }
             catch (System.Data.Entity.Core.ProviderIncompatibleException)
             {
@@ -69,23 +70,29 @@ namespace Razvlekator
 
         private void comboBoxDiscount_SelectedIndexChanged(object sender, EventArgs e)
         {
-            var selectedDiscountString = comboBoxDiscount.SelectedItem.ToString();
-            var selectedDiscount = db.discount.First(x => x.name == selectedDiscountString);
+            using (var db = new Model())
+            {
+                var selectedDiscountString = comboBoxDiscount.SelectedItem.ToString();
+                var selectedDiscount = db.discount.First(x => x.name == selectedDiscountString);
 
-            textBoxDiscountValue.Text = selectedDiscount.value.ToString();
+                textBoxDiscountValue.Text = selectedDiscount.value.ToString();
+            }
         }
 
         private void comboBoxAttraction_SelectedIndexChanged(object sender, EventArgs e)
         {
-            var selectedAttractionString = comboBoxAttraction.SelectedItem.ToString();
-            selectedAttraction = db.attraction.First(x => x.name == selectedAttractionString);
-            
-            textBoxDuration.Text = selectedAttraction.duration.ToString();
-            textBoxPriceKid.Text = selectedAttraction.ticketpricekid.ToString();
-            textBoxPriceAdult.Text = selectedAttraction.ticketpriceadult.ToString();
-            textBoxWeightRestriction.Text = selectedAttraction.weightrestriction.ToString();
-            textBoxGrowthRestriction.Text = selectedAttraction.growthrestriction.ToString();
-            textBoxAgeRestriction.Text = selectedAttraction.agerestrictions.ToString();
+            using (var db = new Model())
+            {
+                var selectedAttractionString = comboBoxAttraction.SelectedItem.ToString();
+                selectedAttraction = db.attraction.First(x => x.name == selectedAttractionString);
+
+                textBoxDuration.Text = selectedAttraction.duration.ToString();
+                textBoxPriceKid.Text = selectedAttraction.ticketpricekid.ToString();
+                textBoxPriceAdult.Text = selectedAttraction.ticketpriceadult.ToString();
+                textBoxWeightRestriction.Text = selectedAttraction.weightrestriction.ToString();
+                textBoxGrowthRestriction.Text = selectedAttraction.growthrestriction.ToString();
+                textBoxAgeRestriction.Text = selectedAttraction.agerestrictions.ToString();
+            }
         }
 
         private void AddAttraction_button_Click(object sender, EventArgs e)
@@ -153,65 +160,49 @@ namespace Razvlekator
                 rowIndexEditing = e.RowIndex;
                 colummnIndexEditing = e.ColumnIndex;
                 var datepickerform = new DateTimePickerForm(e.RowIndex);
+                var placepickerform = new PlacePickerForm(e.RowIndex);
                 datepickerform.Owner = this;
+                placepickerform.Owner = this;
                 // Редактирование даты
                 if (e.ColumnIndex == 3)
                 {
-                    DatePicker_panel.Visible = true;
                     #region Вычисление позиции для DatePicker_panel
                     Point pCell = attractions_dataGridView.GetCellDisplayRectangle(e.ColumnIndex, e.RowIndex, true).Location;
                     Point pDgv = attractions_dataGridView.Location;
                     int xShift = pCell.X + pDgv.X;
                     int yShift = pCell.Y + pDgv.Y + attractions_dataGridView.CurrentRow.Height;
                     #endregion
-                    //DatePicker_panel.Location = new Point( xShift, yShift);
-                    
                     datepickerform.Location = new Point(xShift, yShift);
                     datepickerform.ShowDialog();
+                    e.Cancel = true;
                 }
                 // Редактирование времени
                 if (e.ColumnIndex == 4)
                 {
-                    TimePicker_panel.Visible = true;
                     #region Вычисление позиции для timePicker_panel
                     Point pCell = attractions_dataGridView.GetCellDisplayRectangle(e.ColumnIndex, e.RowIndex, true).Location;
                     Point pDgv = attractions_dataGridView.Location;
                     int xShift = pCell.X + pDgv.X;
                     int yShift = pCell.Y + pDgv.Y + attractions_dataGridView.CurrentRow.Height;
                     #endregion
-                    //TimePicker_panel.Location = new Point(xShift, yShift);
                     datepickerform.Location = new Point(xShift, yShift);
                     datepickerform.ShowDialog();
+                    e.Cancel = true;
+                }
+                // Редактирование места в телеге
+                if (e.ColumnIndex == 6)
+                {
+                    #region Вычисление позиции для placePicker
+                    Point pCell = attractions_dataGridView.GetCellDisplayRectangle(e.ColumnIndex, e.RowIndex, true).Location;
+                    Point pDgv = attractions_dataGridView.Location;
+                    int xShift = pCell.X + pDgv.X;
+                    int yShift = pCell.Y + pDgv.Y + attractions_dataGridView.CurrentRow.Height;
+                    #endregion
+                    placepickerform.Location = new Point(xShift, yShift);
+                    placepickerform.ShowDialog();
+                    e.Cancel = true;
                 }
             }
-        }
-
-        private void OKDatePicker_button_Click(object sender, EventArgs e)
-        {
-            if (colummnIndexEditing != 0)
-            {
-                attractions_dataGridView.Rows[rowIndexEditing].Cells[colummnIndexEditing].Value = datePicker.Value.ToString("d.M.y");
-                DatePicker_panel.Visible = false;
-            }
-        }
-
-        private void CancelDatePicker_button_Click(object sender, EventArgs e)
-        {
-            DatePicker_panel.Visible = false;
-        }
-
-        private void OKTimePicker_button_Click(object sender, EventArgs e)
-        {
-            if (colummnIndexEditing != 0)
-            {
-                attractions_dataGridView.Rows[rowIndexEditing].Cells[colummnIndexEditing].Value = timePicker.Value.ToShortTimeString();
-                TimePicker_panel.Visible = false;
-            }
-        }
-
-        private void CancelTimePicker_button_Click(object sender, EventArgs e)
-        {
-            TimePicker_panel.Visible = false;
         }
 
         private void ClearAttractions_button_Click(object sender, EventArgs e)

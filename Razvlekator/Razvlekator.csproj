@@ -100,6 +100,12 @@
     <Compile Include="Forms\DateTimePickerForm.Designer.cs">
       <DependentUpon>DateTimePickerForm.cs</DependentUpon>
     </Compile>
+    <Compile Include="Forms\PlacePickerForm.cs">
+      <SubType>Form</SubType>
+    </Compile>
+    <Compile Include="Forms\PlacePickerForm.Designer.cs">
+      <DependentUpon>PlacePickerForm.cs</DependentUpon>
+    </Compile>
     <Compile Include="Tables\attraction.cs" />
     <Compile Include="Tables\cart.cs" />
     <Compile Include="Forms\Cashier.cs">
@@ -161,6 +167,9 @@
     </EmbeddedResource>
     <EmbeddedResource Include="Forms\Login.resx">
       <DependentUpon>Login.cs</DependentUpon>
+    </EmbeddedResource>
+    <EmbeddedResource Include="Forms\PlacePickerForm.resx">
+      <DependentUpon>PlacePickerForm.cs</DependentUpon>
     </EmbeddedResource>
     <EmbeddedResource Include="Properties\Resources.resx">
       <Generator>ResXFileCodeGenerator</Generator>

@@ -34,6 +34,7 @@
             System.Windows.Forms.DataGridViewCellStyle dataGridViewCellStyle4 = new System.Windows.Forms.DataGridViewCellStyle();
             System.Windows.Forms.DataGridViewCellStyle dataGridViewCellStyle5 = new System.Windows.Forms.DataGridViewCellStyle();
             System.Windows.Forms.DataGridViewCellStyle dataGridViewCellStyle6 = new System.Windows.Forms.DataGridViewCellStyle();
+            System.Windows.Forms.DataGridViewCellStyle dataGridViewCellStyle7 = new System.Windows.Forms.DataGridViewCellStyle();
             this.comboBoxAttraction = new System.Windows.Forms.ComboBox();
             this.textBoxPriceAdult = new System.Windows.Forms.TextBox();
             this.textBoxPriceKid = new System.Windows.Forms.TextBox();
@@ -41,12 +42,6 @@
             this.label7 = new System.Windows.Forms.Label();
             this.AddAttraction_button = new System.Windows.Forms.Button();
             this.attractions_dataGridView = new System.Windows.Forms.DataGridView();
-            this.AttractionColumn = new System.Windows.Forms.DataGridViewTextBoxColumn();
-            this.CountColumn = new System.Windows.Forms.DataGridViewTextBoxColumn();
-            this.TypeColumn = new System.Windows.Forms.DataGridViewComboBoxColumn();
-            this.DateColumn = new System.Windows.Forms.DataGridViewTextBoxColumn();
-            this.TimeColumn = new System.Windows.Forms.DataGridViewTextBoxColumn();
-            this.PriceColumn = new System.Windows.Forms.DataGridViewTextBoxColumn();
             this.ClearAttractions_button = new System.Windows.Forms.Button();
             this.CheckOut_button = new System.Windows.Forms.Button();
             this.button4 = new System.Windows.Forms.Button();
@@ -69,24 +64,19 @@
             this.textBoxWeightRestriction = new System.Windows.Forms.TextBox();
             this.label3 = new System.Windows.Forms.Label();
             this.groupBox2 = new System.Windows.Forms.GroupBox();
-            this.DatePicker_panel = new System.Windows.Forms.Panel();
-            this.CancelDatePicker_button = new System.Windows.Forms.Button();
-            this.OKDatePicker_button = new System.Windows.Forms.Button();
-            this.label10 = new System.Windows.Forms.Label();
-            this.datePicker = new System.Windows.Forms.DateTimePicker();
-            this.TimePicker_panel = new System.Windows.Forms.Panel();
-            this.CancelTimePicker_button = new System.Windows.Forms.Button();
-            this.OKTimePicker_button = new System.Windows.Forms.Button();
-            this.label11 = new System.Windows.Forms.Label();
-            this.timePicker = new System.Windows.Forms.DateTimePicker();
+            this.AttractionColumn = new System.Windows.Forms.DataGridViewTextBoxColumn();
+            this.CountColumn = new System.Windows.Forms.DataGridViewTextBoxColumn();
+            this.TypeColumn = new System.Windows.Forms.DataGridViewComboBoxColumn();
+            this.DateColumn = new System.Windows.Forms.DataGridViewTextBoxColumn();
+            this.TimeColumn = new System.Windows.Forms.DataGridViewTextBoxColumn();
+            this.PriceColumn = new System.Windows.Forms.DataGridViewTextBoxColumn();
+            this.placeInCartColumn = new System.Windows.Forms.DataGridViewTextBoxColumn();
             ((System.ComponentModel.ISupportInitialize)(this.attractions_dataGridView)).BeginInit();
             this.groupBox1.SuspendLayout();
             this.groupBox4.SuspendLayout();
             this.groupBox5.SuspendLayout();
             this.groupBox6.SuspendLayout();
             this.groupBox2.SuspendLayout();
-            this.DatePicker_panel.SuspendLayout();
-            this.TimePicker_panel.SuspendLayout();
             this.SuspendLayout();
             // 
             // comboBoxAttraction
@@ -161,7 +151,8 @@
             this.TypeColumn,
             this.DateColumn,
             this.TimeColumn,
-            this.PriceColumn});
+            this.PriceColumn,
+            this.placeInCartColumn});
             this.attractions_dataGridView.Cursor = System.Windows.Forms.Cursors.Hand;
             this.attractions_dataGridView.Location = new System.Drawing.Point(9, 19);
             this.attractions_dataGridView.MultiSelect = false;
@@ -173,68 +164,6 @@
             this.attractions_dataGridView.TabIndex = 8;
             this.attractions_dataGridView.CellBeginEdit += new System.Windows.Forms.DataGridViewCellCancelEventHandler(this.attractions_dataGridView_CellBeginEdit);
             this.attractions_dataGridView.CellValueChanged += new System.Windows.Forms.DataGridViewCellEventHandler(this.attractions_dataGridView_CellValueChanged);
-            // 
-            // AttractionColumn
-            // 
-            this.AttractionColumn.AutoSizeMode = System.Windows.Forms.DataGridViewAutoSizeColumnMode.Fill;
-            dataGridViewCellStyle1.SelectionBackColor = System.Drawing.Color.FromArgb(((int)(((byte)(224)))), ((int)(((byte)(224)))), ((int)(((byte)(224)))));
-            dataGridViewCellStyle1.SelectionForeColor = System.Drawing.Color.Black;
-            this.AttractionColumn.DefaultCellStyle = dataGridViewCellStyle1;
-            this.AttractionColumn.HeaderText = "Аттракцион";
-            this.AttractionColumn.MinimumWidth = 100;
-            this.AttractionColumn.Name = "AttractionColumn";
-            this.AttractionColumn.ReadOnly = true;
-            // 
-            // CountColumn
-            // 
-            dataGridViewCellStyle2.SelectionBackColor = System.Drawing.Color.FromArgb(((int)(((byte)(224)))), ((int)(((byte)(224)))), ((int)(((byte)(224)))));
-            dataGridViewCellStyle2.SelectionForeColor = System.Drawing.Color.Black;
-            this.CountColumn.DefaultCellStyle = dataGridViewCellStyle2;
-            this.CountColumn.HeaderText = "Количество";
-            this.CountColumn.MaxInputLength = 2;
-            this.CountColumn.MinimumWidth = 20;
-            this.CountColumn.Name = "CountColumn";
-            this.CountColumn.Width = 80;
-            // 
-            // TypeColumn
-            // 
-            dataGridViewCellStyle3.SelectionBackColor = System.Drawing.Color.FromArgb(((int)(((byte)(224)))), ((int)(((byte)(224)))), ((int)(((byte)(224)))));
-            dataGridViewCellStyle3.SelectionForeColor = System.Drawing.Color.Black;
-            this.TypeColumn.DefaultCellStyle = dataGridViewCellStyle3;
-            this.TypeColumn.HeaderText = "Тип";
-            this.TypeColumn.MinimumWidth = 100;
-            this.TypeColumn.Name = "TypeColumn";
-            this.TypeColumn.Resizable = System.Windows.Forms.DataGridViewTriState.True;
-            this.TypeColumn.SortMode = System.Windows.Forms.DataGridViewColumnSortMode.Automatic;
-            // 
-            // DateColumn
-            // 
-            dataGridViewCellStyle4.SelectionBackColor = System.Drawing.Color.FromArgb(((int)(((byte)(224)))), ((int)(((byte)(224)))), ((int)(((byte)(224)))));
-            dataGridViewCellStyle4.SelectionForeColor = System.Drawing.Color.Black;
-            this.DateColumn.DefaultCellStyle = dataGridViewCellStyle4;
-            this.DateColumn.HeaderText = "Дата";
-            this.DateColumn.MinimumWidth = 100;
-            this.DateColumn.Name = "DateColumn";
-            // 
-            // TimeColumn
-            // 
-            dataGridViewCellStyle5.SelectionBackColor = System.Drawing.Color.FromArgb(((int)(((byte)(224)))), ((int)(((byte)(224)))), ((int)(((byte)(224)))));
-            dataGridViewCellStyle5.SelectionForeColor = System.Drawing.Color.Black;
-            this.TimeColumn.DefaultCellStyle = dataGridViewCellStyle5;
-            this.TimeColumn.HeaderText = "Время";
-            this.TimeColumn.MinimumWidth = 100;
-            this.TimeColumn.Name = "TimeColumn";
-            // 
-            // PriceColumn
-            // 
-            dataGridViewCellStyle6.SelectionBackColor = System.Drawing.Color.FromArgb(((int)(((byte)(224)))), ((int)(((byte)(224)))), ((int)(((byte)(224)))));
-            dataGridViewCellStyle6.SelectionForeColor = System.Drawing.Color.Black;
-            this.PriceColumn.DefaultCellStyle = dataGridViewCellStyle6;
-            this.PriceColumn.HeaderText = "Цена";
-            this.PriceColumn.MinimumWidth = 80;
-            this.PriceColumn.Name = "PriceColumn";
-            this.PriceColumn.ReadOnly = true;
-            this.PriceColumn.Width = 80;
             // 
             // ClearAttractions_button
             // 
@@ -457,115 +386,83 @@
             this.groupBox2.TabStop = false;
             this.groupBox2.Text = "Ограничения";
             // 
-            // DatePicker_panel
+            // AttractionColumn
             // 
-            this.DatePicker_panel.BorderStyle = System.Windows.Forms.BorderStyle.FixedSingle;
-            this.DatePicker_panel.Controls.Add(this.CancelDatePicker_button);
-            this.DatePicker_panel.Controls.Add(this.OKDatePicker_button);
-            this.DatePicker_panel.Controls.Add(this.label10);
-            this.DatePicker_panel.Controls.Add(this.datePicker);
-            this.DatePicker_panel.Location = new System.Drawing.Point(868, 12);
-            this.DatePicker_panel.Name = "DatePicker_panel";
-            this.DatePicker_panel.Size = new System.Drawing.Size(170, 82);
-            this.DatePicker_panel.TabIndex = 31;
+            this.AttractionColumn.AutoSizeMode = System.Windows.Forms.DataGridViewAutoSizeColumnMode.Fill;
+            dataGridViewCellStyle1.SelectionBackColor = System.Drawing.Color.FromArgb(((int)(((byte)(224)))), ((int)(((byte)(224)))), ((int)(((byte)(224)))));
+            dataGridViewCellStyle1.SelectionForeColor = System.Drawing.Color.Black;
+            this.AttractionColumn.DefaultCellStyle = dataGridViewCellStyle1;
+            this.AttractionColumn.HeaderText = "Аттракцион";
+            this.AttractionColumn.MinimumWidth = 100;
+            this.AttractionColumn.Name = "AttractionColumn";
+            this.AttractionColumn.ReadOnly = true;
             // 
-            // CancelDatePicker_button
+            // CountColumn
             // 
-            this.CancelDatePicker_button.Location = new System.Drawing.Point(87, 47);
-            this.CancelDatePicker_button.Name = "CancelDatePicker_button";
-            this.CancelDatePicker_button.Size = new System.Drawing.Size(75, 23);
-            this.CancelDatePicker_button.TabIndex = 3;
-            this.CancelDatePicker_button.Text = "Отмена";
-            this.CancelDatePicker_button.UseVisualStyleBackColor = true;
-            this.CancelDatePicker_button.Click += new System.EventHandler(this.CancelDatePicker_button_Click);
+            dataGridViewCellStyle2.SelectionBackColor = System.Drawing.Color.FromArgb(((int)(((byte)(224)))), ((int)(((byte)(224)))), ((int)(((byte)(224)))));
+            dataGridViewCellStyle2.SelectionForeColor = System.Drawing.Color.Black;
+            this.CountColumn.DefaultCellStyle = dataGridViewCellStyle2;
+            this.CountColumn.HeaderText = "Количество";
+            this.CountColumn.MaxInputLength = 2;
+            this.CountColumn.MinimumWidth = 20;
+            this.CountColumn.Name = "CountColumn";
+            this.CountColumn.Width = 80;
             // 
-            // OKDatePicker_button
+            // TypeColumn
             // 
-            this.OKDatePicker_button.Location = new System.Drawing.Point(6, 47);
-            this.OKDatePicker_button.Name = "OKDatePicker_button";
-            this.OKDatePicker_button.Size = new System.Drawing.Size(75, 23);
-            this.OKDatePicker_button.TabIndex = 2;
-            this.OKDatePicker_button.Text = "OK";
-            this.OKDatePicker_button.UseVisualStyleBackColor = true;
-            this.OKDatePicker_button.Click += new System.EventHandler(this.OKDatePicker_button_Click);
+            dataGridViewCellStyle3.SelectionBackColor = System.Drawing.Color.FromArgb(((int)(((byte)(224)))), ((int)(((byte)(224)))), ((int)(((byte)(224)))));
+            dataGridViewCellStyle3.SelectionForeColor = System.Drawing.Color.Black;
+            this.TypeColumn.DefaultCellStyle = dataGridViewCellStyle3;
+            this.TypeColumn.HeaderText = "Тип";
+            this.TypeColumn.MinimumWidth = 100;
+            this.TypeColumn.Name = "TypeColumn";
+            this.TypeColumn.Resizable = System.Windows.Forms.DataGridViewTriState.True;
+            this.TypeColumn.SortMode = System.Windows.Forms.DataGridViewColumnSortMode.Automatic;
             // 
-            // label10
+            // DateColumn
             // 
-            this.label10.AutoSize = true;
-            this.label10.Location = new System.Drawing.Point(23, 3);
-            this.label10.Name = "label10";
-            this.label10.Size = new System.Drawing.Size(121, 13);
-            this.label10.TabIndex = 1;
-            this.label10.Text = "Выберите дату сеанса";
+            dataGridViewCellStyle4.SelectionBackColor = System.Drawing.Color.FromArgb(((int)(((byte)(224)))), ((int)(((byte)(224)))), ((int)(((byte)(224)))));
+            dataGridViewCellStyle4.SelectionForeColor = System.Drawing.Color.Black;
+            this.DateColumn.DefaultCellStyle = dataGridViewCellStyle4;
+            this.DateColumn.HeaderText = "Дата";
+            this.DateColumn.MinimumWidth = 100;
+            this.DateColumn.Name = "DateColumn";
             // 
-            // datePicker
+            // TimeColumn
             // 
-            this.datePicker.DropDownAlign = System.Windows.Forms.LeftRightAlignment.Right;
-            this.datePicker.Format = System.Windows.Forms.DateTimePickerFormat.Short;
-            this.datePicker.Location = new System.Drawing.Point(26, 19);
-            this.datePicker.Name = "datePicker";
-            this.datePicker.Size = new System.Drawing.Size(118, 20);
-            this.datePicker.TabIndex = 0;
-            this.datePicker.Value = new System.DateTime(2017, 4, 9, 3, 24, 13, 0);
+            dataGridViewCellStyle5.SelectionBackColor = System.Drawing.Color.FromArgb(((int)(((byte)(224)))), ((int)(((byte)(224)))), ((int)(((byte)(224)))));
+            dataGridViewCellStyle5.SelectionForeColor = System.Drawing.Color.Black;
+            this.TimeColumn.DefaultCellStyle = dataGridViewCellStyle5;
+            this.TimeColumn.HeaderText = "Время";
+            this.TimeColumn.MinimumWidth = 100;
+            this.TimeColumn.Name = "TimeColumn";
             // 
-            // TimePicker_panel
+            // PriceColumn
             // 
-            this.TimePicker_panel.BorderStyle = System.Windows.Forms.BorderStyle.FixedSingle;
-            this.TimePicker_panel.Controls.Add(this.CancelTimePicker_button);
-            this.TimePicker_panel.Controls.Add(this.OKTimePicker_button);
-            this.TimePicker_panel.Controls.Add(this.label11);
-            this.TimePicker_panel.Controls.Add(this.timePicker);
-            this.TimePicker_panel.Location = new System.Drawing.Point(868, 112);
-            this.TimePicker_panel.Name = "TimePicker_panel";
-            this.TimePicker_panel.Size = new System.Drawing.Size(170, 74);
-            this.TimePicker_panel.TabIndex = 32;
+            dataGridViewCellStyle6.SelectionBackColor = System.Drawing.Color.FromArgb(((int)(((byte)(224)))), ((int)(((byte)(224)))), ((int)(((byte)(224)))));
+            dataGridViewCellStyle6.SelectionForeColor = System.Drawing.Color.Black;
+            this.PriceColumn.DefaultCellStyle = dataGridViewCellStyle6;
+            this.PriceColumn.HeaderText = "Цена";
+            this.PriceColumn.MinimumWidth = 80;
+            this.PriceColumn.Name = "PriceColumn";
+            this.PriceColumn.ReadOnly = true;
+            this.PriceColumn.Width = 80;
             // 
-            // CancelTimePicker_button
+            // placeInCartColumn
             // 
-            this.CancelTimePicker_button.Location = new System.Drawing.Point(87, 41);
-            this.CancelTimePicker_button.Name = "CancelTimePicker_button";
-            this.CancelTimePicker_button.Size = new System.Drawing.Size(75, 23);
-            this.CancelTimePicker_button.TabIndex = 5;
-            this.CancelTimePicker_button.Text = "Отмена";
-            this.CancelTimePicker_button.UseVisualStyleBackColor = true;
-            this.CancelTimePicker_button.Click += new System.EventHandler(this.CancelTimePicker_button_Click);
-            // 
-            // OKTimePicker_button
-            // 
-            this.OKTimePicker_button.Location = new System.Drawing.Point(6, 41);
-            this.OKTimePicker_button.Name = "OKTimePicker_button";
-            this.OKTimePicker_button.Size = new System.Drawing.Size(75, 23);
-            this.OKTimePicker_button.TabIndex = 4;
-            this.OKTimePicker_button.Text = "OK";
-            this.OKTimePicker_button.UseVisualStyleBackColor = true;
-            this.OKTimePicker_button.Click += new System.EventHandler(this.OKTimePicker_button_Click);
-            // 
-            // label11
-            // 
-            this.label11.AutoSize = true;
-            this.label11.Location = new System.Drawing.Point(16, 3);
-            this.label11.Name = "label11";
-            this.label11.Size = new System.Drawing.Size(131, 13);
-            this.label11.TabIndex = 1;
-            this.label11.Text = "Выберите время сеанса";
-            // 
-            // timePicker
-            // 
-            this.timePicker.DropDownAlign = System.Windows.Forms.LeftRightAlignment.Right;
-            this.timePicker.Format = System.Windows.Forms.DateTimePickerFormat.Time;
-            this.timePicker.Location = new System.Drawing.Point(19, 19);
-            this.timePicker.Name = "timePicker";
-            this.timePicker.Size = new System.Drawing.Size(128, 20);
-            this.timePicker.TabIndex = 0;
-            this.timePicker.Value = new System.DateTime(2017, 4, 9, 3, 24, 13, 0);
+            dataGridViewCellStyle7.SelectionBackColor = System.Drawing.Color.FromArgb(((int)(((byte)(224)))), ((int)(((byte)(224)))), ((int)(((byte)(224)))));
+            dataGridViewCellStyle7.SelectionForeColor = System.Drawing.Color.Black;
+            this.placeInCartColumn.DefaultCellStyle = dataGridViewCellStyle7;
+            this.placeInCartColumn.HeaderText = "Место";
+            this.placeInCartColumn.MinimumWidth = 50;
+            this.placeInCartColumn.Name = "placeInCartColumn";
+            this.placeInCartColumn.Width = 50;
             // 
             // Cashier
             // 
             this.AutoScaleDimensions = new System.Drawing.SizeF(6F, 13F);
             this.AutoScaleMode = System.Windows.Forms.AutoScaleMode.Font;
-            this.ClientSize = new System.Drawing.Size(1048, 426);
-            this.Controls.Add(this.TimePicker_panel);
-            this.Controls.Add(this.DatePicker_panel);
+            this.ClientSize = new System.Drawing.Size(783, 426);
             this.Controls.Add(this.groupBox2);
             this.Controls.Add(this.TotalPrice_label);
             this.Controls.Add(this.label1);
@@ -591,10 +488,6 @@
             this.groupBox6.PerformLayout();
             this.groupBox2.ResumeLayout(false);
             this.groupBox2.PerformLayout();
-            this.DatePicker_panel.ResumeLayout(false);
-            this.DatePicker_panel.PerformLayout();
-            this.TimePicker_panel.ResumeLayout(false);
-            this.TimePicker_panel.PerformLayout();
             this.ResumeLayout(false);
             this.PerformLayout();
 
@@ -629,22 +522,13 @@
         private System.Windows.Forms.TextBox textBoxWeightRestriction;
         private System.Windows.Forms.Label label3;
         private System.Windows.Forms.GroupBox groupBox2;
+        public System.Windows.Forms.DataGridView attractions_dataGridView;
         private System.Windows.Forms.DataGridViewTextBoxColumn AttractionColumn;
         private System.Windows.Forms.DataGridViewTextBoxColumn CountColumn;
         private System.Windows.Forms.DataGridViewComboBoxColumn TypeColumn;
         private System.Windows.Forms.DataGridViewTextBoxColumn DateColumn;
         private System.Windows.Forms.DataGridViewTextBoxColumn TimeColumn;
         private System.Windows.Forms.DataGridViewTextBoxColumn PriceColumn;
-        private System.Windows.Forms.Panel DatePicker_panel;
-        private System.Windows.Forms.Label label10;
-        private System.Windows.Forms.DateTimePicker datePicker;
-        private System.Windows.Forms.Panel TimePicker_panel;
-        private System.Windows.Forms.Label label11;
-        private System.Windows.Forms.DateTimePicker timePicker;
-        private System.Windows.Forms.Button CancelDatePicker_button;
-        private System.Windows.Forms.Button OKDatePicker_button;
-        private System.Windows.Forms.Button CancelTimePicker_button;
-        private System.Windows.Forms.Button OKTimePicker_button;
-        public System.Windows.Forms.DataGridView attractions_dataGridView;
+        private System.Windows.Forms.DataGridViewTextBoxColumn placeInCartColumn;
     }
 }

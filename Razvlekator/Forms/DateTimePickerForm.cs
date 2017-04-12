@@ -21,12 +21,12 @@ namespace Razvlekator.Forms
         {
             InitializeComponent();
             rowIndex = _rowIndex;
+            db = new Model();
         }
 
         private void DateTimePickerForm_Load(object sender, EventArgs e)
         {
             datePicker.Value = DateTime.Now;
-            db = new Model();
         }
 
         private void Confirm_button_Click(object sender, EventArgs e)
@@ -51,6 +51,20 @@ namespace Razvlekator.Forms
         private void datePicker_ValueChanged(object sender, EventArgs e)
         {
             //TODO: Сделать подгрузку из базы нужных сессий для отображения в ListView
+            Cashier owner = this.Owner as Cashier;
+            IEnumerable<IGrouping<TimeSpan, session>> todaySessions = null;
+            var currentDate = datePicker.Value.Date;
+            if (owner != null)
+            {
+                var attName = owner.attractions_dataGridView.Rows[rowIndex].Cells[0].Value.ToString();
+                todaySessions = db.session.ToList().FindAll(x => x.date.Date == currentDate && x.place.cart.attraction.name == attName).GroupBy(x => x.time);
+                Sessions_listView.Items.Clear();
+                
+                foreach (var pair in todaySessions)
+                {
+                    Sessions_listView.Items.Add(pair.Key.ToString("hh':'mm"));
+                }
+            }
 
         }
     }
