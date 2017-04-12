@@ -16,5 +16,14 @@ namespace Razvlekator
         {
             InitializeComponent();
         }
+
+        private void button1_Click(object sender, EventArgs e)
+        {
+            if (textBox1.Text != "")
+            {
+                this.Close();
+                MessageBox.Show("Верните покупателю деньги", "Возврат", MessageBoxButtons.OK,MessageBoxIcon.Information);
+            }
+        }
     }
 }

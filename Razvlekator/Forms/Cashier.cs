@@ -1,10 +1,7 @@
 ﻿using System;
 using System.Collections.Generic;
-using System.ComponentModel;
-using System.Data;
 using System.Drawing;
 using System.Linq;
-using System.Text;
 using System.Threading.Tasks;
 using System.Windows.Forms;
 using Razvlekator.Forms;
@@ -101,7 +98,7 @@ namespace Razvlekator
             attractionList.Add(selectedAttraction);
             attractions_dataGridView.Rows[attractions_dataGridView.Rows.Count - 1].Cells[0].Value = selectedAttraction.name;
             attractions_dataGridView.Rows[attractions_dataGridView.Rows.Count - 1].Cells[1].Value = 1;
-            ((DataGridViewComboBoxCell)attractions_dataGridView.Rows[attractions_dataGridView.Rows.Count - 1].Cells[2]).Items.AddRange("Взрослый","Детский");
+            ((DataGridViewComboBoxCell)attractions_dataGridView.Rows[attractions_dataGridView.Rows.Count - 1].Cells[2]).Items.AddRange("Взрослый", "Детский");
             attractions_dataGridView.Rows[attractions_dataGridView.Rows.Count - 1].Cells[3].Value = null;
             attractions_dataGridView.Rows[attractions_dataGridView.Rows.Count - 1].Cells[4].Value = null;
             attractions_dataGridView.Rows[attractions_dataGridView.Rows.Count - 1].Cells[5].Value = null;
@@ -110,7 +107,8 @@ namespace Razvlekator
         private void attractions_dataGridView_CellValueChanged(object sender, DataGridViewCellEventArgs e)
         {
             // Защита от инициализации. Иначе при инициализации он сюда зайдет с e.RowIndex = -1 и все сломает.
-            if(e.RowIndex >= 0 && e.ColumnIndex >= 0) {
+            if (e.RowIndex >= 0 && e.ColumnIndex >= 0)
+            {
                 // Если изменена ячейка в столбце Количество или Тип билета, то пересчитать цену билета
                 if (e.ColumnIndex == 1 || e.ColumnIndex == 2)
                 {
@@ -135,11 +133,19 @@ namespace Razvlekator
                     {
                         var currentAttraction = attractionList.Find(x => x.name == attractions_dataGridView.Rows[e.RowIndex].Cells[0].Value.ToString());
                         // Цена = Кол-во * ( 1 - Скидка% / 100) * ЦенаБилетаТипа
-                        if (textBoxDiscountValue.Text != "")
+
+                        /* double h1 = Convert.ToDouble(textBoxDiscountValue.Text);
+                         double h2 = h1 / 100;
+                         double h3 = 1 - h2;*/
+
+                        double coefOfSale = 1;
+
+                        if (textBoxDiscountValue.Text != "") coefOfSale = (1 - Convert.ToDouble(textBoxDiscountValue.Text) / 100);
+
                         if (attractions_dataGridView.Rows[e.RowIndex].Cells[2].Value.ToString() == "Взрослый")
-                            attractions_dataGridView.Rows[e.RowIndex].Cells[5].Value = Convert.ToInt32(attractions_dataGridView.Rows[e.RowIndex].Cells[1].Value) * (1 - Convert.ToInt32(textBoxDiscountValue.Text) / 100) * Convert.ToSingle(currentAttraction.ticketpriceadult);
+                            attractions_dataGridView.Rows[e.RowIndex].Cells[5].Value = Convert.ToDouble(attractions_dataGridView.Rows[e.RowIndex].Cells[1].Value) * coefOfSale * Convert.ToDouble(currentAttraction.ticketpriceadult);
                         else
-                            attractions_dataGridView.Rows[e.RowIndex].Cells[5].Value = Convert.ToInt32(attractions_dataGridView.Rows[e.RowIndex].Cells[1].Value) * (1 - Convert.ToInt32(textBoxDiscountValue.Text) / 100) * Convert.ToSingle(currentAttraction.ticketpricekid);
+                            attractions_dataGridView.Rows[e.RowIndex].Cells[5].Value = Convert.ToDouble(attractions_dataGridView.Rows[e.RowIndex].Cells[1].Value) * coefOfSale * Convert.ToDouble(currentAttraction.ticketpricekid);
 
                         // Изменение общей цены
                         float totalPrice = 0;
@@ -156,7 +162,8 @@ namespace Razvlekator
         private void attractions_dataGridView_CellBeginEdit(object sender, DataGridViewCellCancelEventArgs e)
         {
             // Защита от инициализации. Иначе при инициализации он сюда зайдет с e.RowIndex = -1 и все сломает.
-            if (e.RowIndex >= 0 && e.ColumnIndex >= 0) {
+            if (e.RowIndex >= 0 && e.ColumnIndex >= 0)
+            {
                 rowIndexEditing = e.RowIndex;
                 colummnIndexEditing = e.ColumnIndex;
                 var datepickerform = new DateTimePickerForm(e.RowIndex);
@@ -212,6 +219,19 @@ namespace Razvlekator
             rowIndexEditing = 0;
             colummnIndexEditing = 0;
             TotalPrice_label.Text = "0";
+        }
+
+        private void button4_Click(object sender, EventArgs e)
+        {
+            new ReturnTicket().Show();
+
+
+        }
+
+        private void CheckOut_button_Click(object sender, EventArgs e)
+        {
+            Task.Delay(3000);
+            MessageBox.Show("Заказ оформлен", "Ура", MessageBoxButtons.OK, MessageBoxIcon.Information);
         }
     }
 }

@@ -53,6 +53,7 @@
             this.OK_button.TabIndex = 0;
             this.OK_button.Text = "Выбрать";
             this.OK_button.UseVisualStyleBackColor = true;
+            this.OK_button.Click += new System.EventHandler(this.OK_button_Click);
             // 
             // Cancel_button
             // 
@@ -120,7 +121,7 @@
             this.AutoScaleDimensions = new System.Drawing.SizeF(6F, 13F);
             this.AutoScaleMode = System.Windows.Forms.AutoScaleMode.Font;
             this.CancelButton = this.Cancel_button;
-            this.ClientSize = new System.Drawing.Size(493, 403);
+            this.ClientSize = new System.Drawing.Size(493, 440);
             this.ControlBox = false;
             this.Controls.Add(this.groupBox2);
             this.Controls.Add(this.groupBox1);
@@ -131,7 +132,6 @@
             this.ShowIcon = false;
             this.ShowInTaskbar = false;
             this.Text = "Выбор билета";
-            this.TopMost = true;
             this.Load += new System.EventHandler(this.PlacePickerForm_Load);
             this.groupBox1.ResumeLayout(false);
             this.groupBox2.ResumeLayout(false);

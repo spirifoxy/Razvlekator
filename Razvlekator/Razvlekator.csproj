@@ -106,6 +106,7 @@
     <Compile Include="Forms\PlacePickerForm.Designer.cs">
       <DependentUpon>PlacePickerForm.cs</DependentUpon>
     </Compile>
+    <Compile Include="SharedClass.cs" />
     <Compile Include="Tables\attraction.cs" />
     <Compile Include="Tables\cart.cs" />
     <Compile Include="Forms\Cashier.cs">

@@ -115,7 +115,7 @@
             this.AutoScaleDimensions = new System.Drawing.SizeF(6F, 13F);
             this.AutoScaleMode = System.Windows.Forms.AutoScaleMode.Font;
             this.CancelButton = this.Cancel_button;
-            this.ClientSize = new System.Drawing.Size(409, 381);
+            this.ClientSize = new System.Drawing.Size(409, 415);
             this.ControlBox = false;
             this.Controls.Add(this.Cancel_button);
             this.Controls.Add(this.Confirm_button);
@@ -127,7 +127,6 @@
             this.ShowInTaskbar = false;
             this.StartPosition = System.Windows.Forms.FormStartPosition.Manual;
             this.Text = "Выбор времени и даты";
-            this.TopMost = true;
             this.Load += new System.EventHandler(this.DateTimePickerForm_Load);
             this.Date_groupBox.ResumeLayout(false);
             this.Time_groupBox.ResumeLayout(false);
