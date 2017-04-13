@@ -24,7 +24,7 @@ namespace Razvlekator
 
         public virtual discount discount { get; set; }
 
-        public virtual order order { get; set; }
+        public virtual orders order { get; set; }
 
         public virtual session session { get; set; }
     }

@@ -277,9 +277,9 @@ namespace Razvlekator
                 using (var db = new Model())
                 {
                     // Создаем заказ
-                    order newOrder = new order();
+                    orders newOrder = new orders();
                     newOrder.date = DateTime.Now.Date;
-                    db.order.Add(newOrder);
+                    db.orders.Add(newOrder);
                     // Сейчас нужно сохранить, чтобы наш newOrder получил pk_order
                     db.SaveChanges();
 
@@ -288,9 +288,19 @@ namespace Razvlekator
                         for (int i = 0; i < Convert.ToInt32(item.Cells[1].Value.ToString()); i++)
                         {
                             ticket newTicket = new ticket();
-                            newTicket.discount = db.discount.First(x => x.name == comboBoxDiscount.SelectedText);
+
+                            if (comboBoxDiscount.SelectedText != "")
+                            {
+                                newTicket.discount = db.discount.First(x => x.name == comboBoxDiscount.SelectedText);
+                                newTicket.pk_discount = newTicket.discount.pk_discount;
+                            }
+                            else
+                            {
+                                newTicket.discount = null;
+                                newTicket.pk_discount = null;
+                            }
+
                             newTicket.order = newOrder;
-                            newTicket.pk_discount = newTicket.discount.pk_discount;
                             newTicket.pk_order = newOrder.pk_order;
                             newTicket.pk_session = db.session.First(x => x.time.ToString("hh':'mm") == item.Cells[4].Value.ToString()
                                                     && x.date.ToString("dd.MM.y") == item.Cells[3].Value.ToString()

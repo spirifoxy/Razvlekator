@@ -16,7 +16,7 @@ namespace Razvlekator
         public virtual DbSet<attraction> attraction { get; set; }
         public virtual DbSet<cart> cart { get; set; }
         public virtual DbSet<discount> discount { get; set; }
-        public virtual DbSet<order> order { get; set; }
+        public virtual DbSet<orders> orders { get; set; }
         public virtual DbSet<place> place { get; set; }
         public virtual DbSet<refund> Refund { get; set; }
         public virtual DbSet<session> session { get; set; }

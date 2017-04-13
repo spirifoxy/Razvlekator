@@ -117,7 +117,7 @@
     </Compile>
     <Compile Include="Tables\discount.cs" />
     <Compile Include="Model.cs" />
-    <Compile Include="Tables\order.cs" />
+    <Compile Include="Tables\orders.cs" />
     <Compile Include="Tables\place.cs" />
     <Compile Include="Tables\refund.cs" />
     <Compile Include="Forms\ReturnTicket.cs">

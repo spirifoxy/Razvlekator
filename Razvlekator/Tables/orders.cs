@@ -6,11 +6,11 @@ namespace Razvlekator
     using System.ComponentModel.DataAnnotations.Schema;
     using System.Data.Entity.Spatial;
 
-    [Table("dbc47cf13500994315bba7a73e01306b72.order")]
-    public partial class order
+    [Table("dbc47cf13500994315bba7a73e01306b72.orders")]
+    public partial class orders
     {
         [System.Diagnostics.CodeAnalysis.SuppressMessage("Microsoft.Usage", "CA2214:DoNotCallOverridableMethodsInConstructors")]
-        public order()
+        public orders()
         {
             Ticket = new HashSet<ticket>();
         }
