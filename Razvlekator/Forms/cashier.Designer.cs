@@ -29,12 +29,13 @@
         private void InitializeComponent()
         {
             System.Windows.Forms.DataGridViewCellStyle dataGridViewCellStyle8 = new System.Windows.Forms.DataGridViewCellStyle();
-            System.Windows.Forms.DataGridViewCellStyle dataGridViewCellStyle9 = new System.Windows.Forms.DataGridViewCellStyle();
-            System.Windows.Forms.DataGridViewCellStyle dataGridViewCellStyle10 = new System.Windows.Forms.DataGridViewCellStyle();
-            System.Windows.Forms.DataGridViewCellStyle dataGridViewCellStyle11 = new System.Windows.Forms.DataGridViewCellStyle();
-            System.Windows.Forms.DataGridViewCellStyle dataGridViewCellStyle12 = new System.Windows.Forms.DataGridViewCellStyle();
-            System.Windows.Forms.DataGridViewCellStyle dataGridViewCellStyle13 = new System.Windows.Forms.DataGridViewCellStyle();
-            System.Windows.Forms.DataGridViewCellStyle dataGridViewCellStyle14 = new System.Windows.Forms.DataGridViewCellStyle();
+            System.Windows.Forms.DataGridViewCellStyle dataGridViewCellStyle1 = new System.Windows.Forms.DataGridViewCellStyle();
+            System.Windows.Forms.DataGridViewCellStyle dataGridViewCellStyle2 = new System.Windows.Forms.DataGridViewCellStyle();
+            System.Windows.Forms.DataGridViewCellStyle dataGridViewCellStyle3 = new System.Windows.Forms.DataGridViewCellStyle();
+            System.Windows.Forms.DataGridViewCellStyle dataGridViewCellStyle4 = new System.Windows.Forms.DataGridViewCellStyle();
+            System.Windows.Forms.DataGridViewCellStyle dataGridViewCellStyle5 = new System.Windows.Forms.DataGridViewCellStyle();
+            System.Windows.Forms.DataGridViewCellStyle dataGridViewCellStyle6 = new System.Windows.Forms.DataGridViewCellStyle();
+            System.Windows.Forms.DataGridViewCellStyle dataGridViewCellStyle7 = new System.Windows.Forms.DataGridViewCellStyle();
             this.comboBoxAttraction = new System.Windows.Forms.ComboBox();
             this.textBoxPriceAdult = new System.Windows.Forms.TextBox();
             this.textBoxPriceKid = new System.Windows.Forms.TextBox();
@@ -93,6 +94,7 @@
             this.comboBoxAttraction.Name = "comboBoxAttraction";
             this.comboBoxAttraction.Size = new System.Drawing.Size(110, 21);
             this.comboBoxAttraction.TabIndex = 4;
+            this.comboBoxAttraction.UseWaitCursor = true;
             this.comboBoxAttraction.SelectedIndexChanged += new System.EventHandler(this.comboBoxAttraction_SelectedIndexChanged);
             // 
             // textBoxPriceAdult
@@ -102,6 +104,7 @@
             this.textBoxPriceAdult.Name = "textBoxPriceAdult";
             this.textBoxPriceAdult.Size = new System.Drawing.Size(110, 20);
             this.textBoxPriceAdult.TabIndex = 12;
+            this.textBoxPriceAdult.UseWaitCursor = true;
             // 
             // textBoxPriceKid
             // 
@@ -110,6 +113,7 @@
             this.textBoxPriceKid.Name = "textBoxPriceKid";
             this.textBoxPriceKid.Size = new System.Drawing.Size(110, 20);
             this.textBoxPriceKid.TabIndex = 11;
+            this.textBoxPriceKid.UseWaitCursor = true;
             // 
             // label8
             // 
@@ -119,6 +123,7 @@
             this.label8.Size = new System.Drawing.Size(61, 13);
             this.label8.TabIndex = 10;
             this.label8.Text = "Взрослый:";
+            this.label8.UseWaitCursor = true;
             // 
             // label7
             // 
@@ -128,6 +133,7 @@
             this.label7.Size = new System.Drawing.Size(54, 13);
             this.label7.TabIndex = 9;
             this.label7.Text = "Детский:";
+            this.label7.UseWaitCursor = true;
             // 
             // AddAttraction_button
             // 
@@ -137,6 +143,7 @@
             this.AddAttraction_button.TabIndex = 5;
             this.AddAttraction_button.Text = "Добавить";
             this.AddAttraction_button.UseVisualStyleBackColor = true;
+            this.AddAttraction_button.UseWaitCursor = true;
             this.AddAttraction_button.Click += new System.EventHandler(this.AddAttraction_button_Click);
             // 
             // attractions_dataGridView
@@ -153,7 +160,15 @@
             this.TimeColumn,
             this.PriceColumn,
             this.placeInCartColumn});
-            this.attractions_dataGridView.Cursor = System.Windows.Forms.Cursors.Hand;
+            this.attractions_dataGridView.Cursor = System.Windows.Forms.Cursors.WaitCursor;
+            dataGridViewCellStyle8.Alignment = System.Windows.Forms.DataGridViewContentAlignment.MiddleCenter;
+            dataGridViewCellStyle8.BackColor = System.Drawing.SystemColors.Window;
+            dataGridViewCellStyle8.Font = new System.Drawing.Font("Microsoft Sans Serif", 8.25F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(204)));
+            dataGridViewCellStyle8.ForeColor = System.Drawing.SystemColors.ControlText;
+            dataGridViewCellStyle8.SelectionBackColor = System.Drawing.Color.Khaki;
+            dataGridViewCellStyle8.SelectionForeColor = System.Drawing.SystemColors.ControlText;
+            dataGridViewCellStyle8.WrapMode = System.Windows.Forms.DataGridViewTriState.True;
+            this.attractions_dataGridView.DefaultCellStyle = dataGridViewCellStyle8;
             this.attractions_dataGridView.Location = new System.Drawing.Point(9, 19);
             this.attractions_dataGridView.MultiSelect = false;
             this.attractions_dataGridView.Name = "attractions_dataGridView";
@@ -162,15 +177,17 @@
             this.attractions_dataGridView.SelectionMode = System.Windows.Forms.DataGridViewSelectionMode.CellSelect;
             this.attractions_dataGridView.Size = new System.Drawing.Size(620, 201);
             this.attractions_dataGridView.TabIndex = 8;
+            this.attractions_dataGridView.UseWaitCursor = true;
             this.attractions_dataGridView.CellBeginEdit += new System.Windows.Forms.DataGridViewCellCancelEventHandler(this.attractions_dataGridView_CellBeginEdit);
+            this.attractions_dataGridView.CellEndEdit += new System.Windows.Forms.DataGridViewCellEventHandler(this.attractions_dataGridView_CellEndEdit);
             this.attractions_dataGridView.CellValueChanged += new System.Windows.Forms.DataGridViewCellEventHandler(this.attractions_dataGridView_CellValueChanged);
             // 
             // AttractionColumn
             // 
             this.AttractionColumn.AutoSizeMode = System.Windows.Forms.DataGridViewAutoSizeColumnMode.Fill;
-            dataGridViewCellStyle8.SelectionBackColor = System.Drawing.Color.FromArgb(((int)(((byte)(224)))), ((int)(((byte)(224)))), ((int)(((byte)(224)))));
-            dataGridViewCellStyle8.SelectionForeColor = System.Drawing.Color.Black;
-            this.AttractionColumn.DefaultCellStyle = dataGridViewCellStyle8;
+            dataGridViewCellStyle1.SelectionBackColor = System.Drawing.Color.FromArgb(((int)(((byte)(224)))), ((int)(((byte)(224)))), ((int)(((byte)(224)))));
+            dataGridViewCellStyle1.SelectionForeColor = System.Drawing.Color.Black;
+            this.AttractionColumn.DefaultCellStyle = dataGridViewCellStyle1;
             this.AttractionColumn.HeaderText = "Аттракцион";
             this.AttractionColumn.MinimumWidth = 100;
             this.AttractionColumn.Name = "AttractionColumn";
@@ -178,9 +195,9 @@
             // 
             // CountColumn
             // 
-            dataGridViewCellStyle9.SelectionBackColor = System.Drawing.Color.FromArgb(((int)(((byte)(224)))), ((int)(((byte)(224)))), ((int)(((byte)(224)))));
-            dataGridViewCellStyle9.SelectionForeColor = System.Drawing.Color.Black;
-            this.CountColumn.DefaultCellStyle = dataGridViewCellStyle9;
+            dataGridViewCellStyle2.SelectionBackColor = System.Drawing.Color.FromArgb(((int)(((byte)(224)))), ((int)(((byte)(224)))), ((int)(((byte)(224)))));
+            dataGridViewCellStyle2.SelectionForeColor = System.Drawing.Color.Black;
+            this.CountColumn.DefaultCellStyle = dataGridViewCellStyle2;
             this.CountColumn.HeaderText = "Количество";
             this.CountColumn.MaxInputLength = 2;
             this.CountColumn.MinimumWidth = 20;
@@ -189,9 +206,9 @@
             // 
             // TypeColumn
             // 
-            dataGridViewCellStyle10.SelectionBackColor = System.Drawing.Color.FromArgb(((int)(((byte)(224)))), ((int)(((byte)(224)))), ((int)(((byte)(224)))));
-            dataGridViewCellStyle10.SelectionForeColor = System.Drawing.Color.Black;
-            this.TypeColumn.DefaultCellStyle = dataGridViewCellStyle10;
+            dataGridViewCellStyle3.SelectionBackColor = System.Drawing.Color.FromArgb(((int)(((byte)(224)))), ((int)(((byte)(224)))), ((int)(((byte)(224)))));
+            dataGridViewCellStyle3.SelectionForeColor = System.Drawing.Color.Black;
+            this.TypeColumn.DefaultCellStyle = dataGridViewCellStyle3;
             this.TypeColumn.HeaderText = "Тип";
             this.TypeColumn.MinimumWidth = 100;
             this.TypeColumn.Name = "TypeColumn";
@@ -200,27 +217,27 @@
             // 
             // DateColumn
             // 
-            dataGridViewCellStyle11.SelectionBackColor = System.Drawing.Color.FromArgb(((int)(((byte)(224)))), ((int)(((byte)(224)))), ((int)(((byte)(224)))));
-            dataGridViewCellStyle11.SelectionForeColor = System.Drawing.Color.Black;
-            this.DateColumn.DefaultCellStyle = dataGridViewCellStyle11;
+            dataGridViewCellStyle4.SelectionBackColor = System.Drawing.Color.FromArgb(((int)(((byte)(224)))), ((int)(((byte)(224)))), ((int)(((byte)(224)))));
+            dataGridViewCellStyle4.SelectionForeColor = System.Drawing.Color.Black;
+            this.DateColumn.DefaultCellStyle = dataGridViewCellStyle4;
             this.DateColumn.HeaderText = "Дата";
             this.DateColumn.MinimumWidth = 100;
             this.DateColumn.Name = "DateColumn";
             // 
             // TimeColumn
             // 
-            dataGridViewCellStyle12.SelectionBackColor = System.Drawing.Color.FromArgb(((int)(((byte)(224)))), ((int)(((byte)(224)))), ((int)(((byte)(224)))));
-            dataGridViewCellStyle12.SelectionForeColor = System.Drawing.Color.Black;
-            this.TimeColumn.DefaultCellStyle = dataGridViewCellStyle12;
+            dataGridViewCellStyle5.SelectionBackColor = System.Drawing.Color.FromArgb(((int)(((byte)(224)))), ((int)(((byte)(224)))), ((int)(((byte)(224)))));
+            dataGridViewCellStyle5.SelectionForeColor = System.Drawing.Color.Black;
+            this.TimeColumn.DefaultCellStyle = dataGridViewCellStyle5;
             this.TimeColumn.HeaderText = "Время";
             this.TimeColumn.MinimumWidth = 100;
             this.TimeColumn.Name = "TimeColumn";
             // 
             // PriceColumn
             // 
-            dataGridViewCellStyle13.SelectionBackColor = System.Drawing.Color.FromArgb(((int)(((byte)(224)))), ((int)(((byte)(224)))), ((int)(((byte)(224)))));
-            dataGridViewCellStyle13.SelectionForeColor = System.Drawing.Color.Black;
-            this.PriceColumn.DefaultCellStyle = dataGridViewCellStyle13;
+            dataGridViewCellStyle6.SelectionBackColor = System.Drawing.Color.FromArgb(((int)(((byte)(224)))), ((int)(((byte)(224)))), ((int)(((byte)(224)))));
+            dataGridViewCellStyle6.SelectionForeColor = System.Drawing.Color.Black;
+            this.PriceColumn.DefaultCellStyle = dataGridViewCellStyle6;
             this.PriceColumn.HeaderText = "Цена";
             this.PriceColumn.MinimumWidth = 80;
             this.PriceColumn.Name = "PriceColumn";
@@ -229,9 +246,9 @@
             // 
             // placeInCartColumn
             // 
-            dataGridViewCellStyle14.SelectionBackColor = System.Drawing.Color.FromArgb(((int)(((byte)(224)))), ((int)(((byte)(224)))), ((int)(((byte)(224)))));
-            dataGridViewCellStyle14.SelectionForeColor = System.Drawing.Color.Black;
-            this.placeInCartColumn.DefaultCellStyle = dataGridViewCellStyle14;
+            dataGridViewCellStyle7.SelectionBackColor = System.Drawing.Color.FromArgb(((int)(((byte)(224)))), ((int)(((byte)(224)))), ((int)(((byte)(224)))));
+            dataGridViewCellStyle7.SelectionForeColor = System.Drawing.Color.Black;
+            this.placeInCartColumn.DefaultCellStyle = dataGridViewCellStyle7;
             this.placeInCartColumn.HeaderText = "Место";
             this.placeInCartColumn.MinimumWidth = 50;
             this.placeInCartColumn.Name = "placeInCartColumn";
@@ -245,6 +262,7 @@
             this.ClearAttractions_button.TabIndex = 9;
             this.ClearAttractions_button.Text = "Очистить";
             this.ClearAttractions_button.UseVisualStyleBackColor = true;
+            this.ClearAttractions_button.UseWaitCursor = true;
             this.ClearAttractions_button.Click += new System.EventHandler(this.ClearAttractions_button_Click);
             // 
             // CheckOut_button
@@ -255,6 +273,7 @@
             this.CheckOut_button.TabIndex = 10;
             this.CheckOut_button.Text = "Оформить";
             this.CheckOut_button.UseVisualStyleBackColor = true;
+            this.CheckOut_button.UseWaitCursor = true;
             this.CheckOut_button.Click += new System.EventHandler(this.CheckOut_button_Click);
             // 
             // button4
@@ -265,6 +284,7 @@
             this.button4.TabIndex = 11;
             this.button4.Text = "Возврат";
             this.button4.UseVisualStyleBackColor = true;
+            this.button4.UseWaitCursor = true;
             this.button4.Click += new System.EventHandler(this.button4_Click);
             // 
             // label15
@@ -275,6 +295,7 @@
             this.label15.Size = new System.Drawing.Size(114, 13);
             this.label15.TabIndex = 24;
             this.label15.Text = "Продолжительность:";
+            this.label15.UseWaitCursor = true;
             // 
             // textBoxDuration
             // 
@@ -283,6 +304,7 @@
             this.textBoxDuration.Name = "textBoxDuration";
             this.textBoxDuration.Size = new System.Drawing.Size(110, 20);
             this.textBoxDuration.TabIndex = 25;
+            this.textBoxDuration.UseWaitCursor = true;
             // 
             // groupBox1
             // 
@@ -296,6 +318,7 @@
             this.groupBox1.TabIndex = 12;
             this.groupBox1.TabStop = false;
             this.groupBox1.Text = "Цена";
+            this.groupBox1.UseWaitCursor = true;
             // 
             // groupBox4
             // 
@@ -309,6 +332,7 @@
             this.groupBox4.TabIndex = 15;
             this.groupBox4.TabStop = false;
             this.groupBox4.Text = "Аттракцион";
+            this.groupBox4.UseWaitCursor = true;
             // 
             // label4
             // 
@@ -318,6 +342,7 @@
             this.label4.Size = new System.Drawing.Size(86, 13);
             this.label4.TabIndex = 26;
             this.label4.Text = "Наименование:";
+            this.label4.UseWaitCursor = true;
             // 
             // groupBox5
             // 
@@ -328,6 +353,7 @@
             this.groupBox5.TabIndex = 24;
             this.groupBox5.TabStop = false;
             this.groupBox5.Text = "Корзина";
+            this.groupBox5.UseWaitCursor = true;
             // 
             // groupBox6
             // 
@@ -340,6 +366,7 @@
             this.groupBox6.TabIndex = 25;
             this.groupBox6.TabStop = false;
             this.groupBox6.Text = "Скидка";
+            this.groupBox6.UseWaitCursor = true;
             // 
             // textBoxDiscountValue
             // 
@@ -349,6 +376,7 @@
             this.textBoxDiscountValue.Size = new System.Drawing.Size(75, 20);
             this.textBoxDiscountValue.TabIndex = 13;
             this.textBoxDiscountValue.TextAlign = System.Windows.Forms.HorizontalAlignment.Right;
+            this.textBoxDiscountValue.UseWaitCursor = true;
             // 
             // label9
             // 
@@ -358,6 +386,7 @@
             this.label9.Size = new System.Drawing.Size(88, 13);
             this.label9.TabIndex = 28;
             this.label9.Text = "Размер скидки:";
+            this.label9.UseWaitCursor = true;
             // 
             // comboBoxDiscount
             // 
@@ -373,6 +402,7 @@
             this.comboBoxDiscount.Name = "comboBoxDiscount";
             this.comboBoxDiscount.Size = new System.Drawing.Size(196, 21);
             this.comboBoxDiscount.TabIndex = 27;
+            this.comboBoxDiscount.UseWaitCursor = true;
             this.comboBoxDiscount.SelectedIndexChanged += new System.EventHandler(this.comboBoxDiscount_SelectedIndexChanged);
             // 
             // label1
@@ -383,6 +413,7 @@
             this.label1.Size = new System.Drawing.Size(40, 13);
             this.label1.TabIndex = 26;
             this.label1.Text = "Итого:";
+            this.label1.UseWaitCursor = true;
             // 
             // TotalPrice_label
             // 
@@ -393,6 +424,7 @@
             this.TotalPrice_label.Size = new System.Drawing.Size(20, 22);
             this.TotalPrice_label.TabIndex = 27;
             this.TotalPrice_label.Text = "0";
+            this.TotalPrice_label.UseWaitCursor = true;
             // 
             // textBoxGrowthRestriction
             // 
@@ -401,6 +433,7 @@
             this.textBoxGrowthRestriction.Name = "textBoxGrowthRestriction";
             this.textBoxGrowthRestriction.Size = new System.Drawing.Size(110, 20);
             this.textBoxGrowthRestriction.TabIndex = 25;
+            this.textBoxGrowthRestriction.UseWaitCursor = true;
             // 
             // label6
             // 
@@ -410,6 +443,7 @@
             this.label6.Size = new System.Drawing.Size(112, 13);
             this.label6.TabIndex = 24;
             this.label6.Text = "Максимальный рост";
+            this.label6.UseWaitCursor = true;
             // 
             // label5
             // 
@@ -419,6 +453,7 @@
             this.label5.Size = new System.Drawing.Size(124, 13);
             this.label5.TabIndex = 22;
             this.label5.Text = "Минимальный возраст";
+            this.label5.UseWaitCursor = true;
             // 
             // textBoxAgeRestriction
             // 
@@ -427,6 +462,7 @@
             this.textBoxAgeRestriction.Name = "textBoxAgeRestriction";
             this.textBoxAgeRestriction.Size = new System.Drawing.Size(110, 20);
             this.textBoxAgeRestriction.TabIndex = 23;
+            this.textBoxAgeRestriction.UseWaitCursor = true;
             // 
             // textBoxWeightRestriction
             // 
@@ -435,6 +471,7 @@
             this.textBoxWeightRestriction.Name = "textBoxWeightRestriction";
             this.textBoxWeightRestriction.Size = new System.Drawing.Size(110, 20);
             this.textBoxWeightRestriction.TabIndex = 22;
+            this.textBoxWeightRestriction.UseWaitCursor = true;
             // 
             // label3
             // 
@@ -444,6 +481,7 @@
             this.label3.Size = new System.Drawing.Size(107, 13);
             this.label3.TabIndex = 21;
             this.label3.Text = "Максимальный вес";
+            this.label3.UseWaitCursor = true;
             // 
             // groupBox2
             // 
@@ -459,6 +497,7 @@
             this.groupBox2.TabIndex = 30;
             this.groupBox2.TabStop = false;
             this.groupBox2.Text = "Ограничения";
+            this.groupBox2.UseWaitCursor = true;
             // 
             // Cashier
             // 
@@ -478,6 +517,7 @@
             this.Controls.Add(this.ClearAttractions_button);
             this.Name = "Cashier";
             this.Text = "Развлекатор";
+            this.UseWaitCursor = true;
             this.FormClosed += new System.Windows.Forms.FormClosedEventHandler(this.Cashier_FormClosed);
             this.Load += new System.EventHandler(this.Cashier_Load);
             ((System.ComponentModel.ISupportInitialize)(this.attractions_dataGridView)).EndInit();

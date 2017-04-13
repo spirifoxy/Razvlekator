@@ -17,6 +17,8 @@ namespace Razvlekator
         private int rowIndexEditing = 0;
         private int colummnIndexEditing = 0;
 
+        private bool isTicketTimeIntesects = false;
+
         public Cashier()
         {
             InitializeComponent();
@@ -106,6 +108,7 @@ namespace Razvlekator
 
         private void attractions_dataGridView_CellValueChanged(object sender, DataGridViewCellEventArgs e)
         {
+            SetRowsColorDefault();
             // Защита от инициализации. Иначе при инициализации он сюда зайдет с e.RowIndex = -1 и все сломает.
             if (e.RowIndex >= 0 && e.ColumnIndex >= 0)
             {
@@ -155,8 +158,46 @@ namespace Razvlekator
                         }
                         TotalPrice_label.Text = totalPrice.ToString();
                     }
+                    
+                }
+                if (e.ColumnIndex == 3 || e.ColumnIndex == 4)
+                {
+                    CheckRowsIntersetion();
                 }
             }
+        }
+
+        private void SetRowsColorDefault()
+        {
+            foreach (DataGridViewRow row in attractions_dataGridView.Rows)
+            {
+                row.DefaultCellStyle.BackColor = DefaultBackColor;
+            }
+        }
+
+        private void CheckRowsIntersetion()
+        {
+            if (attractions_dataGridView.RowCount > 1)
+                for (int i = 0; i < attractions_dataGridView.RowCount; i++)
+                {
+                    var currentRow = attractions_dataGridView.Rows[i];
+                    foreach (DataGridViewRow rowComp in attractions_dataGridView.Rows)
+                    {
+                        if (rowComp != currentRow)
+                        if (rowComp.Cells[3].Value != null)  // Костыль, ибо пробегает 2 раза, после сохранения. Дату заполнил, а время нет.
+                            if (currentRow.Cells[3].Value != null) // Тоже самое
+                                if (currentRow.Cells[3].Value.ToString() == rowComp.Cells[3].Value.ToString())
+                                {
+                                    if (rowComp.Cells[4].Value != null)  // Костыль, ибо пробегает 2 раза, после сохранения. Дату заполнил, а время нет.
+                                        if (currentRow.Cells[4].Value != null) // Тоже самое
+                                            if (currentRow.Cells[4].Value.ToString() == rowComp.Cells[4].Value.ToString())
+                                            {
+                                                currentRow.DefaultCellStyle.BackColor = Color.Red;
+                                                rowComp.DefaultCellStyle.BackColor = Color.Red;
+                                            }
+                                }
+                    }
+                }
         }
 
         private void attractions_dataGridView_CellBeginEdit(object sender, DataGridViewCellCancelEventArgs e)
@@ -219,6 +260,7 @@ namespace Razvlekator
             rowIndexEditing = 0;
             colummnIndexEditing = 0;
             TotalPrice_label.Text = "0";
+            SharedClass.ReservedPlaces.Clear();
         }
 
         private void button4_Click(object sender, EventArgs e)
@@ -228,10 +270,65 @@ namespace Razvlekator
 
         }
 
-        private void CheckOut_button_Click(object sender, EventArgs e)
+        private async void CheckOut_button_Click(object sender, EventArgs e)
         {
-            Task.Delay(3000);
-            MessageBox.Show("Заказ оформлен", "Ура", MessageBoxButtons.OK, MessageBoxIcon.Information);
+            if (isTicketTimeIntesects == false)
+            {
+                using (var db = new Model())
+                {
+                    // Создаем заказ
+                    order newOrder = new order();
+                    newOrder.date = DateTime.Now.Date;
+                    db.order.Add(newOrder);
+                    // Сейчас нужно сохранить, чтобы наш newOrder получил pk_order
+                    db.SaveChanges();
+
+                    foreach (DataGridViewRow item in attractions_dataGridView.Rows)
+                    {
+                        for (int i = 0; i < Convert.ToInt32(item.Cells[1].Value.ToString()); i++)
+                        {
+                            ticket newTicket = new ticket();
+                            newTicket.discount = db.discount.First(x => x.name == comboBoxDiscount.SelectedText);
+                            newTicket.order = newOrder;
+                            newTicket.pk_discount = newTicket.discount.pk_discount;
+                            newTicket.pk_order = newOrder.pk_order;
+                            newTicket.pk_session = db.session.First(x => x.time.ToString("hh':'mm") == item.Cells[4].Value.ToString()
+                                                    && x.date.ToString("dd.MM.y") == item.Cells[3].Value.ToString()
+                                                    && (x.place.Number.ToString() == GetThisPlace(item.Cells[6].Value.ToString(), i))
+                                                    && (x.place.pk_cart.ToString() == GetThisCart(item.Cells[6].Value.ToString(), i))).pk_session;
+                            newTicket.type = (item.Cells[2].Value.ToString() == "Взрослый") ? true : false;
+                            db.Ticket.Add(newTicket);
+                        }
+                    }
+
+                    await db.SaveChangesAsync();
+                    Task.Delay(3000);
+                    MessageBox.Show("Заказ оформлен", "Ура", MessageBoxButtons.OK, MessageBoxIcon.Information);
+                }
+            }
+            else
+                MessageBox.Show("Пересекаются время аттракционов","Ошибка", MessageBoxButtons.OK, MessageBoxIcon.Warning);
+        }
+
+        private string GetThisPlace(string input, int number)
+        {
+            string[] cartsAndPlaces = input.Split(',');
+            string place = cartsAndPlaces[number].Split('-')[1];
+            return place.Split(' ')[1];
+            
+        }
+
+        private string GetThisCart(string input, int number)
+        {
+            string[] cartsAndPlaces = input.Split(',');
+            string cart = cartsAndPlaces[number].Split('-')[0];
+            return cart.Split(' ')[1];
+        }
+
+        private void attractions_dataGridView_CellEndEdit(object sender, DataGridViewCellEventArgs e)
+        {
+            SetRowsColorDefault();
+            CheckRowsIntersetion();
         }
     }
 }

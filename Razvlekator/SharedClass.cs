@@ -8,6 +8,6 @@ namespace Razvlekator
 {
     public static class SharedClass
     {
-        public static Dictionary<int, int> ReservedPlaces = new Dictionary<int, int>();
+        public static List<int[]> ReservedPlaces = new List<int[]>();
     }
 }

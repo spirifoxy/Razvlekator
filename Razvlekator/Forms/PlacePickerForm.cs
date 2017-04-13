@@ -64,27 +64,29 @@ namespace Razvlekator.Forms
             if (places_ListView.MultiSelect == true)
             {
                 selectedPlaces = places_ListView.SelectedItems;
-
             }
         }
 
         private void carts_ListView_ItemSelectionChanged(object sender, ListViewItemSelectionChangedEventArgs e)
         {
-            if (carts_ListView.SelectedItems.Count == 0)
-                carts_ListView.Items[0].Selected = true;
+            if (e.IsSelected)
             {
                 bool isAdd = true;
                 var listPlaces = currentSessions.Where(x => "Телега " + x.Key.pk_cart == carts_ListView.SelectedItems[0].Text);
                 foreach (var place in listPlaces.First())
                 {
-                    //foreach(var item in currentTickets)
-                    //if (place.session.Contains(item.session)) isAdd = false;
+                    isAdd = true;
+                    foreach (var ticket in currentTickets)
+                        if (place.session.Contains(ticket.session)) isAdd = false;
                     foreach (var item in SharedClass.ReservedPlaces)
-                        if (place.Number == item.Value)
-                        {
-                            isAdd = false;
-                            break;
-                        }
+                    {
+                        if ((e.Item).Text.Split(' ')[1] == item[0].ToString())
+                            if (place.Number == item[1])
+                            {
+                                isAdd = false;
+                                break;
+                            }
+                    }
                     if (isAdd)
                         places_ListView.Items.Add("Место " + place.Number);
                 }
@@ -102,8 +104,8 @@ namespace Razvlekator.Forms
                     if (owner != null) { 
                         foreach(var item in places)
                         {
-                            placesStr += cart + " - " + (item as ListViewItem).Text + ", ";
-                            SharedClass.ReservedPlaces.Add(Int32.Parse(cart.Split(' ')[1]), Int32.Parse((item as ListViewItem).Text.Split(' ')[1]));
+                            placesStr += cart + "-" + (item as ListViewItem).Text + ",";
+                            SharedClass.ReservedPlaces.Add(new int[] { Int32.Parse(cart.Split(' ')[1]), Int32.Parse((item as ListViewItem).Text.Split(' ')[1]) });
                         }
                         owner.attractions_dataGridView.Rows[rowIndex].Cells[6].Value = placesStr;
                     }
