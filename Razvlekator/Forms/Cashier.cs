@@ -279,6 +279,7 @@ namespace Razvlekator
                     // Создаем заказ
                     orders newOrder = new orders();
                     newOrder.date = DateTime.Now.Date;
+                    newOrder.ordernumber = db.orders.OrderByDescending(o => o.pk_order).FirstOrDefault().pk_order + 1;
                     db.orders.Add(newOrder);
                     // Сейчас нужно сохранить, чтобы наш newOrder получил pk_order
                     db.SaveChanges();
@@ -302,11 +303,16 @@ namespace Razvlekator
 
                             newTicket.order = newOrder;
                             newTicket.pk_order = newOrder.pk_order;
-                            newTicket.pk_session = db.session.First(x => x.time.ToString("hh':'mm") == item.Cells[4].Value.ToString()
-                                                    && x.date.ToString("dd.MM.y") == item.Cells[3].Value.ToString()
-                                                    && (x.place.Number.ToString() == GetThisPlace(item.Cells[6].Value.ToString(), i))
-                                                    && (x.place.pk_cart.ToString() == GetThisCart(item.Cells[6].Value.ToString(), i))).pk_session;
+                            newTicket.pk_session = db.session.ToList().Find(x => x.time.ToString("hh':'mm") == item.Cells[4].Value.ToString()
+                                && x.date.ToString("dd.MM.y") == item.Cells[3].Value.ToString()
+                                && (x.place.Number.ToString() == GetThisPlace(item.Cells[6].Value.ToString(), i))
+                                && (x.place.pk_cart.ToString() == GetThisCart(item.Cells[6].Value.ToString(), i))).pk_session;
+                            //newTicket.pk_session = db.session.First(x => x.time.ToString("hh':'mm") == item.Cells[4].Value.ToString()
+                            //                        && x.date.ToString("dd.MM.y") == item.Cells[3].Value.ToString()
+                            //                        && (x.place.Number.ToString() == GetThisPlace(item.Cells[6].Value.ToString(), i))
+                            //                        && (x.place.pk_cart.ToString() == GetThisCart(item.Cells[6].Value.ToString(), i))).pk_session;
                             newTicket.type = (item.Cells[2].Value.ToString() == "Взрослый") ? true : false;
+                            newTicket.ticketnumber = db.Ticket.OrderByDescending(t => t.pk_ticket).FirstOrDefault().pk_ticket + 1;
                             db.Ticket.Add(newTicket);
                         }
                     }

@@ -71,6 +71,7 @@ namespace Razvlekator.Forms
         {
             if (e.IsSelected)
             {
+                places_ListView.Items.Clear();
                 bool isAdd = true;
                 var listPlaces = currentSessions.Where(x => "Телега " + x.Key.pk_cart == carts_ListView.SelectedItems[0].Text);
                 foreach (var place in listPlaces.First())
