@@ -93,7 +93,7 @@
             this.comboBoxAttraction.Location = new System.Drawing.Point(127, 27);
             this.comboBoxAttraction.Name = "comboBoxAttraction";
             this.comboBoxAttraction.Size = new System.Drawing.Size(110, 21);
-            this.comboBoxAttraction.TabIndex = 4;
+            this.comboBoxAttraction.TabIndex = 0;
             this.comboBoxAttraction.SelectedIndexChanged += new System.EventHandler(this.comboBoxAttraction_SelectedIndexChanged);
             // 
             // textBoxPriceAdult
@@ -135,7 +135,7 @@
             this.AddAttraction_button.Location = new System.Drawing.Point(661, 189);
             this.AddAttraction_button.Name = "AddAttraction_button";
             this.AddAttraction_button.Size = new System.Drawing.Size(95, 50);
-            this.AddAttraction_button.TabIndex = 5;
+            this.AddAttraction_button.TabIndex = 2;
             this.AddAttraction_button.Text = "Добавить";
             this.AddAttraction_button.UseVisualStyleBackColor = true;
             this.AddAttraction_button.Click += new System.EventHandler(this.AddAttraction_button_Click);
@@ -154,7 +154,6 @@
             this.TimeColumn,
             this.PriceColumn,
             this.placeInCartColumn});
-            //this.attractions_dataGridView.Cursor = System.Windows.Forms.Cursors.WaitCursor;
             dataGridViewCellStyle8.Alignment = System.Windows.Forms.DataGridViewContentAlignment.MiddleCenter;
             dataGridViewCellStyle8.BackColor = System.Drawing.SystemColors.Window;
             dataGridViewCellStyle8.Font = new System.Drawing.Font("Microsoft Sans Serif", 8.25F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(204)));
@@ -170,7 +169,7 @@
             this.attractions_dataGridView.ScrollBars = System.Windows.Forms.ScrollBars.Vertical;
             this.attractions_dataGridView.SelectionMode = System.Windows.Forms.DataGridViewSelectionMode.CellSelect;
             this.attractions_dataGridView.Size = new System.Drawing.Size(620, 201);
-            this.attractions_dataGridView.TabIndex = 8;
+            this.attractions_dataGridView.TabIndex = 3;
             this.attractions_dataGridView.CellBeginEdit += new System.Windows.Forms.DataGridViewCellCancelEventHandler(this.attractions_dataGridView_CellBeginEdit);
             this.attractions_dataGridView.CellEndEdit += new System.Windows.Forms.DataGridViewCellEventHandler(this.attractions_dataGridView_CellEndEdit);
             this.attractions_dataGridView.CellValueChanged += new System.Windows.Forms.DataGridViewCellEventHandler(this.attractions_dataGridView_CellValueChanged);
@@ -382,7 +381,7 @@
             this.comboBoxDiscount.Location = new System.Drawing.Point(6, 27);
             this.comboBoxDiscount.Name = "comboBoxDiscount";
             this.comboBoxDiscount.Size = new System.Drawing.Size(196, 21);
-            this.comboBoxDiscount.TabIndex = 27;
+            this.comboBoxDiscount.TabIndex = 1;
             this.comboBoxDiscount.SelectedIndexChanged += new System.EventHandler(this.comboBoxDiscount_SelectedIndexChanged);
             // 
             // label1

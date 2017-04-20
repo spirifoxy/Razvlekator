@@ -96,14 +96,19 @@ namespace Razvlekator
 
         private void AddAttraction_button_Click(object sender, EventArgs e)
         {
-            attractions_dataGridView.Rows.Add();
-            attractionList.Add(selectedAttraction);
-            attractions_dataGridView.Rows[attractions_dataGridView.Rows.Count - 1].Cells[0].Value = selectedAttraction.name;
-            attractions_dataGridView.Rows[attractions_dataGridView.Rows.Count - 1].Cells[1].Value = 1;
-            ((DataGridViewComboBoxCell)attractions_dataGridView.Rows[attractions_dataGridView.Rows.Count - 1].Cells[2]).Items.AddRange("Взрослый", "Детский");
-            attractions_dataGridView.Rows[attractions_dataGridView.Rows.Count - 1].Cells[3].Value = null;
-            attractions_dataGridView.Rows[attractions_dataGridView.Rows.Count - 1].Cells[4].Value = null;
-            attractions_dataGridView.Rows[attractions_dataGridView.Rows.Count - 1].Cells[5].Value = null;
+            if (comboBoxAttraction.Text != "")
+            {
+                attractions_dataGridView.Rows.Add();
+                attractionList.Add(selectedAttraction);
+                attractions_dataGridView.Rows[attractions_dataGridView.Rows.Count - 1].Cells[0].Value = selectedAttraction.name;
+                attractions_dataGridView.Rows[attractions_dataGridView.Rows.Count - 1].Cells[1].Value = 1;
+                ((DataGridViewComboBoxCell)attractions_dataGridView.Rows[attractions_dataGridView.Rows.Count - 1].Cells[2]).Items.AddRange("Взрослый", "Детский");
+                attractions_dataGridView.Rows[attractions_dataGridView.Rows.Count - 1].Cells[3].Value = null;
+                attractions_dataGridView.Rows[attractions_dataGridView.Rows.Count - 1].Cells[4].Value = null;
+                attractions_dataGridView.Rows[attractions_dataGridView.Rows.Count - 1].Cells[5].Value = null;
+            }
+            else
+                MessageBox.Show("Пожалуйста, выберите аттракцион", "Ошибка", MessageBoxButtons.OK, MessageBoxIcon.Error);
         }
 
         private void attractions_dataGridView_CellValueChanged(object sender, DataGridViewCellEventArgs e)
@@ -318,7 +323,7 @@ namespace Razvlekator
                     }
 
                     await db.SaveChangesAsync();
-                    Task.Delay(3000);
+                    //Task.Delay(3000);
                     MessageBox.Show("Заказ оформлен", "Ура", MessageBoxButtons.OK, MessageBoxIcon.Information);
                 }
             }

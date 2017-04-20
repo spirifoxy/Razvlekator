@@ -38,7 +38,7 @@
             this.button1.Location = new System.Drawing.Point(178, 27);
             this.button1.Name = "button1";
             this.button1.Size = new System.Drawing.Size(84, 23);
-            this.button1.TabIndex = 0;
+            this.button1.TabIndex = 1;
             this.button1.Text = "Вернуть";
             this.button1.UseVisualStyleBackColor = true;
             this.button1.Click += new System.EventHandler(this.button1_Click);
@@ -48,7 +48,7 @@
             this.textBox1.Location = new System.Drawing.Point(35, 29);
             this.textBox1.Name = "textBox1";
             this.textBox1.Size = new System.Drawing.Size(100, 20);
-            this.textBox1.TabIndex = 1;
+            this.textBox1.TabIndex = 0;
             // 
             // label1
             // 

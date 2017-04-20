@@ -38,7 +38,7 @@
             this.textBoxPassword.Location = new System.Drawing.Point(112, 105);
             this.textBoxPassword.Name = "textBoxPassword";
             this.textBoxPassword.Size = new System.Drawing.Size(121, 20);
-            this.textBoxPassword.TabIndex = 4;
+            this.textBoxPassword.TabIndex = 1;
             this.textBoxPassword.Text = "Пароль";
             // 
             // buttonLogin
@@ -46,7 +46,7 @@
             this.buttonLogin.Location = new System.Drawing.Point(126, 153);
             this.buttonLogin.Name = "buttonLogin";
             this.buttonLogin.Size = new System.Drawing.Size(94, 49);
-            this.buttonLogin.TabIndex = 5;
+            this.buttonLogin.TabIndex = 2;
             this.buttonLogin.Text = "Войти";
             this.buttonLogin.UseVisualStyleBackColor = true;
             this.buttonLogin.Click += new System.EventHandler(this.buttonLogin_Click);
@@ -60,7 +60,7 @@
             this.comboBoxRole.Location = new System.Drawing.Point(112, 55);
             this.comboBoxRole.Name = "comboBoxRole";
             this.comboBoxRole.Size = new System.Drawing.Size(121, 21);
-            this.comboBoxRole.TabIndex = 6;
+            this.comboBoxRole.TabIndex = 0;
             this.comboBoxRole.Text = "Администратор";
             // 
             // Login

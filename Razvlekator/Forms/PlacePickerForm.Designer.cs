@@ -50,7 +50,7 @@
             this.OK_button.Location = new System.Drawing.Point(325, 368);
             this.OK_button.Name = "OK_button";
             this.OK_button.Size = new System.Drawing.Size(75, 23);
-            this.OK_button.TabIndex = 0;
+            this.OK_button.TabIndex = 2;
             this.OK_button.Text = "Выбрать";
             this.OK_button.UseVisualStyleBackColor = true;
             this.OK_button.Click += new System.EventHandler(this.OK_button_Click);
@@ -61,7 +61,7 @@
             this.Cancel_button.Location = new System.Drawing.Point(406, 368);
             this.Cancel_button.Name = "Cancel_button";
             this.Cancel_button.Size = new System.Drawing.Size(75, 23);
-            this.Cancel_button.TabIndex = 1;
+            this.Cancel_button.TabIndex = 3;
             this.Cancel_button.Text = "Отмена";
             this.Cancel_button.UseVisualStyleBackColor = true;
             // 
@@ -110,7 +110,7 @@
             this.places_ListView.MultiSelect = false;
             this.places_ListView.Name = "places_ListView";
             this.places_ListView.Size = new System.Drawing.Size(445, 155);
-            this.places_ListView.TabIndex = 0;
+            this.places_ListView.TabIndex = 1;
             this.places_ListView.UseCompatibleStateImageBehavior = false;
             this.places_ListView.ItemSelectionChanged += new System.Windows.Forms.ListViewItemSelectionChangedEventHandler(this.places_ListView_ItemSelectionChanged);
             // 
