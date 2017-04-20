@@ -1,11 +1,7 @@
 ﻿using System;
 using System.Collections.Generic;
-using System.ComponentModel;
 using System.Data;
-using System.Drawing;
 using System.Linq;
-using System.Text;
-using System.Threading.Tasks;
 using System.Windows.Forms;
 using static System.Windows.Forms.ListView;
 
@@ -105,7 +101,7 @@ namespace Razvlekator.Forms
                                 }
                         }
                         if (isAdd)
-                            places_ListView.Items.Add("Место " + place.Number + "\nТ." + place.cart.pk_cart);
+                            places_ListView.Items.Add("№ " + place.Number + " ," + Environment.NewLine + "(т." + place.cart.pk_cart + ")");
                     }
                 }
             }
@@ -114,26 +110,31 @@ namespace Razvlekator.Forms
 
         private void OK_button_Click(object sender, EventArgs e)
         {
-            Cashier owner = this.Owner as Cashier;
-            if (carts_ListView.SelectedItems[0] != null)
+            if (places_ListView.SelectedItems.Count == Int32.Parse(owner.attractions_dataGridView[1, rowIndex].Value.ToString()))
             {
-                string cart = carts_ListView.SelectedItems[0].Text;
-                if (places_ListView.SelectedItems != null)
+                if (carts_ListView.SelectedItems[0] != null)
                 {
-                    var places = places_ListView.SelectedItems;
-                    string placesStr = "";
-                    if (owner != null)
+                    string cart = carts_ListView.SelectedItems[0].Text;
+                    if (places_ListView.SelectedItems != null)
                     {
-                        foreach (var item in places)
+                        var places = places_ListView.SelectedItems;
+                        string placesStr = "";
+                        if (owner != null)
                         {
-                            placesStr += cart + "-" + (item as ListViewItem).Text + ",";
-                            SharedClass.ReservedPlaces.Add(new int[] { Int32.Parse(cart.Split(' ')[1]), Int32.Parse((item as ListViewItem).Text.Split(' ')[1]) });
+                            foreach (var item in places)
+                            {
+                                placesStr += cart + "-" + (item as ListViewItem).Text + ",";
+                                SharedClass.ReservedPlaces.Add(new int[] { Int32.Parse(cart.Split(' ')[1]), Int32.Parse((item as ListViewItem).Text.Split(' ')[1]) });
+                            }
+                            owner.attractions_dataGridView.Rows[rowIndex].Cells[6].Value = placesStr;
                         }
-                        owner.attractions_dataGridView.Rows[rowIndex].Cells[6].Value = placesStr;
                     }
                 }
+                this.Close();
             }
-            this.Close();
+            else MessageBox.Show(String.Format("Необходимое количество выбранных мест: {0}", owner.attractions_dataGridView[1, rowIndex].Value.ToString()),
+                "Ошибка", MessageBoxButtons.OK, MessageBoxIcon.Error);
+
         }
     }
 }
