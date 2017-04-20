@@ -176,7 +176,7 @@ namespace Razvlekator
 
         private void AdminAttractions_FormClosed(object sender, FormClosedEventArgs e)
         {
-            Application.Exit();
+            //Application.Exit();
         }
     }
 }

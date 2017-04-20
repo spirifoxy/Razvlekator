@@ -43,7 +43,7 @@ namespace Razvlekator
                     //Потом при закрытии админской формы эта форма логина так и остается висеть Hide
                     break;
                 case "Кассир":
-                    new Cashier().Show();
+                    new Cashier(this).Show();
                     break;
                 default:
                     break;

@@ -56,7 +56,7 @@ namespace Razvlekator
                         dataGridView3[0, j].Value = d.pk_discount;
                         dataGridView3[1, j].Value = d.name;
                         dataGridView3[2, j].Value = d.value;
-                        if (d.isActive == 1) dataGridView3[3, j].Value = true; 
+                        if (d.isActive == 1) dataGridView3[3, j].Value = true;
                         j++;    //костыль
                     }
                 }
@@ -113,10 +113,6 @@ namespace Razvlekator
                         foreach (var a in db.discount)
                             if (a.pk_discount == changedRows[i]) disc = a;
 
-                        //больше часа пытался сделать, чтобы эта строчка работала вместо цикла выше, очень уж хотелось в linq
-                        //если кому-то будет любопытно, и кто-то найдёт причину вылетаний - буду признателен
-                        //
-                        //discount disc = db.discount.FirstOrDefault(s => (int) s.pk_discount == (int) changedRows[i]);
 
                         if (disc != null)
                         {
@@ -146,8 +142,10 @@ namespace Razvlekator
 
         private void dataGridView3_CellEndEdit(object sender, DataGridViewCellEventArgs e)
         {
-            if (!(changedRows.Contains((int)dataGridView3.Rows[e.RowIndex].Cells[0].Value)))
-                changedRows.Add((int)dataGridView3.Rows[e.RowIndex].Cells[0].Value);
+           // if (dataGridView3.Rows[e.RowIndex].Cells[0].Value != null)
+           
+                if (!(changedRows.Contains((int)dataGridView3.Rows[e.RowIndex].Cells[0].Value)))
+                    changedRows.Add((int)dataGridView3.Rows[e.RowIndex].Cells[0].Value);
         }
 
         private void dataGridView3_UserDeletingRow(object sender, DataGridViewRowCancelEventArgs e)

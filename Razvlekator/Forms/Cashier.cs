@@ -12,7 +12,7 @@ namespace Razvlekator
     {
         private attraction selectedAttraction;
         private List<attraction> attractionList;
-
+        Login login;
 
         private int rowIndexEditing = 0;
         private int colummnIndexEditing = 0;
@@ -21,6 +21,13 @@ namespace Razvlekator
 
         public Cashier()
         {
+            InitializeComponent();
+            attractionList = new List<attraction>();
+        }
+
+        public Cashier(Login _login)
+        {
+            login = _login;
             InitializeComponent();
             attractionList = new List<attraction>();
         }
