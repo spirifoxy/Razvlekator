@@ -82,7 +82,6 @@
             listViewItem2,
             listViewItem3});
             this.carts_ListView.Location = new System.Drawing.Point(7, 20);
-            this.carts_ListView.MultiSelect = false;
             this.carts_ListView.Name = "carts_ListView";
             this.carts_ListView.Size = new System.Drawing.Size(445, 135);
             this.carts_ListView.TabIndex = 0;
