@@ -37,10 +37,14 @@ namespace Razvlekator.Forms
                 time = DateTime.Parse(owner.attractions_dataGridView.Rows[rowIndex].Cells[4].Value.ToString());
                 if (int.Parse(owner.attractions_dataGridView.Rows[rowIndex].Cells[1].Value.ToString()) >= 2)
                     places_ListView.MultiSelect = true;
+
+                //var debug = 
+                //x.time.ToString("HH:mm")
                 if (date != null && time != null)
                 {
-                    currentSessions = db.session.ToList().FindAll(x => x.date == date && x.time.ToString("hh':'mm") == time.ToString("hh:mm")).GroupBy(x => x.place.cart, x => x.place);
-                    currentTickets = db.Ticket.ToList().FindAll(x => x.session.date == date && x.session.time.ToString("hh':'mm") == time.ToString("hh:mm"));
+//                    var temp = 
+                    currentSessions = db.session.ToList().FindAll(x => x.date == date && String.Format("{0}:{1:00}", x.time.Hours, x.time.Minutes) == time.ToString("HH:mm")).GroupBy(x => x.place.cart, x => x.place);
+                    currentTickets = db.Ticket.ToList().FindAll(x => x.session.date == date && String.Format("{0}:{1:00}", x.session.time.Hours, x.session.time.Minutes) == time.ToString("HH:mm"));
                     foreach (var pair in currentSessions)
                     {
                         carts_ListView.Items.Add("Телега " + pair.Key.pk_cart);

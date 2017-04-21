@@ -28,6 +28,7 @@
         /// </summary>
         private void InitializeComponent()
         {
+            this.components = new System.ComponentModel.Container();
             System.Windows.Forms.DataGridViewCellStyle dataGridViewCellStyle8 = new System.Windows.Forms.DataGridViewCellStyle();
             System.Windows.Forms.DataGridViewCellStyle dataGridViewCellStyle1 = new System.Windows.Forms.DataGridViewCellStyle();
             System.Windows.Forms.DataGridViewCellStyle dataGridViewCellStyle2 = new System.Windows.Forms.DataGridViewCellStyle();
@@ -72,6 +73,7 @@
             this.textBoxWeightRestriction = new System.Windows.Forms.TextBox();
             this.label3 = new System.Windows.Forms.Label();
             this.groupBox2 = new System.Windows.Forms.GroupBox();
+            this.contextMenuStrip = new System.Windows.Forms.ContextMenuStrip(this.components);
             ((System.ComponentModel.ISupportInitialize)(this.attractions_dataGridView)).BeginInit();
             this.groupBox1.SuspendLayout();
             this.groupBox4.SuspendLayout();
@@ -154,6 +156,7 @@
             this.TimeColumn,
             this.PriceColumn,
             this.placeInCartColumn});
+            this.attractions_dataGridView.ContextMenuStrip = this.contextMenuStrip;
             dataGridViewCellStyle8.Alignment = System.Windows.Forms.DataGridViewContentAlignment.MiddleCenter;
             dataGridViewCellStyle8.BackColor = System.Drawing.SystemColors.Window;
             dataGridViewCellStyle8.Font = new System.Drawing.Font("Microsoft Sans Serif", 8.25F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(204)));
@@ -167,12 +170,13 @@
             this.attractions_dataGridView.Name = "attractions_dataGridView";
             this.attractions_dataGridView.RowHeadersVisible = false;
             this.attractions_dataGridView.ScrollBars = System.Windows.Forms.ScrollBars.Vertical;
-            this.attractions_dataGridView.SelectionMode = System.Windows.Forms.DataGridViewSelectionMode.CellSelect;
+            this.attractions_dataGridView.SelectionMode = System.Windows.Forms.DataGridViewSelectionMode.FullRowSelect;
             this.attractions_dataGridView.Size = new System.Drawing.Size(620, 201);
             this.attractions_dataGridView.TabIndex = 3;
             this.attractions_dataGridView.CellBeginEdit += new System.Windows.Forms.DataGridViewCellCancelEventHandler(this.attractions_dataGridView_CellBeginEdit);
             this.attractions_dataGridView.CellEndEdit += new System.Windows.Forms.DataGridViewCellEventHandler(this.attractions_dataGridView_CellEndEdit);
             this.attractions_dataGridView.CellValueChanged += new System.Windows.Forms.DataGridViewCellEventHandler(this.attractions_dataGridView_CellValueChanged);
+            this.attractions_dataGridView.MouseClick += new System.Windows.Forms.MouseEventHandler(this.attractions_dataGridView_MouseClick);
             // 
             // AttractionColumn
             // 
@@ -469,6 +473,12 @@
             this.groupBox2.TabStop = false;
             this.groupBox2.Text = "Ограничения";
             // 
+            // contextMenuStrip
+            // 
+            this.contextMenuStrip.Name = "contextMenuStrip";
+            this.contextMenuStrip.Size = new System.Drawing.Size(61, 4);
+            this.contextMenuStrip.Opening += new System.ComponentModel.CancelEventHandler(this.contextMenuStrip_Opening);
+            // 
             // Cashier
             // 
             this.AutoScaleDimensions = new System.Drawing.SizeF(6F, 13F);
@@ -541,5 +551,6 @@
         private System.Windows.Forms.DataGridViewTextBoxColumn TimeColumn;
         private System.Windows.Forms.DataGridViewTextBoxColumn PriceColumn;
         private System.Windows.Forms.DataGridViewTextBoxColumn placeInCartColumn;
+        private System.Windows.Forms.ContextMenuStrip contextMenuStrip;
     }
 }

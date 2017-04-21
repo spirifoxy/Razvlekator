@@ -23,6 +23,15 @@ namespace Razvlekator
         {
             InitializeComponent();
             attractionList = new List<attraction>();
+
+            // создаем элементы меню
+            
+            
+        }
+
+        private void DelMenuItem_Click(object sender, EventArgs e)
+        {
+            attractions_dataGridView.Rows.Remove(attractions_dataGridView.SelectedRows[0]);
         }
 
         public Cashier(Login _login)
@@ -189,27 +198,66 @@ namespace Razvlekator
 
         private void CheckRowsIntersetion()
         {
-            if (attractions_dataGridView.RowCount > 1)
-                for (int i = 0; i < attractions_dataGridView.RowCount; i++)
-                {
-                    var currentRow = attractions_dataGridView.Rows[i];
-                    foreach (DataGridViewRow rowComp in attractions_dataGridView.Rows)
+            using (var db = new Model()) {
+                if (attractions_dataGridView.RowCount > 1)
+                    for (int i = 0; i < attractions_dataGridView.RowCount; i++)
                     {
-                        if (rowComp != currentRow)
-                        if (rowComp.Cells[3].Value != null)  // Костыль, ибо пробегает 2 раза, после сохранения. Дату заполнил, а время нет.
-                            if (currentRow.Cells[3].Value != null) // Тоже самое
-                                if (currentRow.Cells[3].Value.ToString() == rowComp.Cells[3].Value.ToString())
-                                {
-                                    if (rowComp.Cells[4].Value != null)  // Костыль, ибо пробегает 2 раза, после сохранения. Дату заполнил, а время нет.
-                                        if (currentRow.Cells[4].Value != null) // Тоже самое
-                                            if (currentRow.Cells[4].Value.ToString() == rowComp.Cells[4].Value.ToString())
-                                            {
-                                                currentRow.DefaultCellStyle.BackColor = Color.Red;
-                                                rowComp.DefaultCellStyle.BackColor = Color.Red;
-                                            }
-                                }
+                        var currentRow = attractions_dataGridView.Rows[i];
+                        foreach (DataGridViewRow rowComp in attractions_dataGridView.Rows)
+                        {
+                            if (rowComp != currentRow)
+                                if (rowComp.Cells[3].Value != null)  // Костыль, ибо пробегает 2 раза, после сохранения. Дату заполнил, а время нет.
+                                    if (currentRow.Cells[3].Value != null) // Тоже самое
+                                        if (currentRow.Cells[3].Value.ToString() == rowComp.Cells[3].Value.ToString())
+                                        {
+                                            if (rowComp.Cells[4].Value != null)  // Костыль, ибо пробегает 2 раза, после сохранения. Дату заполнил, а время нет.
+                                                if (currentRow.Cells[4].Value != null) // Тоже самое
+                                                {
+                                                    var tempStr = currentRow.Cells[0].Value.ToString();
+                                                    var curAttraction = db.attraction.First(x => x.name == tempStr);
+                                                    tempStr = rowComp.Cells[0].Value.ToString();
+                                                    var attrComp = db.attraction.First(x => x.name == tempStr);
+                                                    var StartDateTimeCurAttraction = Convert.ToDateTime(currentRow.Cells[3].Value.ToString());
+                                                    StartDateTimeCurAttraction = StartDateTimeCurAttraction.AddHours(Convert.ToDouble(currentRow.Cells[4].Value.ToString().Split(':')[0]));
+                                                    StartDateTimeCurAttraction = StartDateTimeCurAttraction.AddMinutes(Convert.ToDouble(currentRow.Cells[4].Value.ToString().Split(':')[1]));
+                                                    var StartDateTimeRowComp = Convert.ToDateTime(rowComp.Cells[3].Value.ToString());
+                                                    //temp vars
+
+                                                    var temp = Convert.ToDouble(rowComp.Cells[4].Value.ToString().Split(':')[0]);
+                                                    var temp1 = Convert.ToDouble(rowComp.Cells[4].Value.ToString().Split(':')[1]);
+                                                    //
+                                                    StartDateTimeRowComp = StartDateTimeRowComp.AddHours(Convert.ToDouble(rowComp.Cells[4].Value.ToString().Split(':')[0]));
+                                                    StartDateTimeRowComp = StartDateTimeRowComp.AddMinutes(Convert.ToDouble(rowComp.Cells[4].Value.ToString().Split(':')[1]));
+
+                                                    if (CheckCollision(curAttraction.duration, attrComp.duration, StartDateTimeCurAttraction, StartDateTimeRowComp))
+                                                    {
+                                                        currentRow.DefaultCellStyle.BackColor = Color.Red;
+                                                        rowComp.DefaultCellStyle.BackColor = Color.Red;
+                                                    }
+                                                    else
+                                                    {
+                                                        currentRow.DefaultCellStyle.BackColor = Color.White;
+                                                        rowComp.DefaultCellStyle.BackColor = Color.White;
+                                                    }
+                                                    
+                                                }
+                                        }
+                        } }
                     }
-                }
+        }
+
+        private bool CheckCollision(int durationCur, int durationComp, DateTime StartCurDT, DateTime StartCompDT)
+        {
+            DateTime EndCur = StartCurDT.AddMinutes(durationCur);
+            DateTime EndComp = StartCurDT.AddMinutes(durationComp);
+
+            if ((StartCompDT <= StartCurDT) && (EndComp >= StartCurDT))
+                return true;
+
+            if ((StartCurDT <= StartCompDT) && (EndCur >= StartCompDT))
+                return true;
+
+            return false;
         }
 
         private void attractions_dataGridView_CellBeginEdit(object sender, DataGridViewCellCancelEventArgs e)
@@ -291,13 +339,16 @@ namespace Razvlekator
                     // Создаем заказ
                     orders newOrder = new orders();
                     newOrder.date = DateTime.Now.Date;
+
                     newOrder.ordernumber = db.orders.OrderByDescending(o => o.pk_order).FirstOrDefault().pk_order + 1;
                     db.orders.Add(newOrder);
                     // Сейчас нужно сохранить, чтобы наш newOrder получил pk_order
                     db.SaveChanges();
 
+                    int counter = 1;
                     foreach (DataGridViewRow item in attractions_dataGridView.Rows)
                     {
+                        
                         for (int i = 0; i < Convert.ToInt32(item.Cells[1].Value.ToString()); i++)
                         {
                             ticket newTicket = new ticket();
@@ -315,16 +366,17 @@ namespace Razvlekator
 
                             newTicket.order = newOrder;
                             newTicket.pk_order = newOrder.pk_order;
-                            newTicket.pk_session = db.session.ToList().Find(x => x.time.ToString("hh':'mm") == item.Cells[4].Value.ToString()
+                            newTicket.pk_session = db.session.ToList().Find(x => x.time.ToString("HH:mm") == item.Cells[4].Value.ToString()
                                 && x.date.ToString("dd.MM.y") == item.Cells[3].Value.ToString()
                                 && (x.place.Number.ToString() == GetThisPlace(item.Cells[6].Value.ToString(), i))
                                 && (x.place.pk_cart.ToString() == GetThisCart(item.Cells[6].Value.ToString(), i))).pk_session;
-                            //newTicket.pk_session = db.session.First(x => x.time.ToString("hh':'mm") == item.Cells[4].Value.ToString()
+                            //newTicket.pk_session = db.session.First(x => x.time.ToString("HH:mm") == item.Cells[4].Value.ToString()
                             //                        && x.date.ToString("dd.MM.y") == item.Cells[3].Value.ToString()
                             //                        && (x.place.Number.ToString() == GetThisPlace(item.Cells[6].Value.ToString(), i))
                             //                        && (x.place.pk_cart.ToString() == GetThisCart(item.Cells[6].Value.ToString(), i))).pk_session;
                             newTicket.type = (item.Cells[2].Value.ToString() == "Взрослый") ? true : false;
-                            newTicket.ticketnumber = db.Ticket.OrderByDescending(t => t.pk_ticket).FirstOrDefault().pk_ticket + 1;
+                            newTicket.ticketnumber = db.Ticket.OrderByDescending(t => t.pk_ticket).FirstOrDefault().pk_ticket + counter;
+                            counter++;
                             db.Ticket.Add(newTicket);
                         }
                     }
@@ -332,6 +384,7 @@ namespace Razvlekator
                     await db.SaveChangesAsync();
                     //Task.Delay(3000);
                     MessageBox.Show("Заказ оформлен", "Ура", MessageBoxButtons.OK, MessageBoxIcon.Information);
+                    attractions_dataGridView.Rows.Clear();
                 }
             }
             else
@@ -357,6 +410,26 @@ namespace Razvlekator
         {
             SetRowsColorDefault();
             CheckRowsIntersetion();
+        }
+
+        private void contextMenuStrip_Opening(object sender, System.ComponentModel.CancelEventArgs e)
+        {
+            
+
+        }
+
+        private void attractions_dataGridView_MouseClick(object sender, MouseEventArgs e)
+        {
+            if (e.Button == MouseButtons.Right)
+            {
+
+                int currentMouseOverRow = attractions_dataGridView.HitTest(e.X, e.Y).RowIndex;
+                ToolStripMenuItem delMenuItem = new ToolStripMenuItem("Удалить");
+                delMenuItem.Click += DelMenuItem_Click;
+                contextMenuStrip.Items.Add(delMenuItem);
+                contextMenuStrip.Show(attractions_dataGridView, new Point(e.X, e.Y));
+
+            }
         }
     }
 }

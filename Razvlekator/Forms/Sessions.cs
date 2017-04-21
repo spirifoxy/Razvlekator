@@ -60,11 +60,11 @@ namespace Razvlekator
                     {
                         if (d.pk_place == oneplaceforout)
                         {
-                            dataGridView1[0, j].Value = d.time.ToString("hh':'mm");
+                            dataGridView1[0, j].Value = d.time.ToString("HH:mm");
                             TimeSpan temp = d.time;
                             TimeSpan temp2 = new TimeSpan(0, attr.duration, 0);
                             temp += temp2;
-                            dataGridView1[1, j].Value = (temp.ToString("hh':'mm"));
+                            dataGridView1[1, j].Value = (temp.ToString("HH:mm"));
                             dataGridView1[2, j].Value = (d.pk_session);
 
                             j++;
@@ -104,9 +104,9 @@ namespace Razvlekator
 
                 for (int i = 0; i < countOfSeanses; i++)
                 {
-                    dataGridView1[0, i].Value = String.Format("{0:hh}:{0:mm}", time);
+                    dataGridView1[0, i].Value = time.ToString("HH:mm");
                     time = time.AddMinutes(Convert.ToInt32(textBox_duration.Text));
-                    dataGridView1[1, i].Value = String.Format("{0:hh}:{0:mm}", time);
+                    dataGridView1[1, i].Value = time.ToString("HH:mm");
                     time = time.AddMinutes(Convert.ToInt32(Convert.ToInt32(textBox_timeBetween.Text)));
                 }
             }
