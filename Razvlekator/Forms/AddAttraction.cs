@@ -70,6 +70,7 @@ namespace Razvlekator
                                 var newPlace = new place()
                                 {
                                     Number = j + 1,
+                                    pk_cart = newCart.pk_cart,
                                     cart = newCart
                                 };
                                 db.place.Add(newPlace);

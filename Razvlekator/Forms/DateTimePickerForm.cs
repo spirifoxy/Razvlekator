@@ -62,7 +62,7 @@ namespace Razvlekator.Forms
                 
                 foreach (var pair in todaySessions)
                 {
-                    Sessions_listView.Items.Add(pair.Key.ToString("hh':'mm"));
+                    Sessions_listView.Items.Add(pair.Key.ToString(@"hh\:mm"));
                 }
             }
 
