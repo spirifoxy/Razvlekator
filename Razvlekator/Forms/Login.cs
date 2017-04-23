@@ -3,6 +3,7 @@ using System.Collections.Generic;
 using System.ComponentModel;
 using System.Data;
 using System.Drawing;
+using System.IO;
 using System.Linq;
 using System.Text;
 using System.Threading.Tasks;
@@ -49,6 +50,13 @@ namespace Razvlekator
                     break;
             }
 
+        }
+
+        private void Login_Load(object sender, EventArgs e)
+        {
+            string currentDirectory = Directory.GetParent(Directory.GetCurrentDirectory()).Parent.FullName;
+            string[] lines = File.ReadAllLines(currentDirectory + @"\" + "config.txt");
+            Config.ApplySettings(lines[0], lines[1], lines[2], lines[3]);
         }
     }
 }

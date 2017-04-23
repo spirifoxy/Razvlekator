@@ -39,5 +39,11 @@ namespace Razvlekator
         {
             //Application.Exit();
         }
+
+        private void button_adminSettings_Click(object sender, EventArgs e)
+        {
+            this.Hide();
+            new Forms.Settings(this).Show();
+        }
     }
 }

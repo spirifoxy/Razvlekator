@@ -73,6 +73,7 @@
             this.Controls.Add(this.textBoxPassword);
             this.Name = "Login";
             this.Text = "Развлекатор";
+            this.Load += new System.EventHandler(this.Login_Load);
             this.ResumeLayout(false);
             this.PerformLayout();
 

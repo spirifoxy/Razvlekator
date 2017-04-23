@@ -5,13 +5,30 @@ namespace Razvlekator
     using System.ComponentModel.DataAnnotations.Schema;
     using System.Linq;
     using System.Collections.Generic;
+    using System.Data.Entity.Core.EntityClient;
+    using System.Data.Common;
+    using System.Configuration;
+    using System.Data.SqlClient;
+    using MySql.Data.Entity;
 
+    [DbConfigurationType(typeof(MySqlEFConfiguration))]
     public partial class Model : DbContext
     {
+        //public Model(string connectionString)
+        //    : base(connectionString)
+        //{
+        //}
+
         public Model()
-            : base("name=Razvlekator")
+            : base(Config.CONN_STRING)
         {
         }
+
+        //public Model()
+        //    : base("server=127.0.0.1;user id=root;password=;persistsecurityinfo=True; database=dbd246208bb4a9496aac61a74c006198ca; Charset=utf8;") //GetSqlConnection(), true)//base("name=Razvlekator")
+        //{
+        //}
+
 
         public virtual DbSet<attraction> attraction { get; set; }
         public virtual DbSet<cart> cart { get; set; }
