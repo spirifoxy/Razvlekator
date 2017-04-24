@@ -26,6 +26,7 @@ namespace Razvlekator
         private PrintPreviewDialog printPreviewDialog1 = new PrintPreviewDialog();
         private PrintDocument printDocument1 = new PrintDocument();
         private string stringToPrint;
+        private string documentContents;
 
         private Model db = new Model();
 
