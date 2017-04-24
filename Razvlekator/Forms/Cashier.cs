@@ -419,6 +419,8 @@ namespace Razvlekator
                     //Task.Delay(3000);
                     MessageBox.Show("Заказ оформлен", "Ура", MessageBoxButtons.OK, MessageBoxIcon.Information);
                     attractions_dataGridView.Rows.Clear();
+
+                    buttonPrint_Click(sender,e);
                 }
             }
             else
