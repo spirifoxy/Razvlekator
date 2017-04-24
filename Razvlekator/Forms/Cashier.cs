@@ -355,8 +355,6 @@ namespace Razvlekator
         private void button4_Click(object sender, EventArgs e)
         {
             new ReturnTicket().Show();
-
-
         }
 
         private async void CheckOut_button_Click(object sender, EventArgs e)
@@ -407,7 +405,8 @@ namespace Razvlekator
                             //                        && (x.place.Number.ToString() == GetThisPlace(item.Cells[6].Value.ToString(), i))
                             //                        && (x.place.pk_cart.ToString() == GetThisCart(item.Cells[6].Value.ToString(), i))).pk_session;
                             newTicket.type = (item.Cells[2].Value.ToString() == "Взрослый") ? true : false;
-                            newTicket.ticketnumber = db.Ticket.OrderByDescending(t => t.pk_ticket).FirstOrDefault().pk_ticket + counter;
+                            if (db.Ticket.Count() != 0) newTicket.ticketnumber = db.Ticket.OrderByDescending(t => t.pk_ticket).FirstOrDefault().pk_ticket + counter;
+                            else newTicket.ticketnumber = 1;
                             counter++;
                             db.Ticket.Add(newTicket);
                             ticketList.Add(newTicket);
@@ -626,9 +625,9 @@ namespace Razvlekator
             foreach (var ticket in ticketList)
             {
                 string headLine = "Билет №" + ticket.ticketnumber + "\n";
-                /*string info = "Аттракцион:\t" + ticket.session.place.cart.attraction.name + "\n" +
+                string info = "Аттракцион:\t" + ticket.session.place.cart.attraction.name + "\n" +
                               "Дата:\t" + ticket.session.date.ToString("dd.mm.y") + "\n" +
-                              "Время:\t" + ticket.session.time.ToString("hh.mm") + "\n";*/
+                              "Время:\t" + ticket.session.time.ToString(@"hh\:mm") + "\n";
                 string type = "";
                 string cost = "";
                 if (ticket.type == true)
@@ -674,7 +673,7 @@ namespace Razvlekator
                 //    info2 += "Итого: " + ((Int32.Parse(cost) * ticket.discount.value) / 100);
                 //}
 
-                stringToPrint += "\n" + /*info + */type + restrictions + info2 + discount;
+                stringToPrint += "\n" + info + type + restrictions + info2 + discount;
             }
 
 

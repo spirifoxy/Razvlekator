@@ -21,8 +21,44 @@ namespace Razvlekator
         {
             if (textBox1.Text != "")
             {
-                this.Close();
-                MessageBox.Show("Верните покупателю деньги", "Возврат", MessageBoxButtons.OK,MessageBoxIcon.Information);
+                try
+                {
+                    using (var db = new Model())
+                    {
+                        var numberOfTicket = Int32.Parse(textBox1.Text);
+                        var refundTicket = db.Ticket.ToList().Find(x => x.pk_ticket == numberOfTicket);
+
+                        DateTime dateOfRefund = DateTime.Today;
+
+                        float cost = 0;
+                        if (refundTicket.type == true)
+                        {
+                            cost = refundTicket.session.place.cart.attraction.ticketpricekid;
+                        }
+                        else
+                        {
+                            cost = refundTicket.session.place.cart.attraction.ticketpriceadult;
+                        }
+
+                        refund newrefund = new refund()
+                        {
+                            number = numberOfTicket,
+                            money = cost,
+                            date = dateOfRefund
+                        };
+
+                        db.Refund.Add(newrefund);
+                        db.Ticket.Remove(refundTicket);
+                        db.SaveChanges();
+
+                        this.Close();
+                        MessageBox.Show(String.Format("Верните покупателю {0} руб.", cost), "Возврат", MessageBoxButtons.OK, MessageBoxIcon.Information);
+                    }
+                }
+                catch (NullReferenceException exc)
+                {
+                    MessageBox.Show("Билета с таким номером не существует", "Возврат", MessageBoxButtons.OK, MessageBoxIcon.Error);
+                }
             }
         }
     }

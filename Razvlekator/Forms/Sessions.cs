@@ -60,11 +60,11 @@ namespace Razvlekator
                     {
                         if (d.pk_place == oneplaceforout)
                         {
-                            dataGridView1[0, j].Value = d.time.ToString("HH:mm");
+                            dataGridView1[0, j].Value = d.time.ToString(@"hh\:mm");
                             TimeSpan temp = d.time;
                             TimeSpan temp2 = new TimeSpan(0, attr.duration, 0);
                             temp += temp2;
-                            dataGridView1[1, j].Value = (temp.ToString("HH:mm"));
+                            dataGridView1[1, j].Value = (temp.ToString(@"hh\:mm"));
                             dataGridView1[2, j].Value = (d.pk_session);
 
                             j++;
