@@ -14,7 +14,7 @@ namespace Razvlekator.Forms
     public partial class DateTimePickerForm : Form
     {
         Model db;
-        DbSet<session> sessions;
+        //DbSet<session> sessions;
         int rowIndex;
 
         public DateTimePickerForm(int _rowIndex)

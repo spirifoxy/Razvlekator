@@ -2,17 +2,10 @@
 using System.Collections.Generic;
 using System.Drawing;
 using System.Linq;
-using System.Threading.Tasks;
 using System.Windows.Forms;
 using Razvlekator.Forms;
 using System.IO;
 using System.Drawing.Printing;
-using Novacode;
-using PdfSharp.Pdf;
-using PdfSharp.Drawing;
-using System.Diagnostics;
-using PdfSharp.Drawing.Layout;
-using iTextSharp.text.pdf;
 
 namespace Razvlekator
 {
@@ -32,21 +25,15 @@ namespace Razvlekator
         private string currentDirectory = Directory.GetParent(Directory.GetCurrentDirectory()).Parent.FullName;
         private PrintPreviewDialog printPreviewDialog1 = new PrintPreviewDialog();
         private PrintDocument printDocument1 = new PrintDocument();
-        private string documentContents;
         private string stringToPrint;
 
-
         private Model db = new Model();
-
 
         public Cashier()
         {
             InitializeComponent();
             attractionList = new List<attraction>();
-
             ticketList = new List<ticket>();
-
-
         }
 
         private void DelMenuItem_Click(object sender, EventArgs e)
@@ -60,8 +47,6 @@ namespace Razvlekator
             InitializeComponent();
             attractionList = new List<attraction>();
             ticketList = new List<ticket>();
-
-
         }
 
         private void Cashier_FormClosed(object sender, FormClosedEventArgs e)
@@ -183,11 +168,6 @@ namespace Razvlekator
                     if (attractions_dataGridView.Rows[e.RowIndex].Cells[1].Value != null && ((DataGridViewComboBoxCell)attractions_dataGridView.Rows[e.RowIndex].Cells[2]).Value != null)
                     {
                         var currentAttraction = attractionList.Find(x => x.name == attractions_dataGridView.Rows[e.RowIndex].Cells[0].Value.ToString());
-                        // Цена = Кол-во * ( 1 - Скидка% / 100) * ЦенаБилетаТипа
-
-                        /* double h1 = Convert.ToDouble(textBoxDiscountValue.Text);
-                         double h2 = h1 / 100;
-                         double h3 = 1 - h2;*/
 
                         double coefOfSale = 1;
 
@@ -400,10 +380,6 @@ namespace Razvlekator
                                 && x.date.ToString("dd.MM.y") == item.Cells[3].Value.ToString()
                                 && (x.place.Number.ToString() == GetThisPlace(item.Cells[6].Value.ToString(), i))
                                 && (x.place.pk_cart.ToString() == GetThisCart(item.Cells[6].Value.ToString(), i))).pk_session;
-                            //newTicket.pk_session = db.session.First(x => x.time.ToString("HH:mm") == item.Cells[4].Value.ToString()
-                            //                        && x.date.ToString("dd.MM.y") == item.Cells[3].Value.ToString()
-                            //                        && (x.place.Number.ToString() == GetThisPlace(item.Cells[6].Value.ToString(), i))
-                            //                        && (x.place.pk_cart.ToString() == GetThisCart(item.Cells[6].Value.ToString(), i))).pk_session;
                             newTicket.type = (item.Cells[2].Value.ToString() == "Взрослый") ? true : false;
                             if (db.Ticket.Count() != 0) newTicket.ticketnumber = db.Ticket.OrderByDescending(t => t.pk_ticket).FirstOrDefault().pk_ticket + counter;
                             else newTicket.ticketnumber = 1;
@@ -415,7 +391,6 @@ namespace Razvlekator
                     }
 
                     await db.SaveChangesAsync();
-                    //Task.Delay(3000);
                     MessageBox.Show("Заказ оформлен", "Ура", MessageBoxButtons.OK, MessageBoxIcon.Information);
                     attractions_dataGridView.Rows.Clear();
 
@@ -430,7 +405,6 @@ namespace Razvlekator
         {
             string[] cartsAndPlaces = input.Split(',');
             string place = cartsAndPlaces[number * 2].Split('№')[1];
-            //[number].Split('-')[1];
             return place.Split(' ')[1];
 
         }
@@ -438,8 +412,8 @@ namespace Razvlekator
         private string GetThisCart(string input, int number)
         {
             string[] cartsAndPlaces = input.Split(',');
-            string cart = cartsAndPlaces[number * 2 + 1].Split('.')[1].Split(')')[0];//[number].Split('-')[0];
-            return cart;//.Split(' ')[1];
+            string cart = cartsAndPlaces[number * 2 + 1].Split('.')[1].Split(')')[0];
+            return cart;
         }
 
         private void attractions_dataGridView_CellEndEdit(object sender, DataGridViewCellEventArgs e)
@@ -474,153 +448,8 @@ namespace Razvlekator
 
             string docPath = currentDirectory + @"\";
             string docName = "tickets.pdf";
-            //"testPage.txt";
-
-            //var doc = DocX.Create(docPath + docName);
-            //PdfDocument document1 = new PdfDocument();
-            //PdfPage page = document1.AddPage();
-            //XGraphics gfx = XGraphics.FromPdfPage(page);
-            //XPdfFontOptions options = new XPdfFontOptions(PdfFontEncoding.Unicode, PdfFontEmbedding.Always);
-            //XFont headFont = new XFont("Verdana", 18, XFontStyle.Bold, options);
-
-            //XTextFormatter tf = new XTextFormatter(gfx);
-
-
-
-            /*
-            var headLineFormat = new Formatting();
-            headLineFormat.FontFamily = new System.Drawing.FontFamily("Arial Black");
-            headLineFormat.Size = 18D;
-            headLineFormat.Position = 12;
-
-
-            var document = new iTextSharp.text.Document();
             
-           
-            using (var writer = PdfWriter.GetInstance(document, new FileStream(docPath + docName, FileMode.Create)))
-            {
-                document.Open();
-
-                var helvetica = new iTextSharp.text.Font(iTextSharp.text.Font.FontFamily.HELVETICA, 12);
-                var helveticaBase = helvetica.GetCalculatedBaseFont(false);
-
-                BaseFont bf = BaseFont.CreateFont(Environment.GetEnvironmentVariable("windir") + @"\fonts\ARIALUNI.TTF", BaseFont.IDENTITY_H, true);
-                Font NormalFont = new iTextSharp.text.Font(bf, 12, Font.NORMAL, Color.BLACK);
-
-
-                int y = 800;
-
-                foreach (var ticket in ticketList)
-                {
-                    string headLine = "Билет #" + ticket.ticketnumber + "\n";
-
-                    writer.DirectContent.BeginText();
-                    writer.DirectContent.SetFontAndSize(helveticaBase, 12f);
-                    writer.DirectContent.ShowTextAligned(iTextSharp.text.Element.ALIGN_CENTER, headLine, 35, y, 0);
-                    writer.DirectContent.EndText();
-
-
-                    y -= 30;
-                }
-
-                
-               
-
-
-
-                document.Close();
-                writer.Close();
-            }
-
-            */
-
-
-
-
-
-            //test
-            //var ticket123 = new ticket();
-            //ticket123.
-            //test
-
-
-            //foreach (var ticket in ticketList)
-            //{
-            //    string headLine = "Билет #" + ticket.ticketnumber + "\n";
-
-
-            //    //doc.InsertParagraph(headLine, false, headLineFormat);
-
-            //    //gfx
-            //    tf.DrawString(headLine, headFont, XBrushes.Black,
-            //      new XRect(0, 0, page.Width, page.Height),
-            //      XStringFormats.TopLeft);
-            //}
-
-            //document.Save(docPath + docName);
-
-
-
-            //Process.Start(docPath + docName);
-
-
-
-
-
-
-
-
-
-            //doc.Save();
-
-            /*
-            foreach (DataGridViewRow row in attractions_dataGridView.Rows)
-            {
-
-                for (int i = 0; i < Convert.ToInt32(row.Cells[1].Value.ToString()); i++)
-                {
-                    ticket newTicket = new ticket();
-
-                    if (comboBoxDiscount.SelectedText != "")
-                    {
-                        newTicket.discount = db.discount.First(x => x.name == comboBoxDiscount.SelectedText);
-                        newTicket.pk_discount = newTicket.discount.pk_discount;
-                    }
-                    else
-                    {
-                        newTicket.discount = null;
-                        newTicket.pk_discount = null;
-                    }
-
-                    newTicket.order = newOrder;
-                    newTicket.pk_order = newOrder.pk_order;
-                    newTicket.pk_session = db.session.ToList().Find(x => x.time.ToString("HH:mm") == row.Cells[4].Value.ToString()
-                        && x.date.ToString("dd.MM.y") == row.Cells[3].Value.ToString()
-                        && (x.place.Number.ToString() == GetThisPlace(row.Cells[6].Value.ToString(), i))
-                        && (x.place.pk_cart.ToString() == GetThisCart(row.Cells[6].Value.ToString(), i))).pk_session;
-                    //newTicket.pk_session = db.session.First(x => x.time.ToString("HH:mm") == item.Cells[4].Value.ToString()
-                    //                        && x.date.ToString("dd.MM.y") == item.Cells[3].Value.ToString()
-                    //                        && (x.place.Number.ToString() == GetThisPlace(item.Cells[6].Value.ToString(), i))
-                    //                        && (x.place.pk_cart.ToString() == GetThisCart(item.Cells[6].Value.ToString(), i))).pk_session;
-                    newTicket.type = (row.Cells[2].Value.ToString() == "Взрослый") ? true : false;
-                    newTicket.ticketnumber = db.Ticket.OrderByDescending(t => t.pk_ticket).FirstOrDefault().pk_ticket + counter;
-                    counter++;
-                    db.Ticket.Add(newTicket);
-                }
-            }
-            */
-
-
             printDocument1.DocumentName = docName;
-
-            /*documentContents = File.ReadAllText(docPath + docName);
-            using (FileStream stream = new FileStream(docPath + docName, FileMode.Open))
-            using (StreamReader reader = new StreamReader(stream))
-            {
-                documentContents = reader.ReadToEnd();
-            }
-            */
-
 
             foreach (var ticket in ticketList)
             {
@@ -644,8 +473,6 @@ namespace Razvlekator
                     type = "Тип:\t" + "Взрослый" + "\n";
                     cost = ticket.session.place.cart.attraction.ticketpriceadult.ToString();
                 }
-                //info += ticket.type;
-
 
                 string restrictions = "";
                 if (ticket.session.place.cart.attraction.weightrestriction != 0
@@ -667,24 +494,11 @@ namespace Razvlekator
                                "Цена: " + cost + "\n" + "\n";
 
                 string discount = "";
-                //if (ticket.discount.name != "")
-                //{
-                //    info2 += "Скидка: " + ticket.discount.name + " " + ticket.discount.value + "%" + "\n";
-                //    info2 += "Итого: " + ((Int32.Parse(cost) * ticket.discount.value) / 100);
-                //}
-
                 stringToPrint += "\n" + info + type + restrictions + info2 + discount;
             }
 
-
-            //stringToPrint = documentContents;
-
             printPreviewDialog1.Document = printDocument1;
             printPreviewDialog1.ShowDialog();
-
-            //printDocument1.PrintPage += new PrintPageEventHandler
-            //       (this.pd_PrintPage);
-            //printDocument1.Print();
         }
 
         // The PrintPage event is raised for each page to be printed.
@@ -714,6 +528,10 @@ namespace Razvlekator
                 stringToPrint = documentContents;
         }
 
-
+        private void button_back_Click(object sender, EventArgs e)
+        {
+            this.Close();
+            login.Show();
+        }
     }
 }

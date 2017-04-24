@@ -32,6 +32,7 @@
             this.buttonAdminSalaries = new System.Windows.Forms.Button();
             this.button_adminExit = new System.Windows.Forms.Button();
             this.button_adminSettings = new System.Windows.Forms.Button();
+            this.button_stat = new System.Windows.Forms.Button();
             this.SuspendLayout();
             // 
             // buttonAdminAttractions
@@ -56,7 +57,7 @@
             // 
             // button_adminExit
             // 
-            this.button_adminExit.Location = new System.Drawing.Point(190, 218);
+            this.button_adminExit.Location = new System.Drawing.Point(285, 263);
             this.button_adminExit.Name = "button_adminExit";
             this.button_adminExit.Size = new System.Drawing.Size(80, 38);
             this.button_adminExit.TabIndex = 2;
@@ -66,19 +67,30 @@
             // 
             // button_adminSettings
             // 
-            this.button_adminSettings.Location = new System.Drawing.Point(104, 218);
+            this.button_adminSettings.Location = new System.Drawing.Point(88, 195);
             this.button_adminSettings.Name = "button_adminSettings";
-            this.button_adminSettings.Size = new System.Drawing.Size(80, 38);
+            this.button_adminSettings.Size = new System.Drawing.Size(96, 52);
             this.button_adminSettings.TabIndex = 3;
             this.button_adminSettings.Text = "Настройки";
             this.button_adminSettings.UseVisualStyleBackColor = true;
             this.button_adminSettings.Click += new System.EventHandler(this.button_adminSettings_Click);
             // 
+            // button_stat
+            // 
+            this.button_stat.Location = new System.Drawing.Point(190, 195);
+            this.button_stat.Name = "button_stat";
+            this.button_stat.Size = new System.Drawing.Size(96, 52);
+            this.button_stat.TabIndex = 4;
+            this.button_stat.Text = "Статистика";
+            this.button_stat.UseVisualStyleBackColor = true;
+            this.button_stat.Click += new System.EventHandler(this.button_stat_Click);
+            // 
             // Admin
             // 
             this.AutoScaleDimensions = new System.Drawing.SizeF(6F, 13F);
             this.AutoScaleMode = System.Windows.Forms.AutoScaleMode.Font;
-            this.ClientSize = new System.Drawing.Size(377, 288);
+            this.ClientSize = new System.Drawing.Size(377, 313);
+            this.Controls.Add(this.button_stat);
             this.Controls.Add(this.button_adminSettings);
             this.Controls.Add(this.button_adminExit);
             this.Controls.Add(this.buttonAdminSalaries);
@@ -96,5 +108,6 @@
         private System.Windows.Forms.Button buttonAdminSalaries;
         private System.Windows.Forms.Button button_adminExit;
         private System.Windows.Forms.Button button_adminSettings;
+        private System.Windows.Forms.Button button_stat;
     }
 }

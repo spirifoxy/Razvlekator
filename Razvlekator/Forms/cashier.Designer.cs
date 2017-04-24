@@ -75,6 +75,7 @@
             this.label3 = new System.Windows.Forms.Label();
             this.groupBox2 = new System.Windows.Forms.GroupBox();
             this.buttonPrint = new System.Windows.Forms.Button();
+            this.button_back = new System.Windows.Forms.Button();
             ((System.ComponentModel.ISupportInitialize)(this.attractions_dataGridView)).BeginInit();
             this.groupBox1.SuspendLayout();
             this.groupBox4.SuspendLayout();
@@ -490,11 +491,22 @@
             this.buttonPrint.Visible = false;
             this.buttonPrint.Click += new System.EventHandler(this.buttonPrint_Click);
             // 
+            // button_back
+            // 
+            this.button_back.Location = new System.Drawing.Point(26, 415);
+            this.button_back.Name = "button_back";
+            this.button_back.Size = new System.Drawing.Size(75, 23);
+            this.button_back.TabIndex = 32;
+            this.button_back.Text = "Назад";
+            this.button_back.UseVisualStyleBackColor = true;
+            this.button_back.Click += new System.EventHandler(this.button_back_Click);
+            // 
             // Cashier
             // 
             this.AutoScaleDimensions = new System.Drawing.SizeF(6F, 13F);
             this.AutoScaleMode = System.Windows.Forms.AutoScaleMode.Font;
-            this.ClientSize = new System.Drawing.Size(783, 426);
+            this.ClientSize = new System.Drawing.Size(783, 450);
+            this.Controls.Add(this.button_back);
             this.Controls.Add(this.buttonPrint);
             this.Controls.Add(this.groupBox2);
             this.Controls.Add(this.TotalPrice_label);
@@ -565,5 +577,6 @@
         private System.Windows.Forms.DataGridViewTextBoxColumn placeInCartColumn;
         private System.Windows.Forms.ContextMenuStrip contextMenuStrip;
         private System.Windows.Forms.Button buttonPrint;
+        private System.Windows.Forms.Button button_back;
     }
 }

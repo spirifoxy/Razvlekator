@@ -45,5 +45,11 @@ namespace Razvlekator
             this.Hide();
             new Forms.Settings(this).Show();
         }
+
+        private void button_stat_Click(object sender, EventArgs e)
+        {
+            this.Hide();
+            new Forms.Statistics(this).Show();
+        }
     }
 }
